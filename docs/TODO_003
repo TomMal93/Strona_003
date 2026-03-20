@@ -1,0 +1,87 @@
+# Code Review — TODO_003
+
+## Najważniejsze uwagi na tym etapie
+
+### 1. Martwe CTA w hero
+Przyciski w hero prowadzą do `#kontakt` i `#oferta`, ale na stronie nie ma sekcji z takimi `id`.
+
+Do poprawy:
+- dodać sekcje z `id="kontakt"` i `id="oferta"` albo
+- zmienić linki CTA na realne docelowe adresy
+
+Pliki:
+- `src/data/hero.ts`
+- `src/pages/index.astro`
+
+### 2. Placeholdery w SEO i danych firmy mogą wejść na produkcję
+Jeśli zmienne środowiskowe nie będą ustawione, projekt zbuduje się z danymi typu:
+- `https://example.pl`
+- `Nazwa Firmy`
+- `kontakt@example.pl`
+
+To nie wywali builda, ale wygeneruje błędny `canonical`, `og:url`, `robots.txt`, `sitemap` i JSON-LD.
+
+Do poprawy:
+- dodać walidację wymaganych env dla produkcji
+- rozdzielić fallbacki developerskie od trybu produkcyjnego
+- rozważyć fail-fast przy braku kluczowych danych
+
+Pliki:
+- `src/data/seo.ts`
+- `src/data/company.ts`
+- `src/components/SEOHead.astro`
+- `src/pages/robots.txt.ts`
+
+### 3. Brak assetów używanych przez SEO/layout
+Kod referencjonuje assety, których obecnie nie ma w repo:
+- `/favicon.svg`
+- `/og-image.jpg`
+- `/logo.png`
+
+Skutek:
+- 404 w head
+- broken preview w social media
+- niespójne dane w schema.org
+
+Do poprawy:
+- dodać brakujące assety do `public/`
+- albo zmienić referencje na pliki, które faktycznie istnieją
+
+Plik:
+- `src/components/SEOHead.astro`
+
+### 4. Fonty z Google są ładowane zewnętrznie
+Fonty są pobierane bezpośrednio z `fonts.googleapis.com` i `fonts.gstatic.com`.
+
+Ryzyko:
+- dodatkowy koszt wydajnościowy
+- zależność od zewnętrznego dostawcy
+- możliwy temat prywatności/compliance dla wdrożenia EU
+
+Do poprawy:
+- rozważyć self-hosting fontów
+- albo świadomie zaakceptować ten trade-off i opisać go w projekcie
+
+Plik:
+- `src/components/FontLoader.astro`
+
+### 5. Hero image nie jest zoptymalizowany responsywnie
+Hero używa zwykłego `img` z dużym assetem `1920x1080` i `loading="eager"`.
+
+Ryzyko:
+- mobile pobiera cięższy obraz niż potrzebuje
+- nie ma responsywnych wariantów ani optymalizacji obrazów
+
+Do poprawy:
+- rozważyć Astro `<Image />`
+- albo dodać responsywne warianty i lepszą kontrolę priorytetu ładowania
+
+Plik:
+- `src/components/Hero.astro`
+
+## Dodatkowo
+
+- Projekt przechodzi `npm run build`
+- Projekt przechodzi `npx astro check`
+- Na tym etapie wygląda bardziej jak poprawny scaffold niż gotowa strona do publikacji
+- Brakuje prostych testów smoke dla SEO, assetów i podstawowych linków

@@ -1,16 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import Button from "./ui/Button.astro";
 import Container from "./ui/Container.astro";
 import { hero } from "../data/hero";
+import heroMainImage from "../assets/hero-main-image.webp";
 ---
 
 <section class="relative flex items-center min-h-screen overflow-hidden">
-  <img
-    src="/images/hero-bg.jpg"
+  <Image
+    src={heroMainImage}
     alt="Biuro agenta ubezpieczeniowego"
-    width="1920"
-    height="1080"
+    widths={[480, 768, 1024, 1376]}
+    sizes="100vw"
+    quality={75}
     loading="eager"
+    fetchpriority="high"
     class="absolute inset-0 w-full h-full object-cover z-0 motion-reduce:transition-none"
   />
   <div class="hero-noise absolute inset-0 z-1 opacity-4 pointer-events-none"></div>
