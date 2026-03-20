@@ -1,14 +1,118 @@
 ---
-import HeroBackground from "./HeroBackground.astro";
-import HeroDesktop from "./HeroDesktop.astro";
-import HeroMobile from "./HeroMobile.astro";
+import { getImage } from "astro:assets";
+import Button from "./ui/Button.astro";
+import Container from "./ui/Container.astro";
+import { hero } from "../data/hero";
+import heroDesktopSrc from "../assets/hero-main-image.webp";
+import heroMobileSrc from "../assets/hero-main-image-mobile.webp";
+
+const mobileImage = await getImage({
+  src: heroMobileSrc,
+  widths: [480, 768],
+  sizes: "100vw",
+  quality: 75,
+  format: "webp",
+});
+
+const desktopImage = await getImage({
+  src: heroDesktopSrc,
+  widths: [1024, 1376, 1920],
+  sizes: "100vw",
+  quality: 75,
+  format: "webp",
+});
 ---
 
 <section class="relative flex min-h-screen items-center overflow-hidden">
-  <HeroBackground />
-  <div class="hero-noise absolute inset-0 z-1 opacity-4 pointer-events-none"></div>
-  <HeroMobile />
-  <HeroDesktop />
+  <!-- Art direction: two images with CSS show/hide -->
+  <picture class="absolute inset-0 z-0 lg:hidden">
+    <img
+      src={mobileImage.src}
+      srcset={mobileImage.srcSet.attribute}
+      sizes="100vw"
+      alt="Agent ubezpieczeniowy"
+      width={mobileImage.attributes.width}
+      height={mobileImage.attributes.height}
+      loading="eager"
+      fetchpriority="high"
+      class="w-full h-full object-cover"
+    />
+  </picture>
+  <picture class="absolute inset-0 z-0 hidden lg:block">
+    <img
+      src={desktopImage.src}
+      srcset={desktopImage.srcSet.attribute}
+      sizes="100vw"
+      alt="Agent ubezpieczeniowy"
+      width={desktopImage.attributes.width}
+      height={desktopImage.attributes.height}
+      loading="eager"
+      fetchpriority="high"
+      class="w-full h-full object-cover"
+    />
+  </picture>
+
+  <!-- Gradient overlays -->
+  <div class="absolute inset-0 z-[1] bg-[#0a1628]/80 lg:hidden"></div>
+  <div class="absolute inset-0 z-[1] hidden lg:block bg-gradient-to-r from-[#0a1628]/92 via-[#0a1628]/70 via-55% to-transparent"></div>
+
+  <!-- Noise texture -->
+  <div class="hero-noise absolute inset-0 z-[2] opacity-4 pointer-events-none"></div>
+
+  <!-- Content -->
+  <Container class="relative z-[3] py-24 pb-16">
+    <div class="max-w-2xl mx-auto lg:mx-0 lg:max-w-[55%] text-center lg:text-left">
+
+      <!-- Group 1: Accent bar + text (delay 0s) -->
+      <div
+        class="animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
+        style="animation-delay: 0s"
+      >
+        <!-- Mobile accent bar -->
+        <div class="w-12 h-1 bg-(--color-accent) mx-auto mb-6 lg:hidden"></div>
+
+        <!-- Desktop accent bar wrapping H1 + description -->
+        <div class="border-l-0 pl-0 lg:border-l-4 lg:border-(--color-accent) lg:pl-8">
+          <h1
+            class="font-(family-name:--font-heading) text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] text-white m-0 tracking-tight"
+            set:html={hero.title}
+          />
+          <p class="mt-6 text-[clamp(1rem,2vw,1.25rem)] leading-[1.7] text-white/78 max-w-[580px] mx-auto lg:mx-0">
+            {hero.description}
+          </p>
+        </div>
+      </div>
+
+      <!-- Group 2: Buttons (delay 0.2s) -->
+      <div
+        class="mt-10 flex flex-col gap-3 w-full max-w-80 mx-auto sm:flex-row sm:max-w-none sm:w-auto sm:gap-4 lg:mx-0 animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
+        style="animation-delay: 0.2s"
+      >
+        <Button href={hero.actions.primary.href} variant="primary">
+          {hero.actions.primary.label}
+        </Button>
+        <Button href={hero.actions.secondary.href} variant="secondary">
+          {hero.actions.secondary.label}
+        </Button>
+      </div>
+
+      <!-- Group 3: Trust badges (delay 0.4s) -->
+      <div
+        class="mt-10 flex flex-col items-center gap-3 lg:flex-row lg:items-center lg:gap-x-6 justify-center lg:justify-start animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
+        style="animation-delay: 0.4s"
+      >
+        {hero.trustBadges.map((badge) => (
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-(--color-accent) shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm text-white/60">{badge.label}</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </Container>
 </section>
 
 <style>
