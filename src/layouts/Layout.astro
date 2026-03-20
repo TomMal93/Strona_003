@@ -81,10 +81,12 @@ const localBusinessSchema = {
     <title>{title}</title>
 
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(organizationSchema)}
     />
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(localBusinessSchema)}
     />
