@@ -12,6 +12,9 @@ interface ImportMetaEnv {
   readonly PUBLIC_COMPANY_STREET?: string;
   readonly PUBLIC_COMPANY_CITY?: string;
   readonly PUBLIC_COMPANY_ZIP?: string;
+  readonly PUBLIC_COMPANY_OPENING_HOURS?: string;
+  readonly PUBLIC_COMPANY_GEO_LATITUDE?: string;
+  readonly PUBLIC_COMPANY_GEO_LONGITUDE?: string;
   readonly PUBLIC_COMPANY_FACEBOOK?: string;
   readonly PUBLIC_COMPANY_INSTAGRAM?: string;
   readonly PUBLIC_COMPANY_LINKEDIN?: string;

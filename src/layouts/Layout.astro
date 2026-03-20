@@ -36,11 +36,11 @@ const localBusinessSchema = {
     postalCode: company.address.zip,
     addressCountry: "PL",
   },
-  openingHours: "Mo-Fr 09:00-17:00",
+  openingHours: company.schema.openingHours,
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 52.2297,
-    longitude: 21.0122,
+    latitude: company.schema.geo.latitude,
+    longitude: company.schema.geo.longitude,
   },
   areaServed: {
     "@type": "Country",
