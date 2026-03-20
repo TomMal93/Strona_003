@@ -1,0 +1,70 @@
+---
+import { seo } from "../data/seo";
+import { company } from "../data/company";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = seo.title, description = seo.description } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, seo.url).href;
+
+const socialLinks = Object.values(company.social).filter(Boolean);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  name: company.name,
+  url: seo.url,
+  logo: `${seo.url}/logo.png`,
+  telephone: company.phone,
+  email: company.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    postalCode: company.address.zip,
+    addressCountry: "PL",
+  },
+  openingHours: company.schema.openingHours,
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: company.schema.geo.latitude,
+    longitude: company.schema.geo.longitude,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Polska",
+  },
+  ...(socialLinks.length > 0 && { sameAs: socialLinks }),
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="pl" href={canonicalUrl} />
+<meta name="geo.region" content="PL" />
+<meta name="geo.placename" content={company.address.city} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={`${seo.url}${seo.ogImage}`} />
+<meta property="og:locale" content={seo.locale} />
+<meta property="og:site_name" content={seo.siteName} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<title>{title}</title>
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(localBusinessSchema)}
+/>
