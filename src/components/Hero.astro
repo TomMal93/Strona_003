@@ -1,6 +1,5 @@
 ---
 import { getImage } from "astro:assets";
-import Button from "./ui/Button.astro";
 import Container from "./ui/Container.astro";
 import { hero } from "../data/hero";
 import heroDesktopSrc from "../assets/hero-main-image.webp";
@@ -85,15 +84,36 @@ const desktopImage = await getImage({
 
       <!-- Group 2: Buttons (delay 0.2s) -->
       <div
-        class="mt-10 flex flex-col gap-3 w-full max-w-80 mx-auto sm:flex-row sm:max-w-none sm:w-auto sm:gap-4 lg:mx-0 animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
+        class="mt-10 flex flex-col gap-4 w-full max-w-80 mx-auto sm:flex-row sm:max-w-none sm:w-auto sm:gap-5 lg:mx-0 animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
         style="animation-delay: 0.2s"
       >
-        <Button href={hero.actions.primary.href} variant="primary">
-          {hero.actions.primary.label}
-        </Button>
-        <Button href={hero.actions.secondary.href} variant="secondary">
+        <!-- Primary: gradient glow + shimmer sweep -->
+        <a
+          href={hero.actions.primary.href}
+          class="hero-btn-primary group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-(--radius-md) bg-gradient-to-r from-[#1e40af] via-[#2563eb] to-[#3b82f6] px-8 py-4 text-lg font-semibold text-white shadow-[0_0_24px_rgba(59,130,246,0.35)] transition-all duration-300 hover:shadow-[0_0_36px_rgba(59,130,246,0.55)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-primary) cursor-pointer"
+        >
+          <span class="relative z-10 flex items-center gap-2.5">
+            <!-- Phone icon -->
+            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            {hero.actions.primary.label}
+          </span>
+          <!-- Shimmer sweep -->
+          <span class="hero-shimmer absolute inset-0 z-0" aria-hidden="true"></span>
+        </a>
+
+        <!-- Secondary: glass morphism + arrow slide -->
+        <a
+          href={hero.actions.secondary.href}
+          class="group relative inline-flex items-center justify-center gap-2.5 rounded-(--radius-md) border border-white/20 bg-white/8 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-white/35 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(255,255,255,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 cursor-pointer"
+        >
           {hero.actions.secondary.label}
-        </Button>
+          <!-- Arrow that slides right on hover -->
+          <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
       </div>
 
       <!-- Group 3: Trust badges (delay 0.4s) -->
@@ -120,5 +140,36 @@ const desktopImage = await getImage({
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 128px 128px;
+  }
+
+  /* Shimmer sweep across primary button */
+  .hero-shimmer {
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.18) 45%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0.18) 55%,
+      transparent 60%
+    );
+    background-size: 250% 100%;
+    background-position: 100% 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-shimmer {
+      animation: shimmer-sweep 4s ease-in-out 1.5s infinite;
+    }
+    @keyframes shimmer-sweep {
+      0%   { background-position: 100% 0; }
+      30%  { background-position: -50% 0; }
+      100% { background-position: -50% 0; }
+    }
+    .hero-btn-primary:hover .hero-shimmer {
+      animation: none;
+      background-position: -50% 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
   }
 </style>
