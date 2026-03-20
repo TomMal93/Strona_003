@@ -1,0 +1,40 @@
+---
+import Button from "./ui/Button.astro";
+import Container from "./ui/Container.astro";
+import { hero } from "../data/hero";
+
+interface Props {
+  containerClass?: string;
+  contentClass?: string;
+  titleClass?: string;
+  descriptionClass?: string;
+  actionsClass?: string;
+}
+
+const {
+  containerClass,
+  contentClass,
+  titleClass,
+  descriptionClass,
+  actionsClass,
+} = Astro.props;
+---
+
+<Container class={containerClass}>
+  <div class={contentClass}>
+    <h1 class={titleClass}>
+      {hero.title}
+    </h1>
+    <p class={descriptionClass}>
+      {hero.description}
+    </p>
+    <div class={actionsClass}>
+      <Button href={hero.actions.primary.href} variant="primary">
+        {hero.actions.primary.label}
+      </Button>
+      <Button href={hero.actions.secondary.href} variant="secondary">
+        {hero.actions.secondary.label}
+      </Button>
+    </div>
+  </div>
+</Container>
