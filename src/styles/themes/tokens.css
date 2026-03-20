@@ -1,0 +1,31 @@
+@theme {
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+
+  --color-secondary: #0f766e;
+  --color-secondary-light: #14b8a6;
+
+  --color-accent: #f59e0b;
+
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-text-inverse: #ffffff;
+
+  --color-bg: #ffffff;
+  --color-bg-alt: #f9fafb;
+  --color-bg-dark: #111827;
+
+  --color-border: #e5e7eb;
+
+  --spacing-section: 5rem;
+  --spacing-section-sm: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+}

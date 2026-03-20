@@ -11,6 +11,11 @@
 *.sln.docstates
 *.env
 
+# Node / Astro
+node_modules/
+.astro/
+dist/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

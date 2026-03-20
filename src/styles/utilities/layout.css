@@ -1,0 +1,7 @@
+@utility section-padding {
+  padding-block: var(--spacing-section);
+
+  @media (width < 768px) {
+    padding-block: var(--spacing-section-sm);
+  }
+}
