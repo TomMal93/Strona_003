@@ -1,0 +1,119 @@
+<style>
+  .section-header-standalone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .section-header-standalone__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+  }
+
+  .section-header-standalone__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #fbbf24;
+    opacity: 0.8;
+  }
+
+  .section-header-standalone__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .section-header-standalone__title {
+    margin: 0;
+    padding-bottom: 0.1em;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    background: linear-gradient(
+      135deg,
+      #e2e8f0 0%,
+      #ffffff 35%,
+      #fde68a 50%,
+      #ffffff 65%,
+      #e2e8f0 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: sectionHeaderStandaloneShimmer 8s ease-in-out infinite;
+  }
+
+  .section-header-standalone__description {
+    margin: 0;
+    color: #94a3b8;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  .section-header-standalone__description strong {
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+
+  .section-header-standalone__highlight {
+    color: #fde68a;
+  }
+
+  @keyframes sectionHeaderStandaloneShimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-header-standalone {
+      gap: 0.875rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header-standalone__description {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-header-standalone__title {
+      animation: none;
+    }
+  }
+</style>
+
+<div class="section-header-standalone">
+  <div class="section-header-standalone__icon-wrapper">
+    <div class="section-header-standalone__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M17 20h5v-2a3 3 0 0 0-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 0 1 5.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 0 1 9.288 0M15 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM7 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <h2 class="section-header-standalone__title">Dla kogo są moje usługi?</h2>
+
+  <p class="section-header-standalone__description">
+    Pomagam zarówno <strong>osobom prywatnym</strong>, jak i <strong>firmom</strong>.<br />
+    Niezależnie od tego, czy szukasz ubezpieczenia dla siebie, czy dla zespołu<br />
+    <span class="section-header-standalone__highlight">znajdziemy najlepsze rozwiązanie.</span>
+  </p>
+</div>

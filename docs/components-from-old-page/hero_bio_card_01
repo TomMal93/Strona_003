@@ -1,0 +1,384 @@
+<style>
+  .hero-bio-card-wrap {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    min-height: 480px;
+  }
+
+  .hero-bio-card {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(165deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.75));
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(24px);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    animation: heroBioCardSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .hero-bio-card__avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-bio-card__avatar-ring {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 2px dashed rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    animation: heroBioCardRingRotate 25s linear infinite;
+  }
+
+  .hero-bio-card__avatar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.08));
+    box-shadow:
+      0 0 30px -5px rgba(59, 130, 246, 0.5),
+      inset 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  .hero-bio-card__avatar-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-bio-card__initials {
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-bio-card__status {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(16, 185, 129, 0.5);
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.9);
+  }
+
+  .hero-bio-card__status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    animation: heroBioCardPulse 2s ease-in-out infinite;
+  }
+
+  .hero-bio-card__bio {
+    margin-bottom: 0.35rem;
+    padding: 0 1.25rem;
+    text-align: center;
+  }
+
+  .hero-bio-card__bio p {
+    margin: 0;
+    color: #cbd5e1;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .hero-bio-card__divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(251, 191, 36, 0.3), transparent);
+  }
+
+  .hero-bio-card__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-bio-card__highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #94a3b8;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .hero-bio-card__highlight svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #34d399;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-bio-card__highlight span {
+    line-height: 1.4;
+  }
+
+  .hero-bio-card__location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    width: 100%;
+  }
+
+  .hero-bio-card__location-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(251, 191, 36, 0.3), transparent);
+  }
+
+  .hero-bio-card__location-cta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    margin-top: 0.85rem;
+    padding: 0.85rem 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    border-radius: 0.9rem;
+    background: linear-gradient(145deg, rgba(251, 191, 36, 0.12), rgba(15, 23, 42, 0.6));
+    box-shadow:
+      0 0 22px -12px rgba(245, 158, 11, 0.5),
+      0 12px 32px -18px rgba(0, 0, 0, 0.45);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero-bio-card__location-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-bio-card__location-cta:hover::before {
+    opacity: 1;
+  }
+
+  .hero-bio-card__location-cta:hover {
+    transform: translateY(-4px);
+    border-color: rgba(251, 191, 36, 0.3);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+  }
+
+  .hero-bio-card__location-label {
+    color: #cbd5e1;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .hero-bio-card__location-cities {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #fbbf24;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .hero-bio-card__city {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  .hero-bio-card__city:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+  }
+
+  .hero-bio-card__location-dot {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin: 0;
+    border-radius: 50%;
+    background: #fbbf24;
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+  }
+
+  @keyframes heroBioCardSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroBioCardRingRotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes heroBioCardPulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.85);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-bio-card {
+      max-width: none;
+      padding: 2rem 1.25rem;
+    }
+
+    .hero-bio-card__location-cities {
+      flex-wrap: wrap;
+      justify-content: center;
+      white-space: normal;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bio-card {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .hero-bio-card__avatar-ring,
+    .hero-bio-card__status-dot {
+      animation: none;
+    }
+
+    .hero-bio-card__location-cta {
+      transition: none;
+    }
+  }
+</style>
+
+<div class="hero-bio-card-wrap">
+  <div class="hero-bio-card">
+    <div class="hero-bio-card__avatar">
+      <div class="hero-bio-card__avatar-ring"></div>
+
+      <div class="hero-bio-card__avatar-inner">
+        <span class="hero-bio-card__initials">JK</span>
+      </div>
+
+      <div class="hero-bio-card__status">
+        <span class="hero-bio-card__status-dot"></span>
+      </div>
+    </div>
+
+    <div class="hero-bio-card__bio">
+      <p>
+        "Rekomenduje tylko rozwiazania, ktore sam wybralbym dla swojej rodziny.
+        Jasne warunki, brak ukrytych kosztow."
+      </p>
+    </div>
+
+    <div class="hero-bio-card__divider"></div>
+
+    <ul class="hero-bio-card__highlights">
+      <li class="hero-bio-card__highlight">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Indywidualne podejscie do kazdego klienta</span>
+      </li>
+
+      <li class="hero-bio-card__highlight">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Bezplatna analiza potrzeb</span>
+      </li>
+
+      <li class="hero-bio-card__highlight">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Wsparcie przy zglaszaniu szkod</span>
+      </li>
+
+      <li class="hero-bio-card__highlight">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Szybka reakcja: zwykle do 24 godzin</span>
+      </li>
+    </ul>
+
+    <div class="hero-bio-card__location">
+      <div class="hero-bio-card__location-divider"></div>
+
+      <div class="hero-bio-card__location-cta">
+        <span class="hero-bio-card__location-label">Spotkajmy sie i porozmawiajmy</span>
+
+        <span class="hero-bio-card__location-cities">
+          <span class="hero-bio-card__city">Krasnystaw</span>
+          <span class="hero-bio-card__location-dot"></span>
+          <span class="hero-bio-card__city">Zamosc</span>
+          <span class="hero-bio-card__location-dot"></span>
+          <span class="hero-bio-card__city">Chelm</span>
+          <span class="hero-bio-card__location-dot"></span>
+          <span class="hero-bio-card__city">Lublin</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+<style>
+  .faq-list-standalone {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-list-standalone__item {
+    overflow: hidden;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    border-radius: 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-list-standalone__item:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .faq-list-standalone__item[open] {
+    border-color: rgba(251, 191, 36, 0.5);
+    box-shadow:
+      0 20px 40px -15px rgba(0, 0, 0, 0.4),
+      0 0 30px -10px rgba(245, 158, 11, 0.2);
+  }
+
+  .faq-list-standalone__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-list-standalone__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list-standalone__question {
+    margin: 0;
+    padding-right: 1rem;
+    color: #f1f5f9;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    transition: color 0.3s ease;
+  }
+
+  .faq-list-standalone__item[open] .faq-list-standalone__question {
+    color: #fde68a;
+  }
+
+  .faq-list-standalone__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    border-radius: 0.75rem;
+    background: rgba(30, 41, 59, 0.8);
+    color: #94a3b8;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+
+  .faq-list-standalone__item:hover .faq-list-standalone__trigger {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  .faq-list-standalone__item[open] .faq-list-standalone__trigger {
+    color: #fbbf24;
+    transform: rotate(180deg);
+  }
+
+  .faq-list-standalone__trigger svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .faq-list-standalone__item[open] .faq-list-standalone__summary {
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  }
+
+  .faq-list-standalone__content {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .faq-list-standalone__answer {
+    margin: 0;
+    color: #cbd5e1;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 768px) {
+    .faq-list-standalone__summary {
+      padding: 1.25rem;
+    }
+
+    .faq-list-standalone__content {
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .faq-list-standalone__question {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<div class="faq-list-standalone">
+  <details class="faq-list-standalone__item">
+    <summary class="faq-list-standalone__summary">
+      <h3 class="faq-list-standalone__question">
+        Czy wspolpraca z agentem ubezpieczeniowym wiaze sie z dodatkowymi kosztami?
+      </h3>
+      <span class="faq-list-standalone__trigger" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
+    </summary>
+    <div class="faq-list-standalone__content">
+      <p class="faq-list-standalone__answer">
+        Nie, moje uslugi sa bezplatne dla klienta. Wynagrodzenie otrzymuje od
+        towarzystwa ubezpieczeniowego, dzieki czemu mozesz skorzystac z
+        profesjonalnego doradztwa bez dodatkowych oplat.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-list-standalone__item">
+    <summary class="faq-list-standalone__summary">
+      <h3 class="faq-list-standalone__question">
+        Jak wyglada proces zakupu ubezpieczenia?
+      </h3>
+      <span class="faq-list-standalone__trigger" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
+    </summary>
+    <div class="faq-list-standalone__content">
+      <p class="faq-list-standalone__answer">
+        Najpierw rozmawiamy o Twoich potrzebach i sytuacji. Nastepnie
+        przygotowuje oferte, pomagam porownac opcje, a po wyborze prowadze
+        Cie przez formalnosci do samego konca.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-list-standalone__item">
+    <summary class="faq-list-standalone__summary">
+      <h3 class="faq-list-standalone__question">
+        Czy pomagasz takze przy zglaszaniu szkod?
+      </h3>
+      <span class="faq-list-standalone__trigger" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
+    </summary>
+    <div class="faq-list-standalone__content">
+      <p class="faq-list-standalone__answer">
+        Tak, wspieram klientow rowniez na etapie zglaszania i likwidacji szkod.
+        Pomagam przygotowac dokumentacje i uporzadkowac caly proces.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-list-standalone__item">
+    <summary class="faq-list-standalone__summary">
+      <h3 class="faq-list-standalone__question">
+        Jak szybko moge otrzymac wstepna oferte?
+      </h3>
+      <span class="faq-list-standalone__trigger" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
+    </summary>
+    <div class="faq-list-standalone__content">
+      <p class="faq-list-standalone__answer">
+        W wielu przypadkach wstepna oferta moze byc przygotowana nawet tego
+        samego dnia, zwlaszcza dla prostszych zapytan indywidualnych i firmowych.
+      </p>
+    </div>
+  </details>
+</div>

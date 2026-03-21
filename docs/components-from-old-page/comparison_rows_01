@@ -1,0 +1,252 @@
+<style>
+  .comparison-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    --slide-distance: 20px;
+    animation: comparisonRowSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--row-delay, 0s);
+  }
+
+  .comparison-row__side {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(71, 85, 105, 0.4);
+    border-radius: 1rem;
+    background: linear-gradient(165deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5));
+    backdrop-filter: blur(16px);
+    transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .comparison-row__side--negative {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .comparison-row__side--negative:hover {
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+
+  .comparison-row__side--positive:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    background: linear-gradient(165deg, rgba(16, 185, 129, 0.08), rgba(15, 23, 42, 0.5));
+  }
+
+  .comparison-row__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .comparison-row__icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .comparison-row__icon--negative {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #f87171;
+  }
+
+  .comparison-row__icon--positive {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+  }
+
+  .comparison-row__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .comparison-row__title {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+
+  .comparison-row__desc {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #94a3b8;
+  }
+
+  @keyframes comparisonRowSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(var(--slide-distance, 20px));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .comparison-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .comparison-row__side--negative {
+      order: 2;
+      flex-direction: row;
+      text-align: left;
+      opacity: 0.72;
+      position: relative;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .comparison-row__side--negative::before {
+      content: "Infolinia:";
+      position: absolute;
+      top: 0.55rem;
+      left: 1rem;
+      color: #f87171;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .comparison-row__side--positive {
+      order: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .comparison-row {
+      animation: none !important;
+    }
+
+    .comparison-row__side {
+      transition: none;
+    }
+  }
+</style>
+
+<div class="comparison-rows">
+  <div class="comparison-row" style="--row-delay: 0s;">
+    <div class="comparison-row__side comparison-row__side--negative">
+      <div class="comparison-row__icon comparison-row__icon--negative">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Anonimowe call center</h4>
+        <p class="comparison-row__desc">Losowy konsultant, ktory nie zna Twojej historii.</p>
+      </div>
+    </div>
+
+    <div class="comparison-row__side comparison-row__side--positive">
+      <div class="comparison-row__icon comparison-row__icon--positive">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Rozmowa ze mna</h4>
+        <p class="comparison-row__desc">Osoba, ktora zna sie na rzeczy i pamieta Twoje potrzeby.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comparison-row" style="--row-delay: 0.1s;">
+    <div class="comparison-row__side comparison-row__side--negative">
+      <div class="comparison-row__icon comparison-row__icon--negative">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Czekanie w kolejce</h4>
+        <p class="comparison-row__desc">Minuty spedzone na sluchaniu muzyki z infolinii.</p>
+      </div>
+    </div>
+
+    <div class="comparison-row__side comparison-row__side--positive">
+      <div class="comparison-row__icon comparison-row__icon--positive">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Szybka reakcja</h4>
+        <p class="comparison-row__desc">Oddzwaniam tego samego dnia, bez kolejek.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comparison-row" style="--row-delay: 0.2s;">
+    <div class="comparison-row__side comparison-row__side--negative">
+      <div class="comparison-row__icon comparison-row__icon--negative">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Powtarzanie historii</h4>
+        <p class="comparison-row__desc">Za kazdym razem musisz wszystko wyjasniac od nowa.</p>
+      </div>
+    </div>
+
+    <div class="comparison-row__side comparison-row__side--positive">
+      <div class="comparison-row__icon comparison-row__icon--positive">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Ciaglosc wspolpracy</h4>
+        <p class="comparison-row__desc">Jeden punkt kontaktu przez cala wspolprace.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comparison-row" style="--row-delay: 0.3s;">
+    <div class="comparison-row__side comparison-row__side--negative">
+      <div class="comparison-row__icon comparison-row__icon--negative">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Szablonowe odpowiedzi</h4>
+        <p class="comparison-row__desc">Skrypty zamiast prawdziwego zrozumienia.</p>
+      </div>
+    </div>
+
+    <div class="comparison-row__side comparison-row__side--positive">
+      <div class="comparison-row__icon comparison-row__icon--positive">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="comparison-row__content">
+        <h4 class="comparison-row__title">Indywidualne podejscie</h4>
+        <p class="comparison-row__desc">Analizuje kazda sytuacje osobno, dla Ciebie.</p>
+      </div>
+    </div>
+  </div>
+</div>
