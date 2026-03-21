@@ -23,11 +23,11 @@ import HeroMobile from "./HeroMobile.astro";
         <!-- Desktop: full-bleed image with gradient over left side for text readability -->
         <div class="hidden lg:block absolute inset-0">
           <HeroBackground variant="desktop" />
-          <div class="absolute inset-0 bg-gradient-to-r from-[#111827]/90 from-20% via-[#111827]/40 via-35% to-transparent z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#111827]/95 from-25% via-[#111827]/60 via-45% to-transparent z-10"></div>
         </div>
 
         <!-- Content (left on desktop, below image on mobile) -->
-        <div class="flex-1 relative z-20">
+        <div class="flex-1 relative z-20 h-full">
           <HeroMobile />
           <HeroDesktop />
         </div>
