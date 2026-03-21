@@ -3,41 +3,33 @@ import { getImage } from "astro:assets";
 import heroMainImage from "../assets/hero-main-image.webp";
 import heroMainImageMobile from "../assets/hero-main-image-mobile.webp";
 
-const mobileImage = await getImage({
-  src: heroMainImageMobile,
-  widths: [360, 480, 576],
-  sizes: "100vw",
-  quality: 88,
-  format: "webp",
-});
+interface Props {
+  variant: "mobile" | "desktop";
+}
 
-const desktopImage = await getImage({
-  src: heroMainImage,
-  widths: [768, 1024, 1376],
-  sizes: "100vw",
-  quality: 88,
+const { variant } = Astro.props;
+const isMobile = variant === "mobile";
+
+const image = await getImage({
+  src: isMobile ? heroMainImageMobile : heroMainImage,
+  widths: isMobile ? [480, 768] : [1024, 1440, 1920],
+  sizes: isMobile ? "100vw" : "92vw",
+  quality: 80,
   format: "webp",
 });
 ---
 
-<picture>
-  <source
-    media="(max-width: 767px)"
-    srcset={mobileImage.srcSet.attribute}
-    sizes="100vw"
-  />
-  <source
-    media="(min-width: 768px)"
-    srcset={desktopImage.srcSet.attribute}
-    sizes="100vw"
-  />
-  <img
-    src={desktopImage.src}
-    alt="Biuro agenta ubezpieczeniowego"
-    width={desktopImage.attributes.width}
-    height={desktopImage.attributes.height}
-    loading="eager"
-    fetchpriority="high"
-    class="absolute inset-0 w-full h-full object-cover object-center z-0 motion-reduce:transition-none"
-  />
-</picture>
+<img
+  src={image.src}
+  srcset={image.srcSet.attribute}
+  sizes={isMobile ? "100vw" : "92vw"}
+  alt="Agent ubezpieczeniowy"
+  width={image.attributes.width}
+  height={image.attributes.height}
+  loading="eager"
+  fetchpriority="high"
+  class:list={[
+    "w-full object-cover",
+    isMobile ? "h-48 sm:h-56" : "absolute inset-0 h-full",
+  ]}
+/>

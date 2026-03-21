@@ -1,138 +1,39 @@
 ---
-import { getImage } from "astro:assets";
-import Container from "./ui/Container.astro";
-import { hero } from "../data/hero";
-import heroDesktopSrc from "../assets/hero-main-image.webp";
-import heroMobileSrc from "../assets/hero-main-image-mobile.webp";
-
-const mobileImage = await getImage({
-  src: heroMobileSrc,
-  widths: [480, 768],
-  sizes: "100vw",
-  quality: 75,
-  format: "webp",
-});
-
-const desktopImage = await getImage({
-  src: heroDesktopSrc,
-  widths: [1024, 1376, 1920],
-  sizes: "100vw",
-  quality: 75,
-  format: "webp",
-});
+import HeroBackground from "./HeroBackground.astro";
+import HeroDesktop from "./HeroDesktop.astro";
+import HeroMobile from "./HeroMobile.astro";
 ---
 
-<section class="relative flex min-h-screen items-center overflow-hidden">
-  <!-- Art direction: two images with CSS show/hide -->
-  <picture class="absolute inset-0 z-0 lg:hidden">
-    <img
-      src={mobileImage.src}
-      srcset={mobileImage.srcSet.attribute}
-      sizes="100vw"
-      alt="Agent ubezpieczeniowy"
-      width={mobileImage.attributes.width}
-      height={mobileImage.attributes.height}
-      loading="eager"
-      fetchpriority="high"
-      class="w-full h-full object-cover"
-    />
-  </picture>
-  <picture class="absolute inset-0 z-0 hidden lg:block">
-    <img
-      src={desktopImage.src}
-      srcset={desktopImage.srcSet.attribute}
-      sizes="100vw"
-      alt="Agent ubezpieczeniowy"
-      width={desktopImage.attributes.width}
-      height={desktopImage.attributes.height}
-      loading="eager"
-      fetchpriority="high"
-      class="w-full h-full object-cover"
-    />
-  </picture>
+<section class="bg-[#0a1628] min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
+    <div class="relative w-[92vw] h-[85vh]">
+      <!-- Subtle glow behind card -->
+      <div class="absolute -inset-4 bg-gradient-to-br from-[#1e40af]/10 to-transparent blur-3xl -z-10" aria-hidden="true"></div>
 
-  <!-- Gradient overlays -->
-  <div class="absolute inset-0 z-[1] bg-[#0a1628]/80 lg:hidden"></div>
-  <div class="absolute inset-0 z-[1] hidden lg:block bg-gradient-to-r from-[#0a1628]/92 via-[#0a1628]/70 via-55% to-transparent"></div>
+      <!-- Card -->
+      <div class="relative h-full bg-[#111827] border border-white/8 rounded-(--radius-lg) shadow-[0_4px_60px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col lg:flex-row animate-[hero-card-enter_0.8s_ease-out_both] motion-reduce:animate-none">
 
-  <!-- Noise texture -->
-  <div class="hero-noise absolute inset-0 z-[2] opacity-4 pointer-events-none"></div>
+        <!-- Noise texture on card -->
+        <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
 
-  <!-- Content -->
-  <Container class="relative z-[3] py-24 pb-16">
-    <div class="max-w-2xl mx-auto lg:mx-0 lg:max-w-[55%] text-center lg:text-left">
-
-      <!-- Group 1: Accent bar + text (delay 0s) -->
-      <div
-        class="animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
-        style="animation-delay: 0s"
-      >
-        <!-- Mobile accent bar -->
-        <div class="w-12 h-1 bg-(--color-accent) mx-auto mb-6 lg:hidden"></div>
-
-        <!-- Desktop accent bar wrapping H1 + description -->
-        <div class="border-l-0 pl-0 lg:border-l-4 lg:border-(--color-accent) lg:pl-8">
-          <h1
-            class="font-(family-name:--font-heading) text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] text-white m-0 tracking-tight"
-            set:html={hero.title}
-          />
-          <p class="mt-6 text-[clamp(1rem,2vw,1.25rem)] leading-[1.7] text-white/78 max-w-[580px] mx-auto lg:mx-0">
-            {hero.description}
-          </p>
+        <!-- Mobile: image on top -->
+        <div class="lg:hidden">
+          <HeroBackground variant="mobile" />
         </div>
+
+        <!-- Desktop: full-bleed image with gradient over left side for text readability -->
+        <div class="hidden lg:block absolute inset-0">
+          <HeroBackground variant="desktop" />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#111827]/90 from-20% via-[#111827]/40 via-35% to-transparent z-10"></div>
+        </div>
+
+        <!-- Content (left on desktop, below image on mobile) -->
+        <div class="flex-1 relative z-20">
+          <HeroMobile />
+          <HeroDesktop />
+        </div>
+
       </div>
-
-      <!-- Group 2: Buttons (delay 0.2s) -->
-      <div
-        class="mt-10 flex flex-col gap-4 w-full max-w-80 mx-auto sm:flex-row sm:max-w-none sm:w-auto sm:gap-5 lg:mx-0 animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
-        style="animation-delay: 0.2s"
-      >
-        <!-- Primary: gradient glow + shimmer sweep -->
-        <a
-          href={hero.actions.primary.href}
-          class="hero-btn-primary group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-(--radius-md) bg-gradient-to-r from-[#1e40af] via-[#2563eb] to-[#3b82f6] px-8 py-4 text-lg font-semibold text-white shadow-[0_0_24px_rgba(59,130,246,0.35)] transition-all duration-300 hover:shadow-[0_0_36px_rgba(59,130,246,0.55)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-primary) cursor-pointer"
-        >
-          <span class="relative z-10 flex items-center gap-2.5">
-            <!-- Phone icon -->
-            <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            {hero.actions.primary.label}
-          </span>
-          <!-- Shimmer sweep -->
-          <span class="hero-shimmer absolute inset-0 z-0" aria-hidden="true"></span>
-        </a>
-
-        <!-- Secondary: glass morphism + arrow slide -->
-        <a
-          href={hero.actions.secondary.href}
-          class="group relative inline-flex items-center justify-center gap-2.5 rounded-(--radius-md) border border-white/20 bg-white/8 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-white/35 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_rgba(255,255,255,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 cursor-pointer"
-        >
-          {hero.actions.secondary.label}
-          <!-- Arrow that slides right on hover -->
-          <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
-      </div>
-
-      <!-- Group 3: Trust badges (delay 0.4s) -->
-      <div
-        class="mt-10 flex flex-col items-center gap-3 lg:flex-row lg:items-center lg:gap-x-6 justify-center lg:justify-start animate-[hero-fade-up_0.7s_ease-out_both] lg:animate-[hero-slide-in_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100"
-        style="animation-delay: 0.4s"
-      >
-        {hero.trustBadges.map((badge) => (
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-(--color-accent) shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-sm text-white/60">{badge.label}</span>
-          </div>
-        ))}
-      </div>
-
     </div>
-  </Container>
 </section>
 
 <style>

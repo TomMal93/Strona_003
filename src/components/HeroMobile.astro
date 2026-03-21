@@ -2,12 +2,6 @@
 import HeroContent from "./HeroContent.astro";
 ---
 
-<div class="md:hidden">
-  <HeroContent
-    containerClass="relative z-2 max-w-[720px] mx-auto px-5 py-20"
-    contentClass="flex flex-col items-center text-center"
-    titleClass="font-(family-name:--font-heading) text-[clamp(2.2rem,10vw,3.4rem)] font-bold leading-[1.08] text-white m-0 tracking-tight"
-    descriptionClass="mt-5 text-[clamp(1rem,4.2vw,1.15rem)] leading-[1.65] text-white/82 max-w-[32rem]"
-    actionsClass="mt-8 flex w-full flex-col gap-3"
-  />
+<div class="lg:hidden">
+  <HeroContent variant="mobile" />
 </div>
