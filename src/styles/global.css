@@ -16,6 +16,13 @@
     font-family: var(--font-body);
     color: var(--color-text);
     background-color: var(--color-bg);
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 40px
+    );
     line-height: 1.6;
   }
 
