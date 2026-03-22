@@ -1,9 +1,9 @@
 export const hero = {
   tagline: "Twój agent ubezpieczeniowy",
   title:
-    'Ubezpieczenia <span class="text-(--color-accent)">dopasowane</span> do Twojej sytuacji',
+    'Twoje <span class="text-(--color-accent)">bezpieczeństwo</span><br>w dobrych rękach',
   description:
-    "Pomagam dobrać ochronę, która ma sens — dla Ciebie, Twojej rodziny i Twojego majątku. Bez zbędnych polis, bez przepłacania.",
+    "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
   actions: {
     primary: { label: "Umów konsultację", href: "#kontakt" },
     secondary: { label: "Zobacz ofertę", href: "#oferta" },
