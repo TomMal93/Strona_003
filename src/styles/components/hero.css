@@ -39,7 +39,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-card {
-    animation: hero-card-enter 0.8s ease-out both, halo-pulse 4s ease-in-out 1s infinite;
+    animation: hero-card-enter 0.8s ease-out both, halo-pulse 4s linear 1s infinite;
   }
 
   @keyframes halo-pulse {
@@ -52,11 +52,19 @@
         0 4px 60px rgba(0, 0, 0, 0.4);
     }
 
-    50% {
+    49% {
       box-shadow:
         0 0 90px rgba(245, 158, 11, 0.38),
         0 0 180px rgba(245, 158, 11, 0.28),
         0 0 320px rgba(245, 158, 11, 0.18),
+        0 4px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    50% {
+      box-shadow:
+        0 0 88px rgba(245, 158, 11, 0.37),
+        0 0 176px rgba(245, 158, 11, 0.275),
+        0 0 314px rgba(245, 158, 11, 0.176),
         0 4px 60px rgba(0, 0, 0, 0.4);
     }
   }
