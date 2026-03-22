@@ -11,15 +11,15 @@
 
   --color-accent: #f59e0b;
 
-  --color-text: #1f2937;
-  --color-text-light: #6b7280;
-  --color-text-inverse: #ffffff;
+  --color-text: #e5e7eb;
+  --color-text-light: #9ca3af;
+  --color-text-inverse: #1f2937;
 
-  --color-bg: #ffffff;
-  --color-bg-alt: #f9fafb;
+  --color-bg: #0a1628;
+  --color-bg-alt: #111827;
   --color-bg-dark: #111827;
 
-  --color-border: #e5e7eb;
+  --color-border: #1e293b;
 
   --spacing-section: 5rem;
   --spacing-section-sm: 3rem;
