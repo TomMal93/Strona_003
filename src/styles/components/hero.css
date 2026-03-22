@@ -1,48 +1,5 @@
-/* Primary CTA — animated gradient border */
 .hero-btn-primary {
-  position: relative;
   isolation: isolate;
-}
-
-.hero-btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  aspect-ratio: 1;
-  margin-left: -150%;
-  margin-top: -150%;
-  background: conic-gradient(
-    #1e1b4b 0%,
-    #6366f1 20%,
-    #a78bfa 30%,
-    #6366f1 45%,
-    #1e1b4b 55%,
-    #312e81 70%,
-    #1e1b4b 100%
-  );
-  z-index: -2;
-  animation: btn-border-spin 3s linear infinite;
-  will-change: transform;
-}
-
-.hero-btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: inherit;
-  background: #1e1b4b;
-  z-index: -1;
-}
-
-@keyframes btn-border-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .hero-noise {
