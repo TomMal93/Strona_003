@@ -1,0 +1,138 @@
+---
+import Container from "../ui/Container.astro";
+import NavLinks from "./NavLinks.astro";
+import NavSocialIcons from "./NavSocialIcons.astro";
+import NavMobile from "./NavMobile.astro";
+import { company } from "../../data/company";
+
+const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;
+---
+
+<header id="navbar" class="navbar">
+  <div class="mx-auto w-[92vw]">
+    <nav class="navbar-card relative -mt-8 rounded-b-(--radius-lg) border border-[#f59e0b]/55 bg-[#111827] overflow-hidden" aria-label="Menu główne">
+      <!-- Noise texture -->
+      <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none rounded-b-(--radius-lg)"></div>
+
+      <!-- Spacer for hidden top portion -->
+      <div class="h-8"></div>
+
+      <!-- Visible content row -->
+      <div class="relative z-10 flex h-12 items-center justify-between px-5">
+        <!-- Logo / nazwa firmy -->
+        <a href="/" class="flex flex-col leading-tight">
+          <span class="font-heading text-lg font-bold text-(--color-text)">{company.name}</span>
+          <span class="text-xs text-(--color-text-light)">{company.tagline}</span>
+        </a>
+
+        <!-- Desktop: linki + social + CTA -->
+        <div class="hidden items-center gap-8 lg:flex">
+          <NavLinks />
+          <NavSocialIcons />
+
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 rounded-(--radius-md) bg-gradient-to-r from-amber-500 to-amber-600 px-5 py-2 text-sm font-semibold text-(--color-text-inverse) transition-colors duration-200 hover:from-amber-600 hover:to-amber-700"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {company.phone}
+          </a>
+        </div>
+
+        <!-- Mobile: hamburger -->
+        <button
+          id="hamburger-btn"
+          class="flex flex-col items-center justify-center gap-[5px] p-2 lg:hidden"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Bottom padding -->
+      <div class="h-2"></div>
+    </nav>
+  </div>
+
+  <NavMobile />
+</header>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const hamburger = document.getElementById("hamburger-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const backdrop = document.getElementById("mobile-backdrop");
+
+  // Scroll detection — glassmorphism toggle
+  const SCROLL_THRESHOLD = 50;
+
+  function onScroll() {
+    navbar?.classList.toggle("navbar--scrolled", window.scrollY > SCROLL_THRESHOLD);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  function openMenu() {
+    mobileMenu?.classList.add("mobile-menu--open");
+    backdrop?.classList.add("mobile-backdrop--visible");
+    hamburger?.classList.add("hamburger--open");
+    document.body.style.overflow = "hidden";
+    hamburger?.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove("mobile-menu--open");
+    backdrop?.classList.remove("mobile-backdrop--visible");
+    hamburger?.classList.remove("hamburger--open");
+    document.body.style.overflow = "";
+    hamburger?.setAttribute("aria-expanded", "false");
+  }
+
+  hamburger?.addEventListener("click", () => {
+    const isOpen = mobileMenu?.classList.contains("mobile-menu--open");
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  backdrop?.addEventListener("click", closeMenu);
+
+  // Close on anchor link click
+  mobileMenu?.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Scroll-spy for active link
+  const sections = document.querySelectorAll("section[id]");
+  const navAnchors = document.querySelectorAll(".nav-link");
+
+  if (sections.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navAnchors.forEach((a) => a.classList.remove("nav-link-active"));
+            const active = document.querySelector(
+              `.nav-link[href="#${entry.target.id}"]`
+            );
+            active?.classList.add("nav-link-active");
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

@@ -3,6 +3,7 @@
 @import "./utilities/layout.css";
 @import "./animations/transitions.css";
 @import "./components/hero.css";
+@import "./components/navbar.css";
 
 @layer base {
   html {
