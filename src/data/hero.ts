@@ -5,8 +5,9 @@ export const hero = {
   description:
     "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
   actions: {
-    primary: { label: "Umów konsultację", href: "#kontakt" },
-    secondary: { label: "Zobacz ofertę", href: "#oferta" },
+    primary: { label: "Zadzwoń teraz" },
+    secondary: { label: "O mnie", href: "#o-mnie" },
+    tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
   trustBadges: [
     { label: "15+ lat doświadczenia" },
