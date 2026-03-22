@@ -1,4 +1,5 @@
 export const hero = {
+  tagline: "Twój agent ubezpieczeniowy",
   title:
     'Ubezpieczenia <span class="text-(--color-accent)">dopasowane</span> do Twojej sytuacji',
   description:
