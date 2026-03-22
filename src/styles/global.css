@@ -4,6 +4,7 @@
 @import "./animations/transitions.css";
 @import "./components/hero.css";
 @import "./components/navbar.css";
+@import "./components/services.css";
 
 @layer base {
   html {
