@@ -14,15 +14,17 @@ const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;
       <!-- Noise texture -->
       <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none rounded-b-(--radius-lg)"></div>
 
-      <!-- Spacer for hidden top portion -->
-      <div class="h-8"></div>
-
       <!-- Visible content row -->
-      <div class="relative z-10 flex h-12 items-center justify-between px-5">
-        <!-- Logo / nazwa firmy -->
-        <a href="/" class="flex flex-col leading-tight">
-          <span class="font-heading text-lg font-bold text-(--color-text)">{company.name}</span>
-          <span class="text-xs text-(--color-text-light)">{company.tagline}</span>
+      <div class="relative z-10 flex h-16 mt-8 items-center justify-between px-5">
+        <!-- Logo + nazwa firmy -->
+        <a href="/" class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-(--radius-md) border border-[#f59e0b]/30 bg-[#f59e0b]/10">
+            <span class="font-heading text-lg font-bold text-(--color-accent)">L</span>
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="font-heading text-lg font-bold text-(--color-text)">{company.name}</span>
+            <span class="text-xs text-(--color-text-light)">{company.tagline}</span>
+          </div>
         </a>
 
         <!-- Desktop: linki + social + CTA -->
@@ -56,7 +58,7 @@ const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;
       </div>
 
       <!-- Bottom padding -->
-      <div class="h-2"></div>
+      <div class="h-4"></div>
     </nav>
   </div>
 
