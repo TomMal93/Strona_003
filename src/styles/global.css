@@ -2,6 +2,7 @@
 @import "./themes/tokens.css";
 @import "./utilities/layout.css";
 @import "./animations/transitions.css";
+@import "./components/hero.css";
 
 @layer base {
   html {
