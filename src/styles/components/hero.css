@@ -1,4 +1,74 @@
-/* Primary CTA — animated gradient border */
+/* ── Bento grid layout ── */
+.hero-bento-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-bento-grid {
+    grid-template-columns: 55fr 15fr 15fr 15fr;
+    grid-template-rows: 1fr auto;
+    height: 88vh;
+    max-height: 840px;
+  }
+
+  .hero-bento-text {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .hero-bento-image {
+    grid-column: 2 / -1;
+    grid-row: 1;
+  }
+}
+
+/* ── Shared bento card ── */
+.hero-bento-card {
+  background: #111827;
+  border: 2px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 0 40px rgba(245, 158, 11, 0.1),
+    0 2px 20px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.hero-bento-card:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow:
+    0 0 50px rgba(245, 158, 11, 0.16),
+    0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Image card ── */
+.hero-bento-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* Mobile image height */
+.hero-bento-image {
+  height: 220px;
+}
+
+@media (min-width: 640px) {
+  .hero-bento-image {
+    height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-bento-image {
+    height: auto;
+  }
+}
+
+/* ── Primary CTA — animated gradient border ── */
 .hero-btn-primary {
   position: relative;
   isolation: isolate;
@@ -37,29 +107,49 @@
 }
 
 @keyframes btn-border-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Text shimmer on accent word ── */
+.hero-shimmer {
+  background: linear-gradient(
+    110deg,
+    #f59e0b 0%,
+    #f59e0b 35%,
+    #fef3c7 50%,
+    #f59e0b 65%,
+    #f59e0b 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 4s ease-in-out infinite;
+}
+
+@keyframes shimmer-sweep {
+  0%, 100% { background-position: 100% center; }
+  50% { background-position: 0% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-shimmer {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: var(--color-accent);
+    color: var(--color-accent);
   }
 }
 
+/* ── Noise texture ── */
 .hero-noise {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px 128px;
 }
 
-
-.hero-card {
-  box-shadow:
-    0 0 60px rgba(245, 158, 11, 0.24),
-    0 0 120px rgba(251, 191, 36, 0.16),
-    0 0 250px rgba(245, 158, 11, 0.1),
-    0 4px 60px rgba(0, 0, 0, 0.4);
-}
-
+/* ── Animation delays ── */
 .hero-delay-200 {
   animation-delay: 0.2s;
 }
@@ -72,83 +162,26 @@
   animation-delay: 0.6s;
 }
 
+/* ── Halo pulse on text card ── */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-card {
-    animation: hero-card-enter 0.8s ease-out both, halo-pulse 4.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) 1s infinite;
+  .hero-bento-text {
+    animation:
+      hero-card-enter 0.8s ease-out both,
+      halo-pulse 4.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) 1s infinite;
   }
 
   @keyframes halo-pulse {
-    0%,
-    100% {
+    0%, 100% {
       box-shadow:
-        0 0 60px rgba(245, 158, 11, 0.24),
-        0 0 120px rgba(251, 191, 36, 0.16),
-        0 0 250px rgba(245, 158, 11, 0.1),
-        0 4px 60px rgba(0, 0, 0, 0.4);
+        0 0 40px rgba(245, 158, 11, 0.1),
+        0 0 80px rgba(251, 191, 36, 0.08),
+        0 2px 20px rgba(0, 0, 0, 0.4);
     }
-
-    30% {
-      box-shadow:
-        0 0 68px rgba(245, 158, 11, 0.27),
-        0 0 136px rgba(251, 191, 36, 0.18),
-        0 0 266px rgba(245, 158, 11, 0.112),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    40% {
-      box-shadow:
-        0 0 76px rgba(245, 158, 11, 0.29),
-        0 0 152px rgba(251, 191, 36, 0.195),
-        0 0 284px rgba(245, 158, 11, 0.12),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    46% {
-      box-shadow:
-        0 0 84px rgba(245, 158, 11, 0.31),
-        0 0 168px rgba(251, 191, 36, 0.208),
-        0 0 302px rgba(245, 158, 11, 0.128),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    49% {
-      box-shadow:
-        0 0 90px rgba(245, 158, 11, 0.33),
-        0 0 180px rgba(251, 191, 36, 0.224),
-        0 0 320px rgba(245, 158, 11, 0.136),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
     50% {
       box-shadow:
-        0 0 88px rgba(245, 158, 11, 0.32),
-        0 0 176px rgba(251, 191, 36, 0.22),
-        0 0 314px rgba(245, 158, 11, 0.132),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    54% {
-      box-shadow:
-        0 0 82px rgba(245, 158, 11, 0.3),
-        0 0 164px rgba(251, 191, 36, 0.204),
-        0 0 298px rgba(245, 158, 11, 0.124),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    62% {
-      box-shadow:
-        0 0 72px rgba(245, 158, 11, 0.275),
-        0 0 144px rgba(251, 191, 36, 0.188),
-        0 0 274px rgba(245, 158, 11, 0.116),
-        0 4px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    74% {
-      box-shadow:
-        0 0 64px rgba(245, 158, 11, 0.255),
-        0 0 128px rgba(251, 191, 36, 0.172),
-        0 0 258px rgba(245, 158, 11, 0.108),
-        0 4px 60px rgba(0, 0, 0, 0.4);
+        0 0 60px rgba(245, 158, 11, 0.18),
+        0 0 120px rgba(251, 191, 36, 0.12),
+        0 4px 30px rgba(0, 0, 0, 0.4);
     }
   }
 }

@@ -1,7 +1,7 @@
 export const hero = {
   tagline: "Twój agent ubezpieczeniowy",
   title:
-    'Twoje <span class="text-(--color-accent)">bezpieczeństwo</span><br>w dobrych rękach',
+    'Twoje <span class="hero-shimmer">bezpieczeństwo</span><br>w dobrych rękach',
   description:
     "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
   actions: {
@@ -9,9 +9,9 @@ export const hero = {
     secondary: { label: "O mnie", href: "#o-mnie" },
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
-  trustBadges: [
-    { label: "15+ lat doświadczenia" },
-    { label: "1000+ zadowolonych klientów" },
-    { label: "Bezpłatna konsultacja" },
+  stats: [
+    { value: "15+", label: "lat doświadczenia" },
+    { value: "1000+", label: "zadowolonych klientów" },
+    { value: "0 zł", label: "za konsultację" },
   ],
 } as const;
