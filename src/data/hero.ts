@@ -4,6 +4,13 @@ export const hero = {
     'Twoje <span class="hero-shimmer">bezpieczeństwo</span><br>w dobrych rękach',
   description:
     "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
+  advisorCard: {
+    availability: "Oddzwaniam tego samego dnia",
+    role: "Agent PZU • Krasnystaw i okolice",
+    quote:
+      "Najpierw porządkujemy sytuację, potem dobieramy ochronę. Bez pośpiechu i bez przypadkowych decyzji.",
+    specialties: ["Pakiety medyczne", "Polisy grupowe", "Ubezpieczenia na życie"],
+  },
   actions: {
     primary: { label: "Zadzwoń teraz" },
     secondary: { label: "O mnie", href: "#o-mnie" },
