@@ -78,30 +78,14 @@
 .hero-advisor-status {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  max-width: min(72vw, 15rem);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  padding: 0.5rem 0.75rem;
-  background: rgba(8, 13, 24, 0.82);
-  backdrop-filter: blur(18px) saturate(140%);
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  justify-content: center;
+  padding: 0;
 }
 
-.hero-advisor-status__dot {
-  flex: none;
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 999px;
-  background: #34d399;
-  box-shadow: 0 0 0 0.22rem rgba(52, 211, 153, 0.14);
+.hero-advisor-status__logo {
+  width: auto !important;
+  height: 6.3rem !important;
+  object-fit: contain;
 }
 
 .hero-advisor-panel {
@@ -124,7 +108,7 @@
 
 .hero-advisor-panel__main {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   gap: 1.2rem;
@@ -157,15 +141,6 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-.hero-advisor-panel__logo {
-  flex-shrink: 0;
-  width: auto !important;
-  height: clamp(4.35rem, 6.1vw, 5.1rem) !important;
-  object-fit: contain;
-  align-self: center;
-  opacity: 0.85;
 }
 
 .hero-advisor-panel__role {
