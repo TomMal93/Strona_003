@@ -95,16 +95,13 @@ import HeroStatCard from "./HeroStatCard.astro";
         <div class="hero-advisor-panel__main">
           <div class="hero-advisor-panel__info">
             <div class="hero-advisor-panel__header">
-              <p class="hero-advisor-panel__eyebrow">{hero.tagline}</p>
+              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent <img src="/images/pzu-logo.svg" alt="PZU" class="hero-advisor-panel__logo" /></p>
               <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
             </div>
 
             <div class="hero-advisor-panel__specialties">
-              {hero.advisorCard.specialties.map((specialty, i) => (
-                <Fragment>
-                  <span class="hero-advisor-panel__specialty">{specialty}</span>
-                  {i < hero.advisorCard.specialties.length - 1 && <span class="hero-advisor-panel__specialty-dot">·</span>}
-                </Fragment>
+              {hero.advisorCard.specialties.map((specialty) => (
+                <span class="hero-advisor-panel__pill">{specialty}</span>
               ))}
             </div>
           </div>
