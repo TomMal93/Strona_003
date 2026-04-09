@@ -25,9 +25,9 @@ import HeroStatCard from "./HeroStatCard.astro";
             set:html={hero.title}
           />
 
-          <p class="mt-5 lg:mt-6 font-(family-name:--font-body) leading-[1.6] tracking-wide text-white/90 drop-shadow-sm text-[clamp(1rem,1.4vw,1.25rem)] max-w-[540px]">
-            {hero.description}
-          </p>
+          <blockquote class="mt-[25px] lg:mt-[41px] pl-4 border-l-2 border-[#f59e0b]/30 font-(family-name:--font-heading) italic leading-[1.7] tracking-wide text-white/80 text-[clamp(0.85rem,1.2vw,1.05rem)] w-full"
+            set:html={`\u201E${hero.description}\u201D`}
+          />
         </div>
 
         <!-- Separator -->

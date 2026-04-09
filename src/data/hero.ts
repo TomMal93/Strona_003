@@ -3,7 +3,7 @@ export const hero = {
   title:
     'Twoje <span class="hero-shimmer">bezpieczeństwo</span><br>w dobrych rękach',
   description:
-    "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
+    "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny.<br>Jasne warunki, brak ukrytych kosztów.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
     role: "Jerzy PolXXXX • Ubezpieczenia bez stresu",
