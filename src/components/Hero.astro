@@ -41,9 +41,34 @@ import pzuLogo from "../assets/pzu_logo.png";
         <div class="hero-content-meta">
           <div class="hero-proof-bar hero-delay-450 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
             {hero.proofBar.map((item) => (
-              <div class="hero-proof-bar__item">
-                <span class="hero-proof-bar__label">{item.label}</span>
+              <div class:list={["hero-proof-bar__item", { "hero-proof-bar__item--featured": item.featured }]}>
+                <div class="hero-proof-bar__top">
+                  <span class="hero-proof-bar__icon" aria-hidden="true">
+                    {item.icon === "shield" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3.2v5.4c0 4.5-2.8 8.7-7 10.4-4.2-1.7-7-5.9-7-10.4V6.2L12 3z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 11.9l1.55 1.55 3.2-3.45" />
+                      </svg>
+                    )}
+                    {item.icon === "map" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" />
+                        <circle cx="12" cy="11" r="2.15" />
+                      </svg>
+                    )}
+                    {item.icon === "support" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1115 0v2.1a1.9 1.9 0 01-1.9 1.9H16v-4.6h1.6V12a5.6 5.6 0 10-11.2 0v4H4.5A1.9 1.9 0 012.6 14.1V12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 18.2c0 1.55-1.45 2.8-3.25 2.8H12" />
+                      </svg>
+                    )}
+                  </span>
+
+                  <span class="hero-proof-bar__label">{item.label}</span>
+                </div>
+
                 <span class="hero-proof-bar__value">{item.value}</span>
+                <p class="hero-proof-bar__note">{item.note}</p>
               </div>
             ))}
           </div>
@@ -108,7 +133,7 @@ import pzuLogo from "../assets/pzu_logo.png";
         <div class="hero-advisor-panel__main">
           <div class="hero-advisor-panel__info">
             <div class="hero-advisor-panel__header">
-              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent PZU</p>
+              <p class="hero-advisor-panel__eyebrow">Spokojnie, konkretnie, po ludzku</p>
               <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
             </div>
 

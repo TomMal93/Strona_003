@@ -17,9 +17,25 @@ export const hero = {
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
   proofBar: [
-    { label: "Status", value: "Autoryzowany agent PZU" },
-    { label: "Obsługa", value: "Telefonicznie, online i lokalnie" },
-    { label: "Wsparcie", value: "Pomoc przy wyborze i wznowieniach" },
+    {
+      icon: "shield",
+      label: "Sprawdzona ochrona",
+      value: "Spokojnie, konkretnie, bez presji",
+      note: "Jasne warunki, spokojne wyjaśnienie zakresu i rekomendacje dopasowane do Twojej sytuacji.",
+      featured: true,
+    },
+    {
+      icon: "map",
+      label: "Lokalnie lub zdalnie",
+      value: "Krasnystaw, Zamość, Chełm, Lublin",
+      note: "Możemy spotkać się na miejscu, porozmawiać telefonicznie albo przejść cały proces online.",
+    },
+    {
+      icon: "support",
+      label: "Pomoc także później",
+      value: "Wznowienia, zmiany i dopasowanie polisy",
+      note: "Wsparcie nie kończy się na wyborze oferty. Pomagam też wtedy, gdy Twoja sytuacja się zmienia.",
+    },
   ],
   highlights: [
     "Indywidualne podejście",
