@@ -325,12 +325,8 @@
 }
 
 @media (min-width: 1024px) {
-  .hero-content-shell {
-    justify-content: flex-end;
-  }
-
   .hero-content-header {
-    margin-top: 0;
+    margin-top: 18%;
   }
 
   .hero-content-meta {
