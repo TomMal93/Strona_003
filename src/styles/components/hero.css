@@ -114,22 +114,13 @@
   padding: 0.95rem 0.95rem 0.95rem 1.35rem;
   border: none;
   border-radius: 0 0 calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px);
-  background: rgba(7, 12, 22, 0.2);
-  backdrop-filter: blur(32px) saturate(140%);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 -8px 32px rgba(0, 0, 0, 0.15);
+  background: rgba(7, 12, 22, 0.85);
+  backdrop-filter: blur(32px);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .hero-advisor-panel::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
-  bottom: 0.6rem;
-  width: 3px;
-  border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg, #f59e0b 0%, rgba(245, 158, 11, 0.2) 100%);
+  display: none;
 }
 
 .hero-advisor-panel__main {
@@ -170,31 +161,29 @@
   line-height: 1.15;
 }
 
-.hero-advisor-panel__chips {
+.hero-advisor-panel__specialties {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.45rem;
-}
-
-.hero-advisor-panel__chip {
-  display: inline-flex;
   align-items: center;
-  min-height: 1.7rem;
-  padding: 0.35rem 0.65rem;
-  border: 1px solid rgba(245, 158, 11, 0.18);
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-  color: rgba(255, 249, 235, 0.92);
-  font-size: 0.74rem;
-  font-weight: 600;
-  line-height: 1.2;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  gap: 0.5rem;
 }
 
-.hero-advisor-panel__chip:hover {
-  border-color: rgba(245, 158, 11, 0.35);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%);
+.hero-advisor-panel__specialty {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #f59e0b 0%, #fde68a 50%, #f59e0b 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-advisor-panel__specialty-dot {
+  color: rgba(245, 158, 11, 0.35);
+  font-size: 0.9rem;
 }
 
 .hero-advisor-quote-wrap {

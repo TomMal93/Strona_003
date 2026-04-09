@@ -6,10 +6,10 @@ export const hero = {
     "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny. Jasne warunki, brak ukrytych kosztów.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
-    role: "Jerzy PolXXXX • Krasnystaw i okolice",
+    role: "Jerzy PolXXXX • Ubezpieczenia bez stresu",
     quote:
       "Najpierw porządkujemy sytuację, potem dobieramy ochronę. Bez pośpiechu i bez przypadkowych decyzji.",
-    specialties: ["Pakiety medyczne", "Polisy grupowe", "Ubezpieczenia na życie"],
+    specialties: ["Dla Ciebie", "Dla rodziny", "Dla firmy"],
   },
   actions: {
     primary: { label: "Zadzwoń teraz" },

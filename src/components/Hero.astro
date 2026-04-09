@@ -99,9 +99,12 @@ import HeroStatCard from "./HeroStatCard.astro";
               <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
             </div>
 
-            <div class="hero-advisor-panel__chips">
-              {hero.advisorCard.specialties.map((specialty) => (
-                <span class="hero-advisor-panel__chip">{specialty}</span>
+            <div class="hero-advisor-panel__specialties">
+              {hero.advisorCard.specialties.map((specialty, i) => (
+                <Fragment>
+                  <span class="hero-advisor-panel__specialty">{specialty}</span>
+                  {i < hero.advisorCard.specialties.length - 1 && <span class="hero-advisor-panel__specialty-dot">·</span>}
+                </Fragment>
               ))}
             </div>
           </div>
