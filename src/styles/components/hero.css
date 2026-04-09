@@ -9,7 +9,7 @@
 @media (min-width: 1024px) {
   .hero-bento-grid {
     grid-template-columns: 55fr 45fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr;
     height: 88vh;
     max-height: 890px;
   }
@@ -17,11 +17,6 @@
   .hero-bento-text {
     grid-column: 1;
     grid-row: 1;
-  }
-
-  .hero-bento-stats {
-    grid-column: 1;
-    grid-row: 2;
   }
 
   .hero-bento-image {
