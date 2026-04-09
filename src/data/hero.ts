@@ -6,7 +6,7 @@ export const hero = {
     "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny.<br>Jasne warunki, brak ukrytych kosztów.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
-    role: "Jerzy PolXXXX • Ubezpieczenia bez stresu",
+    role: "Ochrona dopasowana do Ciebie • Jerzy PolXXXX",
     quote:
       "Najpierw porządkujemy sytuację, potem dobieramy ochronę. Bez pośpiechu i bez przypadkowych decyzji.",
     specialties: ["Dla Ciebie", "Dla rodziny", "Dla firmy"],
