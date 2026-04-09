@@ -5,7 +5,7 @@ import HeroBackground from "./HeroBackground.astro";
 import HeroStatCard from "./HeroStatCard.astro";
 ---
 
-<section class="min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
+<section class="min-h-screen flex flex-col items-center justify-center px-4 py-12 overflow-hidden">
   <!-- Bento grid -->
   <div class="hero-bento-grid w-[96vw] max-w-[1650px]">
 
@@ -66,20 +66,21 @@ import HeroStatCard from "./HeroStatCard.astro";
           </a>
         </div>
 
-        <!-- Stats -->
-        <div class="hero-delay-600 pt-4 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100 grid grid-cols-3 gap-3">
-          {hero.stats.map((stat) => (
-            <div class="flex flex-col items-center justify-center text-center p-2.5 lg:p-3">
-              <span class="font-(family-name:--font-heading) text-base lg:text-lg font-semibold text-white/60 leading-none">
-                {stat.value}
-              </span>
-              <span class="mt-1 text-[0.65rem] text-white/40 leading-tight">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero-bento-stats animate-[hero-card-enter_0.8s_ease-out_both] hero-delay-600 motion-reduce:animate-none grid grid-cols-3 h-full items-center">
+      {hero.stats.map((stat, i) => (
+        <div class:list={["hero-stat flex flex-col items-center justify-center text-center py-3 px-4 lg:py-4 lg:px-5", { "hero-stat--bordered": i < hero.stats.length - 1 }]}>
+          <span class="font-(family-name:--font-heading) text-lg lg:text-xl font-bold text-[#f59e0b] leading-none">
+            {stat.value}
+          </span>
+          <span class="mt-1.5 text-[0.65rem] text-white/50 leading-tight">
+            {stat.label}
+          </span>
+        </div>
+      ))}
     </div>
 
     <!-- Image card -->
@@ -113,5 +114,16 @@ import HeroStatCard from "./HeroStatCard.astro";
       </div>
     </div>
 
+  </div>
+
+  <!-- City names -->
+  <div class="hero-cities" aria-hidden="true">
+    <span>KRASNYSTAW</span>
+    <span class="hero-cities__dot">·</span>
+    <span>ZAMOŚĆ</span>
+    <span class="hero-cities__dot">·</span>
+    <span>CHEŁM</span>
+    <span class="hero-cities__dot">·</span>
+    <span>LUBLIN</span>
   </div>
 </section>

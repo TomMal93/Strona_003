@@ -9,7 +9,7 @@
 @media (min-width: 1024px) {
   .hero-bento-grid {
     grid-template-columns: 55fr 45fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr auto;
     height: 88vh;
     max-height: 890px;
   }
@@ -19,9 +19,14 @@
     grid-row: 1;
   }
 
+  .hero-bento-stats {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .hero-bento-image {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / -1;
   }
 }
 
@@ -382,5 +387,36 @@
         0 0 120px rgba(251, 191, 36, 0.12),
         0 4px 30px rgba(0, 0, 0, 0.4);
     }
+  }
+}
+
+/* ── Stats ── */
+.hero-stat--bordered {
+  border-right: 1px solid rgba(245, 158, 11, 0.18);
+}
+
+/* ── City names ── */
+.hero-cities {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: calc(1.25rem + 90px);
+  font-family: var(--font-heading);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245, 158, 11, 0.35);
+  align-items: center;
+}
+
+.hero-cities__dot {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .hero-cities {
+    gap: 3rem;
   }
 }
