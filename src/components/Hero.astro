@@ -3,6 +3,8 @@ import { hero } from "../data/hero";
 import { company } from "../data/company";
 import HeroBackground from "./HeroBackground.astro";
 import HeroStatCard from "./HeroStatCard.astro";
+import { Image } from "astro:assets";
+import pzuLogo from "../assets/pzu_logo.png";
 ---
 
 <section class="min-h-screen flex flex-col items-center justify-center px-4 py-12 overflow-hidden">
@@ -93,9 +95,11 @@ import HeroStatCard from "./HeroStatCard.astro";
 
       <div class="hero-advisor-panel">
         <div class="hero-advisor-panel__main">
+          <Image src={pzuLogo} alt="PZU" class="hero-advisor-panel__logo" />
+
           <div class="hero-advisor-panel__info">
             <div class="hero-advisor-panel__header">
-              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent <img src="/images/pzu-logo.svg" alt="PZU" class="hero-advisor-panel__logo" /></p>
+              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent PZU</p>
               <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
             </div>
 
@@ -105,7 +109,6 @@ import HeroStatCard from "./HeroStatCard.astro";
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>

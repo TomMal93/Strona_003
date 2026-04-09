@@ -124,9 +124,12 @@
 
 .hero-advisor-panel__main {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  gap: 1.2rem;
 }
+
 
 .hero-advisor-panel__info {
   display: flex;
@@ -145,6 +148,7 @@
 .hero-advisor-panel__eyebrow {
   display: inline-flex;
   align-items: center;
+  align-self: flex-end;
   gap: 0.4rem;
   margin: 0;
   color: rgba(245, 158, 11, 0.9);
@@ -156,10 +160,12 @@
 }
 
 .hero-advisor-panel__logo {
-  height: 0.5rem;
-  width: auto;
-  vertical-align: middle;
-  margin-left: 0.1rem;
+  flex-shrink: 0;
+  width: auto !important;
+  height: 3rem !important;
+  object-fit: contain;
+  align-self: center;
+  opacity: 0.85;
 }
 
 .hero-advisor-panel__role {
