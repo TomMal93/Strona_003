@@ -16,6 +16,11 @@ export const hero = {
     secondary: { label: "O mnie", href: "#o-mnie" },
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
+  proofBar: [
+    { label: "Status", value: "Autoryzowany agent PZU" },
+    { label: "Obsługa", value: "Telefonicznie, online i lokalnie" },
+    { label: "Wsparcie", value: "Pomoc przy wyborze i wznowieniach" },
+  ],
   highlights: [
     "Indywidualne podejście",
     "Bezpłatna konsultacja",

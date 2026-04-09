@@ -44,6 +44,32 @@
 }
 
 /* ── Image card ── */
+.hero-content-shell {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.hero-content-header {
+  margin-top: auto;
+}
+
+.hero-content-meta {
+  display: grid;
+  gap: 1rem;
+  margin: 1.2rem 0 1.35rem;
+}
+
+.hero-content-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: auto;
+  gap: 3rem;
+}
+
 .hero-bento-image img {
   width: 100%;
   height: 100%;
@@ -206,6 +232,52 @@
   line-height: 1.55;
 }
 
+.hero-proof-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(245, 158, 11, 0.14);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(28, 21, 8, 0.4) 0%, rgba(17, 24, 39, 0.72) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.hero-proof-bar__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.hero-proof-bar__item::before {
+  content: "";
+  flex: none;
+  width: 0.38rem;
+  height: 0.38rem;
+  margin-top: 0.15rem;
+  border-radius: 999px;
+  background: #f59e0b;
+  box-shadow: 0 0 0 0.18rem rgba(245, 158, 11, 0.14);
+}
+
+.hero-proof-bar__label {
+  color: rgba(245, 158, 11, 0.78);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-proof-bar__value {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-heading);
+  font-size: clamp(0.82rem, 0.96vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 /* Mobile image height */
 .hero-bento-image {
   min-height: 420px;
@@ -214,12 +286,34 @@
 }
 
 @media (min-width: 640px) {
+  .hero-content-actions {
+    gap: 3rem;
+  }
+
+  .hero-proof-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+
+  .hero-proof-bar__item {
+    flex: 1 1 0;
+  }
+
   .hero-bento-image {
     min-height: 480px;
   }
 
   .hero-advisor-panel {
     padding: 1.3rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content-meta {
+    gap: 1.15rem;
+    margin: 1.5rem 0 1.6rem;
   }
 }
 
@@ -231,6 +325,18 @@
 }
 
 @media (min-width: 1024px) {
+  .hero-content-shell {
+    justify-content: flex-end;
+  }
+
+  .hero-content-header {
+    margin-top: 0;
+  }
+
+  .hero-content-meta {
+    margin: 1.75rem 0 1.9rem;
+  }
+
   .hero-bento-image {
     height: 100%;
     min-height: 0;
