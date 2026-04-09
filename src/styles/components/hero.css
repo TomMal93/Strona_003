@@ -162,7 +162,7 @@
 .hero-advisor-panel__logo {
   flex-shrink: 0;
   width: auto !important;
-  height: 3rem !important;
+  height: clamp(4.35rem, 6.1vw, 5.1rem) !important;
   object-fit: contain;
   align-self: center;
   opacity: 0.85;
