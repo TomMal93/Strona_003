@@ -10,6 +10,7 @@ export interface SocialLink {
 
 export const navLinks: NavLink[] = [
   { label: "Oferta", href: "#oferta" },
+  { label: "FAQ", href: "#faq" },
   { label: "O mnie", href: "#o-mnie" },
   { label: "Kontakt", href: "#kontakt" },
 ];
