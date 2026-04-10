@@ -1,5 +1,6 @@
 ---
 import Container from "./ui/Container.astro";
+import Button from "./ui/Button.astro";
 import { services } from "../data/services";
 ---
 
@@ -22,8 +23,8 @@ import { services } from "../data/services";
           </div>
           <h2 class="services-section__title">Oferta</h2>
           <p class="services-section__intro">
-            Pomagam dobrać odpowiednią ochronę z&nbsp;oferty PZU. Sprawdź, w&nbsp;jakich obszarach mogę przygotować
-            <strong>czytelną i dopasowaną propozycję</strong>.
+            Oferuję ubezpieczenia <strong>PZU w&nbsp;Krasnymstawie i&nbsp;okolicy</strong>, pomagając dobrać ochronę
+            dopasowaną do codziennych potrzeb klientów indywidualnych, rodzin oraz firm.
           </p>
           <div class="services-section__divider" aria-hidden="true"></div>
         </div>
@@ -73,6 +74,12 @@ import { services } from "../data/services";
               </ul>
             </div>
           ))}
+        </div>
+
+        <div class="services-section__actions">
+          <Button href="/oferta" variant="accent" class="services-section__button">
+            Zobacz pełną ofertę
+          </Button>
         </div>
       </div>
     </div>
