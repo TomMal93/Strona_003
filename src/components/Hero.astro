@@ -3,6 +3,7 @@ import { hero, heroTrustIcons } from "../data/hero";
 import { company } from "../data/company";
 import HeroBackground from "./HeroBackground.astro";
 import HeroStatCard from "./HeroStatCard.astro";
+import Button from "./ui/Button.astro";
 import PhoneButton from "./ui/PhoneButton.astro";
 import { Image } from "astro:assets";
 import pzuLogo from "../assets/pzu_logo.png";
@@ -65,19 +66,21 @@ import pzuLogo from "../assets/pzu_logo.png";
               class="group justify-center cursor-pointer"
             />
 
-            <a
+            <Button
               href={hero.actions.secondary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-7 py-4 text-base font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              variant="accent"
+              class="group"
             >
               {hero.actions.secondary.label}
-            </a>
+            </Button>
 
-            <a
+            <Button
               href={hero.actions.tertiary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-7 py-4 text-base font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              variant="accent"
+              class="group"
             >
               {hero.actions.tertiary.label}
-            </a>
+            </Button>
           </div>
         </div>
       </div>
