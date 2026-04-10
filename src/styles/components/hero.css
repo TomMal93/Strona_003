@@ -115,9 +115,9 @@
   text-align: center;
   gap: 0.5rem;
   padding: clamp(0.8rem, 2dvh, 1.2rem) clamp(0.5rem, 0.8vw, 0.75rem);
-  border-radius: 0.6rem;
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.008);
+  border: 1px solid rgba(255, 255, 255, 0.02);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
