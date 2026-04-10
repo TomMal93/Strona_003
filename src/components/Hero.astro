@@ -80,27 +80,27 @@ import pzuLogo from "../assets/pzu_logo.png";
           <div class="hero-actions-row flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center sm:justify-center">
             <a
               href={`tel:${company.phone.replace(/\s/g, "")}`}
-              class="group inline-flex items-center justify-center gap-2.5 rounded-(--radius-lg) border border-[#f59e0b]/30 bg-[#f59e0b]/10 px-6 py-3 text-sm font-semibold tracking-wide text-[#f59e0b] transition-all duration-300 hover:bg-[#f59e0b]/18 hover:border-[#f59e0b]/50 hover:text-[#fde68a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent) cursor-pointer"
+              class="group inline-flex items-center justify-center gap-3 rounded-(--radius-lg) border border-[#f59e0b]/30 bg-[#f59e0b]/10 px-7 py-4 text-base font-semibold tracking-wide text-[#f59e0b] transition-all duration-300 hover:bg-[#f59e0b]/18 hover:border-[#f59e0b]/50 hover:text-[#fde68a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent) cursor-pointer"
             >
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <svg class="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
               </svg>
               <span class="flex flex-col items-start leading-tight">
                 <span>{hero.actions.primary.label}</span>
-                <span class="text-[0.65rem] font-normal text-[#f59e0b]/50 tracking-wider">{company.phone}</span>
+                <span class="text-[0.75rem] font-normal text-[#f59e0b]/58 tracking-wider">{company.phone}</span>
               </span>
             </a>
 
             <a
               href={hero.actions.secondary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-6 py-3 text-sm font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-7 py-4 text-base font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
             >
               {hero.actions.secondary.label}
             </a>
 
             <a
               href={hero.actions.tertiary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-6 py-3 text-sm font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-7 py-4 text-base font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
             >
               {hero.actions.tertiary.label}
             </a>
