@@ -9,7 +9,7 @@ import pzuLogo from "../assets/pzu_logo.png";
 
 <section class="min-h-screen flex flex-col items-center justify-center px-4 py-12 overflow-hidden">
   <!-- Bento grid -->
-  <div class="hero-bento-grid w-[96vw] max-w-[1650px]">
+  <div class="hero-bento-grid w-full max-w-[1650px]">
 
     <!-- Text + Highlights + CTA card -->
     <div class="hero-bento-card hero-bento-text relative overflow-hidden animate-[hero-card-enter_0.8s_ease-out_both] motion-reduce:animate-none">
@@ -76,7 +76,7 @@ import pzuLogo from "../assets/pzu_logo.png";
 
         <!-- CTA -->
         <div class="hero-content-actions hero-delay-600 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
-          <div class="hero-delay-400 w-full animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100 grid grid-cols-3 items-center">
+          <div class="hero-delay-400 w-full animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100 grid grid-cols-1 sm:grid-cols-3 items-center">
             {hero.highlights.map((text, i) => (
               <div class:list={["hero-stat flex items-center justify-center text-center py-2 px-3 lg:py-3 lg:px-4", { "hero-stat--bordered": i < hero.highlights.length - 1 }]}>
                 <span class="font-(family-name:--font-heading) text-xs lg:text-sm font-semibold text-[#f59e0b]/80 leading-tight tracking-wide">

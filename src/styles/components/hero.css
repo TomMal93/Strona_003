@@ -233,7 +233,14 @@
 
 .hero-proof-bar {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.55rem;
+}
+
+@media (max-width: 639px) {
+  .hero-proof-bar__item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 .hero-proof-bar__item {
@@ -394,10 +401,6 @@
 
   .hero-advisor-panel {
     padding: 1.4rem 2rem;
-  }
-
-  .hero-advisor-panel {
-    padding: 1.1rem;
   }
 
   .hero-advisor-panel__info {
@@ -624,7 +627,14 @@
 
 /* ── Stats ── */
 .hero-stat--bordered {
-  border-right: 1px solid rgba(245, 158, 11, 0.18);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+}
+
+@media (min-width: 640px) {
+  .hero-stat--bordered {
+    border-bottom: none;
+    border-right: 1px solid rgba(245, 158, 11, 0.18);
+  }
 }
 
 /* ── Text shimmer on accent word ── */
@@ -708,7 +718,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: calc(1.25rem + 90px);
+  margin-top: 2rem;
   font-family: var(--font-heading);
   font-size: clamp(0.7rem, 1.1vw, 0.9rem);
   font-weight: 700;
@@ -716,6 +726,12 @@
   text-transform: uppercase;
   color: rgba(245, 158, 11, 0.35);
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-cities {
+    margin-top: calc(1.25rem + 90px);
+  }
 }
 
 .hero-cities__dot {
