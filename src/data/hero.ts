@@ -17,8 +17,20 @@ export const hero = {
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
   trustList: [
-    { icon: "shield", title: "Bez presji", text: "Jasne warunki, spokojne wyjaśnienie" },
-    { icon: "map", title: "Lokalnie", text: "Krasnystaw, Zamość, Chełm, Lublin" },
-    { icon: "support", title: "Wsparcie", text: "Wznowienia, zmiany, dopasowanie" },
+    {
+      icon: "contact",
+      title: "Dopasowany kontakt",
+      text: "Telefon lub spotkanie na miejscu, tak jak Ci wygodnie.",
+    },
+    {
+      icon: "person",
+      title: "Jeden kontakt",
+      text: "Masz stałą osobę do kontaktu w sprawie polisy.",
+    },
+    {
+      icon: "clock",
+      title: "Szybki odzew",
+      text: "Oddzwaniam tego samego dnia.",
+    },
   ],
 } as const;
