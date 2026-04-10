@@ -24,3 +24,5 @@ export const company = {
     linkedin: readEnv("PUBLIC_COMPANY_LINKEDIN", ""),
   },
 } as const;
+
+export const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;
