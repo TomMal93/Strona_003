@@ -6,10 +6,10 @@ export const hero = {
     "Nie zaczynam od gotowej oferty, ale od poznania Twojej sytuacji i tego, co naprawdę ma dla Ciebie znaczenie.<br>Dopiero potem dobieramy właściwe rozwiązanie.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
-    role: "Ochrona dopasowana do Ciebie • Jerzy PolXXXX",
+    role: "Jerzy PolXXXX",
     quote:
       "Najpierw porządkujemy sytuację, potem dobieramy ochronę. Bez pośpiechu i bez przypadkowych decyzji.",
-    specialties: ["Dla Ciebie", "Dla rodziny", "Dla firmy"],
+    specialties: ["Ciebie", "Rodzinę", "Firmę"],
   },
   actions: {
     primary: { label: "Zadzwoń teraz" },

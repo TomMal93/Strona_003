@@ -117,15 +117,18 @@ import pzuLogo from "../assets/pzu_logo.png";
       <div class="hero-advisor-panel">
         <div class="hero-advisor-panel__main">
           <div class="hero-advisor-panel__info">
-            <div class="hero-advisor-panel__header">
-              <p class="hero-advisor-panel__eyebrow">Spokojnie, konkretnie, po ludzku</p>
-              <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
+            <div class="hero-advisor-panel__topline">
+              <p class="hero-advisor-panel__services-label">Pomagam zabezpieczyć:</p>
+              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent PZU</p>
             </div>
 
-            <div class="hero-advisor-panel__specialties">
-              {hero.advisorCard.specialties.map((specialty) => (
-                <span class="hero-advisor-panel__pill">{specialty}</span>
-              ))}
+            <div class="hero-advisor-panel__bottomline">
+              <p class="hero-advisor-panel__specialties" aria-label="Zakres usług">
+                {hero.advisorCard.specialties.join(" • ")}
+              </p>
+              {hero.advisorCard.role && (
+                <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
+              )}
             </div>
           </div>
         </div>
