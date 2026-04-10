@@ -10,6 +10,7 @@ export const company = {
     city: readEnv("PUBLIC_COMPANY_CITY", "Warszawa"),
     zip: readEnv("PUBLIC_COMPANY_ZIP", "00-000"),
   },
+  serviceAreas: ["Krasnystaw", "Zamość", "Chełm", "Lublin"],
   schema: {
     openingHours: readEnv("PUBLIC_COMPANY_OPENING_HOURS", "Mo-Fr 09:00-17:00"),
     geo: {
