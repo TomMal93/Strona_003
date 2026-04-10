@@ -1,9 +1,9 @@
 export const hero = {
-  tagline: "Twój agent ubezpieczeniowy",
+  tagline: "Twój doradca ubezpieczeniowy",
   title:
-    'Twoje <span class="hero-shimmer">bezpieczeństwo</span><br>w dobrych rękach',
+    'Wspólnie dobierzemy rozwiązanie dopasowane<br>do Twojej <span class="hero-shimmer">sytuacji</span>.',
   description:
-    "Rekomenduję tylko rozwiązania, które sam wybrałbym dla swojej rodziny.<br>Jasne warunki, brak ukrytych kosztów.",
+    "Nie zaczynam od gotowej oferty, ale od poznania Twojej sytuacji i tego, co naprawdę ma dla Ciebie znaczenie.<br>Dopiero potem dobieramy właściwe rozwiązanie.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
     role: "Ochrona dopasowana do Ciebie • Jerzy PolXXXX",
