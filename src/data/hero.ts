@@ -16,30 +16,10 @@ export const hero = {
     secondary: { label: "O mnie", href: "#o-mnie" },
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
-  proofBar: [
-    {
-      icon: "shield",
-      label: "Sprawdzona ochrona",
-      value: "Spokojnie, konkretnie, bez presji",
-      note: "Jasne warunki, spokojne wyjaśnienie zakresu i rekomendacje dopasowane do Twojej sytuacji.",
-      featured: true,
-    },
-    {
-      icon: "map",
-      label: "Lokalnie lub zdalnie",
-      value: "Krasnystaw, Zamość, Chełm, Lublin",
-      note: "Możemy spotkać się na miejscu, porozmawiać telefonicznie albo przejść cały proces online.",
-    },
-    {
-      icon: "support",
-      label: "Pomoc także później",
-      value: "Wznowienia, zmiany i dopasowanie polisy",
-      note: "Wsparcie nie kończy się na wyborze oferty. Pomagam też wtedy, gdy Twoja sytuacja się zmienia.",
-    },
-  ],
-  highlights: [
-    "Indywidualne podejście",
-    "Bezpłatna konsultacja",
-    "Bez ukrytych kosztów",
+  trustList: [
+    { icon: "shield", text: "Bez presji — jasne warunki, spokojne wyjaśnienie" },
+    { icon: "map", text: "Lokalnie lub online — Krasnystaw, Zamość, Chełm, Lublin" },
+    { icon: "support", text: "Pomoc także później — wznowienia, zmiany, dopasowanie" },
+    { icon: "check", text: "Bezpłatna konsultacja, bez ukrytych kosztów" },
   ],
 } as const;

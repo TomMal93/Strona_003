@@ -38,54 +38,42 @@ import pzuLogo from "../assets/pzu_logo.png";
           class="hero-delay-300 mt-6 h-px w-full max-w-[540px] animate-[hero-fade-up_0.7s_ease-out_both] bg-gradient-to-r from-transparent via-[#f59e0b]/20 to-transparent motion-reduce:animate-none motion-reduce:opacity-100"
         ></div>
 
-        <div class="hero-content-meta">
-          <div class="hero-proof-bar hero-delay-450 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
-            {hero.proofBar.map((item) => (
-              <div class:list={["hero-proof-bar__item", { "hero-proof-bar__item--featured": item.featured }]}>
-                <div class="hero-proof-bar__top">
-                  <span class="hero-proof-bar__icon" aria-hidden="true">
-                    {item.icon === "shield" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3.2v5.4c0 4.5-2.8 8.7-7 10.4-4.2-1.7-7-5.9-7-10.4V6.2L12 3z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 11.9l1.55 1.55 3.2-3.45" />
-                      </svg>
-                    )}
-                    {item.icon === "map" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" />
-                        <circle cx="12" cy="11" r="2.15" />
-                      </svg>
-                    )}
-                    {item.icon === "support" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1115 0v2.1a1.9 1.9 0 01-1.9 1.9H16v-4.6h1.6V12a5.6 5.6 0 10-11.2 0v4H4.5A1.9 1.9 0 012.6 14.1V12" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 18.2c0 1.55-1.45 2.8-3.25 2.8H12" />
-                      </svg>
-                    )}
-                  </span>
-
-                  <span class="hero-proof-bar__label">{item.label}</span>
-                </div>
-
-                <span class="hero-proof-bar__value">{item.value}</span>
-                <p class="hero-proof-bar__note">{item.note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <!-- Trust list -->
+        <ul class="hero-trust-list hero-delay-400 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
+          {hero.trustList.map((item) => (
+            <li class="hero-trust-list__item">
+              <span class="hero-trust-list__icon" aria-hidden="true">
+                {item.icon === "shield" && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3.2v5.4c0 4.5-2.8 8.7-7 10.4-4.2-1.7-7-5.9-7-10.4V6.2L12 3z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 11.9l1.55 1.55 3.2-3.45" />
+                  </svg>
+                )}
+                {item.icon === "map" && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" />
+                    <circle cx="12" cy="11" r="2.15" />
+                  </svg>
+                )}
+                {item.icon === "support" && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1115 0v2.1a1.9 1.9 0 01-1.9 1.9H16v-4.6h1.6V12a5.6 5.6 0 10-11.2 0v4H4.5A1.9 1.9 0 012.6 14.1V12" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 18.2c0 1.55-1.45 2.8-3.25 2.8H12" />
+                  </svg>
+                )}
+                {item.icon === "check" && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </span>
+              <span class="hero-trust-list__text">{item.text}</span>
+            </li>
+          ))}
+        </ul>
 
         <!-- CTA -->
         <div class="hero-content-actions hero-delay-600 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
-          <div class="hero-delay-400 w-full animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100 grid grid-cols-1 sm:grid-cols-3 items-center">
-            {hero.highlights.map((text, i) => (
-              <div class:list={["hero-stat flex items-center justify-center text-center py-2 px-3 lg:py-3 lg:px-4", { "hero-stat--bordered": i < hero.highlights.length - 1 }]}>
-                <span class="font-(family-name:--font-heading) text-xs lg:text-sm font-semibold text-[#f59e0b]/80 leading-tight tracking-wide">
-                  {text}
-                </span>
-              </div>
-            ))}
-          </div>
-
           <div class="hero-actions-row flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center sm:justify-center">
             <a
               href={`tel:${company.phone.replace(/\s/g, "")}`}
