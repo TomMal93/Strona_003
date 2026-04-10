@@ -1,6 +1,6 @@
 ---
-import { navLinks } from "../../data/navigation";
 import NavSocialIcons from "./NavSocialIcons.astro";
+import NavLinkList from "./NavLinkList.astro";
 import PhoneButton from "../ui/PhoneButton.astro";
 ---
 
@@ -8,20 +8,7 @@ import PhoneButton from "../ui/PhoneButton.astro";
 
 <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobilne">
   <div class="flex h-full flex-col px-6 pt-20 pb-8">
-    <ul class="flex flex-col gap-6">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="nav-link text-lg"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <NavLinkList listClass="flex flex-col gap-6" linkClass="text-lg" />
 
     <div class="mt-auto flex flex-col gap-6">
       <NavSocialIcons />
