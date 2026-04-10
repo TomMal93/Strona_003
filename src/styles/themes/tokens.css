@@ -10,6 +10,9 @@
   --color-secondary-light: #14b8a6;
 
   --color-accent: #f59e0b;
+  --color-accent-rgb: 245 158 11;
+  --color-accent-light: #fbbf24;
+  --color-accent-pale: #fde68a;
 
   --color-text: #e5e7eb;
   --color-text-light: #9ca3af;
@@ -17,7 +20,7 @@
 
   --color-bg: #0a1628;
   --color-bg-alt: #111827;
-  --color-bg-dark: #111827;
+  --color-bg-alt-rgb: 17 24 39;
 
   --color-border: #1e293b;
 

@@ -20,12 +20,12 @@
   left: 15%;
   right: 15%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--color-accent-rgb) / 0.2), transparent);
   transition: opacity 0.4s ease;
 }
 
 .navbar--scrolled .navbar-card {
-  background-color: rgba(17, 24, 39, 0.85);
+  background-color: rgb(var(--color-bg-alt-rgb) / 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
@@ -59,7 +59,7 @@
   display: block;
   width: 1.25rem;
   height: 2px;
-  background-color: rgba(245, 158, 11, 0.7);
+  background-color: rgb(var(--color-accent-rgb) / 0.7);
   border-radius: 1px;
   transition:
     transform 0.3s ease,
@@ -86,7 +86,7 @@
   width: 80%;
   max-width: 320px;
   z-index: 60;
-  background-color: rgba(17, 24, 39, 0.97);
+  background-color: rgb(var(--color-bg-alt-rgb) / 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);

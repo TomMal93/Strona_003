@@ -48,7 +48,7 @@
 /* ── Shared bento card ── */
 .hero-bento-card {
   position: relative;
-  background: #111827;
+  background: var(--color-bg-alt);
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
@@ -61,7 +61,7 @@
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--color-accent-rgb) / 0.25), transparent);
   border-radius: 1px;
   transition: opacity 0.4s ease;
 }
@@ -122,8 +122,8 @@
 }
 
 .hero-trust-card:hover {
-  background: rgba(245, 158, 11, 0.05);
-  border-color: rgba(245, 158, 11, 0.12);
+  background: rgb(var(--color-accent-rgb) / 0.05);
+  border-color: rgb(var(--color-accent-rgb) / 0.12);
 }
 
 .hero-trust-card__icon {
@@ -133,7 +133,7 @@
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
-  color: rgba(245, 158, 11, 0.7);
+  color: rgb(var(--color-accent-rgb) / 0.7);
 }
 
 .hero-trust-card__icon svg {
@@ -225,7 +225,7 @@
 .hero-image-overlay {
   background:
     linear-gradient(180deg, rgba(10, 15, 24, 0.08) 0%, rgba(10, 15, 24, 0.18) 34%, rgba(10, 15, 24, 0.78) 100%),
-    radial-gradient(circle at top right, rgba(245, 158, 11, 0.24) 0%, rgba(245, 158, 11, 0) 38%);
+    radial-gradient(circle at top right, rgb(var(--color-accent-rgb) / 0.24) 0%, rgb(var(--color-accent-rgb) / 0) 38%);
 }
 
 .hero-advisor-status {
@@ -298,7 +298,7 @@
   align-items: center;
   gap: 0.4rem;
   margin: 0;
-  color: rgba(245, 158, 11, 0.9);
+  color: rgb(var(--color-accent-rgb) / 0.9);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -318,7 +318,7 @@
 
 .hero-advisor-panel__services-label {
   margin: 0;
-  color: rgba(245, 158, 11, 0.9);
+  color: rgb(var(--color-accent-rgb) / 0.9);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -343,9 +343,9 @@
   gap: 0.35rem;
   padding: 0.7rem 0.9rem 0.7rem 1rem;
   border: none;
-  border-left: 2px solid rgba(245, 158, 11, 0.45);
+  border-left: 2px solid rgb(var(--color-accent-rgb) / 0.45);
   border-radius: 0 0.6rem 0.6rem 0;
-  background: rgba(245, 158, 11, 0.04);
+  background: rgb(var(--color-accent-rgb) / 0.04);
 }
 
 .hero-advisor-quote__label {
@@ -425,19 +425,19 @@
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: 0.025em;
-  color: #fbbf24;
+  color: var(--color-accent-light);
   cursor: pointer;
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  border: 1px solid rgb(var(--color-accent-rgb) / 0.4);
   transition: box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-btn-primary:hover {
-  color: #fde68a;
-  border-color: rgba(245, 158, 11, 0.6);
+  color: var(--color-accent-pale);
+  border-color: rgb(var(--color-accent-rgb) / 0.6);
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.35),
-    0 0 20px rgba(245, 158, 11, 0.1);
+    0 0 20px rgb(var(--color-accent-rgb) / 0.1);
 }
 
 .hero-btn-primary:active {
@@ -453,7 +453,7 @@
   gap: 0.625rem;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgb(var(--color-accent-rgb) / 0.2);
   background: linear-gradient(165deg, rgba(42, 52, 71, 0.92) 0%, rgba(30, 40, 58, 0.95) 100%);
   backdrop-filter: blur(12px) saturate(140%);
   padding: 1rem 2rem;
@@ -467,7 +467,7 @@
 }
 
 .hero-btn-secondary:hover {
-  border-color: rgba(245, 158, 11, 0.35);
+  border-color: rgb(var(--color-accent-rgb) / 0.35);
   background: linear-gradient(165deg, rgba(52, 65, 87, 0.95) 0%, rgba(38, 50, 72, 0.98) 100%);
   color: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
@@ -481,7 +481,7 @@
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--color-accent-rgb) / 0.3), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -588,7 +588,7 @@
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(245, 158, 11, 0.45);
+  color: rgb(var(--color-accent-rgb) / 0.45);
   align-items: center;
 }
 
