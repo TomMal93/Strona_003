@@ -145,12 +145,11 @@ import pzuLogo from "../assets/pzu_logo.png";
 
   <!-- City names -->
   <div class="hero-cities" aria-hidden="true">
-    <span>KRASNYSTAW</span>
-    <span class="hero-cities__dot">·</span>
-    <span>ZAMOŚĆ</span>
-    <span class="hero-cities__dot">·</span>
-    <span>CHEŁM</span>
-    <span class="hero-cities__dot">·</span>
-    <span>LUBLIN</span>
+    {company.serviceAreas.map((city, index) => (
+      <>
+        {index > 0 && <span class="hero-cities__dot">·</span>}
+        <span>{city.toUpperCase()}</span>
+      </>
+    ))}
   </div>
 </section>
