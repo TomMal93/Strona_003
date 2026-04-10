@@ -31,4 +31,9 @@
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-full: 9999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
 }

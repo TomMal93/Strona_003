@@ -58,7 +58,7 @@
   inset: -50%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease;
+  transition: opacity var(--transition-slow);
   background: radial-gradient(
     circle at 30% 30%,
     rgb(var(--color-accent-rgb) / 0.08),
@@ -209,8 +209,8 @@
   border: none;
   color: var(--color-accent-light);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .service-card__feature:hover .service-card__check {
@@ -247,7 +247,7 @@
   background: rgb(var(--color-accent-rgb) / 0.2);
   border-radius: 999px;
   opacity: 0.3;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base);
 }
 
 .service-card:hover .service-card__decor {
