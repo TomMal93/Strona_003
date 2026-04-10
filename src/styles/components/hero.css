@@ -85,6 +85,16 @@
   padding-top: 18%;
 }
 
+@media (max-height: 1271px) {
+  .hero-content-shell {
+    padding-top: 10%;
+  }
+
+  .hero-content-header {
+    margin-bottom: clamp(1rem, 3dvh, 2rem);
+  }
+}
+
 .hero-content-header {
   margin-top: 0;
   flex-shrink: 0;
