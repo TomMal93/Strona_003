@@ -24,7 +24,7 @@ export const hero = {
     },
     {
       icon: "person",
-      title: "Jeden kontakt",
+      title: "Stały doradca",
       text: "Masz stałą osobę do kontaktu w sprawie polisy.",
     },
     {
