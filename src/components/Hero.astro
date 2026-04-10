@@ -34,11 +34,11 @@ import pzuLogo from "../assets/pzu_logo.png";
 
         <!-- Bottom group: trust list + CTA -->
         <div class="hero-content-actions hero-delay-400 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
-          <!-- Trust list -->
-          <ul class="hero-trust-list">
+          <!-- Trust cards -->
+          <div class="hero-trust-cards">
             {hero.trustList.map((item) => (
-              <li class="hero-trust-list__item">
-                <span class="hero-trust-list__icon" aria-hidden="true">
+              <div class="hero-trust-card">
+                <span class="hero-trust-card__icon" aria-hidden="true">
                   {item.icon === "shield" && (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3.2v5.4c0 4.5-2.8 8.7-7 10.4-4.2-1.7-7-5.9-7-10.4V6.2L12 3z" />
@@ -63,10 +63,11 @@ import pzuLogo from "../assets/pzu_logo.png";
                     </svg>
                   )}
                 </span>
-                <span class="hero-trust-list__text">{item.text}</span>
-              </li>
+                <span class="hero-trust-card__title">{item.title}</span>
+                <span class="hero-trust-card__text">{item.text}</span>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <!-- Separator -->
           <div aria-hidden="true" class="h-px w-full max-w-[540px] bg-gradient-to-r from-transparent via-[#f59e0b]/15 to-transparent"></div>

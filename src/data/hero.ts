@@ -17,9 +17,8 @@ export const hero = {
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
   trustList: [
-    { icon: "shield", text: "Bez presji — jasne warunki, spokojne wyjaśnienie" },
-    { icon: "map", text: "Lokalnie lub online — Krasnystaw, Zamość, Chełm, Lublin" },
-    { icon: "support", text: "Pomoc także później — wznowienia, zmiany, dopasowanie" },
-    { icon: "check", text: "Bezpłatna konsultacja, bez ukrytych kosztów" },
+    { icon: "shield", title: "Bez presji", text: "Jasne warunki, spokojne wyjaśnienie" },
+    { icon: "map", title: "Lokalnie", text: "Krasnystaw, Zamość, Chełm, Lublin" },
+    { icon: "support", title: "Wsparcie", text: "Wznowienia, zmiany, dopasowanie" },
   ],
 } as const;
