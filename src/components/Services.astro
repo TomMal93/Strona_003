@@ -5,61 +5,72 @@ import { services } from "../data/services";
 
 <section id="oferta" class="section-padding">
   <Container>
-    <div class="text-center mb-12">
-      <h2 class="font-(family-name:--font-heading) text-3xl sm:text-4xl font-bold text-white mb-4">
-        Ubezpieczenia PZU w&nbsp;Krasnymstawie i&nbsp;okolicy
-      </h2>
-      <p class="text-(--color-text-light) max-w-2xl mx-auto text-lg">
-        Pomagam dobrać odpowiednią ochronę z&nbsp;oferty PZU. Sprawdź, w&nbsp;czym mogę Ci pomóc.
-      </p>
-    </div>
-
-    <div class="services-grid">
-      {services.map((service, i) => (
-        <div class="service-card" data-delay={i * 100}>
-          {/* Absolute-positioned elements — outside subgrid flow */}
-          <div class="service-card__glow"></div>
-          {service.badge && (
-            <span class="service-card__badge">{service.badge}</span>
-          )}
-          <div class="service-card__decor"></div>
-
-          {/* Row 1: Header */}
-          <div class="service-card__header">
-            <div class="service-card__icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <Fragment set:html={service.icon} />
+    <div class="services-shell">
+      <div class="services-shell__inner">
+        <div class="services-section__header">
+          <div class="services-section__icon-wrapper" aria-hidden="true">
+            <div class="services-section__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 6.75h10" />
+                <path d="M7 12h10" />
+                <path d="M7 17.25h6" />
+                <path d="M4.75 6.75h.5" />
+                <path d="M4.75 12h.5" />
+                <path d="M4.75 17.25h.5" />
               </svg>
             </div>
-            <div class="service-card__titles">
-              <div class="service-card__title-row">
-                <h3 class="service-card__title">{service.title}</h3>
-              </div>
-              <p class="service-card__subtitle">{service.subtitle}</p>
-            </div>
           </div>
-
-          {/* Row 2: Description */}
-          <p class="service-card__desc">{service.description}</p>
-
-          {/* Row 3: Divider */}
-          <div class="service-card__divider"></div>
-
-          {/* Row 4: Features */}
-          <ul class="service-card__features">
-            {service.features.map((feature) => (
-              <li class="service-card__feature">
-                <span class="service-card__check">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span class="service-card__feature-label">{feature}</span>
-              </li>
-            ))}
-          </ul>
+          <h2 class="services-section__title">Oferta</h2>
+          <p class="services-section__intro">
+            Pomagam dobrać odpowiednią ochronę z&nbsp;oferty PZU. Sprawdź, w&nbsp;jakich obszarach mogę przygotować
+            <strong>czytelną i dopasowaną propozycję</strong>.
+          </p>
+          <div class="services-section__divider" aria-hidden="true"></div>
         </div>
-      ))}
+
+        <div class="services-grid">
+          {services.map((service, i) => (
+            <div class="service-card" data-delay={i * 100}>
+              <div class="service-card__glow"></div>
+              {service.badge && (
+                <span class="service-card__badge">{service.badge}</span>
+              )}
+              <div class="service-card__decor"></div>
+
+              <div class="service-card__header">
+                <div class="service-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <Fragment set:html={service.icon} />
+                  </svg>
+                </div>
+                <div class="service-card__titles">
+                  <div class="service-card__title-row">
+                    <h3 class="service-card__title">{service.title}</h3>
+                  </div>
+                  <p class="service-card__subtitle">{service.subtitle}</p>
+                </div>
+              </div>
+
+              <p class="service-card__desc">{service.description}</p>
+
+              <div class="service-card__divider"></div>
+
+              <ul class="service-card__features">
+                {service.features.map((feature) => (
+                  <li class="service-card__feature">
+                    <span class="service-card__check">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class="service-card__feature-label">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </Container>
 </section>
