@@ -576,22 +576,18 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: clamp(0.5rem, 2dvh, 1.25rem);
+  margin-top: auto;
+  margin-bottom: auto;
   flex-shrink: 0;
   font-family: var(--font-heading);
   font-size: clamp(0.7rem, 1.1vw, 0.9rem);
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(245, 158, 11, 0.35);
+  color: rgba(245, 158, 11, 0.45);
   align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .hero-cities {
-    margin-top: clamp(0.75rem, 2dvh, 1.5rem);
-  }
-}
 
 .hero-cities__dot {
   font-size: 1.2em;
