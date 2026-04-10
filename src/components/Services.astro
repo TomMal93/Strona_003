@@ -30,7 +30,11 @@ import { services } from "../data/services";
 
         <div class="services-grid">
           {services.map((service, i) => (
-            <div class="service-card" data-delay={i * 100}>
+            <div
+              class="service-card"
+              data-delay={i * 100}
+              data-service={service.title === "Zdrowotne" ? "health" : service.title === "Firmowe" ? "business" : "default"}
+            >
               <div class="service-card__glow"></div>
               {service.badge && (
                 <span class="service-card__badge">{service.badge}</span>
