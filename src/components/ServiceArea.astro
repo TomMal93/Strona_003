@@ -1,0 +1,141 @@
+---
+import "../styles/components/service-area.css";
+import SectionFrame from "./ui/SectionFrame.astro";
+import { serviceArea } from "../data/serviceArea";
+---
+
+<SectionFrame
+  id="obszar-dzialania"
+  title={serviceArea.sectionTitle}
+  shellClass="area-shell"
+>
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 10.5 12 4l9 6.5v8L12 22l-9-3.5z" />
+      <path d="M12 10.5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5Z" />
+      <path d="M12 8.2c-2.1 0-3.8 1.61-3.8 3.64c0 2.79 3.8 6.96 3.8 6.96s3.8-4.17 3.8-6.96c0-2.03-1.7-3.64-3.8-3.64Z" />
+    </svg>
+  </Fragment>
+
+  <p slot="intro">{serviceArea.sectionIntro}</p>
+
+  <div class="area-layout">
+    <div class="area-prose">
+      {serviceArea.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+
+    <figure class="area-map">
+      <div class="area-map__annotations" aria-hidden="true">
+        {serviceArea.mapAnnotations.map((annotation) => (
+          <span class={`area-map__annotation area-map__annotation--${annotation.position}`}>
+            {annotation.label}
+          </span>
+        ))}
+      </div>
+
+      <svg viewBox="0 0 520 400" role="img" aria-label={serviceArea.mapLabel}>
+        <defs>
+          <linearGradient id="area-map-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgb(var(--color-accent-rgb))" stop-opacity="0.18"></stop>
+            <stop offset="100%" stop-color="rgb(15 23 42)" stop-opacity="0.92"></stop>
+          </linearGradient>
+          <radialGradient id="area-map-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgb(var(--color-accent-rgb))" stop-opacity="0.42"></stop>
+            <stop offset="100%" stop-color="rgb(var(--color-accent-rgb))" stop-opacity="0"></stop>
+          </radialGradient>
+          <pattern id="area-map-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M32 0H0v32" class="area-map__grid-line"></path>
+          </pattern>
+          <marker
+            id="area-map-arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="8"
+            refY="5"
+            orient="auto"
+            markerUnits="strokeWidth"
+          >
+            <path d="M0 0 10 5 0 10Z" class="area-map__arrowhead"></path>
+          </marker>
+        </defs>
+
+        <rect class="area-map__grid" x="54" y="56" width="412" height="288" rx="34"></rect>
+        <ellipse class="area-map__aura" cx="286" cy="196" rx="136" ry="96"></ellipse>
+        <path
+          class="area-map__shape"
+          d="M131 114c24-33 65-53 111-60c48-7 107 2 144 33c37 31 55 78 50 124c-5 44-34 84-73 110c-37 24-81 36-127 32c-46-4-94-25-124-64c-28-37-38-88-25-132c8-17 20-31 44-43Z"
+        ></path>
+        <circle class="area-map__orbit" cx="274" cy="182" r="109"></circle>
+        <path
+          class="area-map__ridge"
+          d="M163 150c31-34 86-55 144-47c57 9 104 45 118 94"
+        ></path>
+        <path
+          class="area-map__ridge"
+          d="M137 219c17 33 49 60 92 74c44 14 97 12 140-9"
+        ></path>
+        <path
+          class="area-map__route area-map__route--loop"
+          d="M175 172c28-28 64-45 110-48c52-4 105 11 146 48"
+        ></path>
+        <path
+          class="area-map__route area-map__route--south"
+          d="M270 184c-8 27-5 52 12 86"
+        ></path>
+        <path
+          class="area-map__route area-map__route--west"
+          d="M262 179c-34 4-63 19-98 48"
+        ></path>
+        <path
+          class="area-map__route area-map__route--east"
+          d="M288 181c34 2 65 17 104 42"
+        ></path>
+        <path
+          class="area-map__route area-map__route--cross"
+          d="M164 232c36 16 74 23 122 22c42-1 74-11 104-31"
+        ></path>
+
+        <g class="area-map__hub" aria-hidden="true">
+          <circle class="area-map__pulse" cx="274" cy="182" r="24"></circle>
+          <circle class="area-map__hub-ring" cx="274" cy="182" r="18"></circle>
+          <circle class="area-map__hub-core" cx="274" cy="182" r="8"></circle>
+        </g>
+
+        <g class="area-map__node area-map__node--krasnystaw" aria-hidden="true">
+          <circle cx="274" cy="182" r="7"></circle>
+        </g>
+        <g class="area-map__node area-map__node--lublin" aria-hidden="true">
+          <circle cx="156" cy="230" r="6"></circle>
+        </g>
+        <g class="area-map__node area-map__node--chelm" aria-hidden="true">
+          <circle cx="390" cy="223" r="6"></circle>
+        </g>
+        <g class="area-map__node area-map__node--zamosc" aria-hidden="true">
+          <circle cx="288" cy="284" r="6"></circle>
+        </g>
+
+        <g class="area-map__tag area-map__tag--hub" aria-hidden="true">
+          <rect x="296" y="147" width="104" height="28" rx="14"></rect>
+          <text class="area-map__label area-map__label--hub" x="314" y="165">Krasnystaw</text>
+        </g>
+        <g class="area-map__tag area-map__tag--lublin" aria-hidden="true">
+          <rect x="84" y="214" width="88" height="28" rx="14"></rect>
+          <text class="area-map__label area-map__label--satellite" x="106" y="232">Lublin</text>
+        </g>
+        <g class="area-map__tag area-map__tag--chelm" aria-hidden="true">
+          <rect x="398" y="208" width="80" height="28" rx="14"></rect>
+          <text class="area-map__label area-map__label--satellite" x="416" y="226">Chełm</text>
+        </g>
+        <g class="area-map__tag area-map__tag--zamosc" aria-hidden="true">
+          <rect x="302" y="290" width="88" height="28" rx="14"></rect>
+          <text class="area-map__label area-map__label--satellite" x="322" y="308">Zamość</text>
+        </g>
+
+        <g class="area-map__legend" aria-hidden="true">
+          <rect x="118" y="92" width="128" height="34" rx="17"></rect>
+          <text class="area-map__badge" x="137" y="113">mobilny agent</text>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</SectionFrame>
