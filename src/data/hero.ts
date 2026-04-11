@@ -11,13 +11,6 @@ export const heroTrustIcons = {
     <circle cx="12" cy="12" r="8.25" />
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.75v4.75l3 1.75" />
   `,
-  support: `
-    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1115 0v2.1a1.9 1.9 0 01-1.9 1.9H16v-4.6h1.6V12a5.6 5.6 0 10-11.2 0v4H4.5A1.9 1.9 0 012.6 14.1V12" />
-    <path stroke-linecap="round" stroke-linejoin="round" d="M16 18.2c0 1.55-1.45 2.8-3.25 2.8H12" />
-  `,
-  check: `
-    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-  `,
 } as const;
 
 export const hero = {

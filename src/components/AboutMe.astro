@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import Container from "./ui/Container.astro";
+import Button from "./ui/Button.astro";
+import PhoneButton from "./ui/PhoneButton.astro";
+import { about, aboutTrustIcons } from "../data/about";
+import portraitImage from "../assets/hero-main-image.webp";
+---
+
+<section id="o-mnie" class="section-padding">
+  <Container>
+    <div class="about-shell">
+      <div class="about-shell__inner">
+        <div class="about-section__header">
+          <div class="about-section__icon-wrapper">
+            <div class="about-section__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                <path d="M5 20a7 7 0 0 1 14 0" />
+              </svg>
+            </div>
+          </div>
+          <h2 class="about-section__title">{about.sectionTitle}</h2>
+          <div class="about-section__divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-portrait">
+            <div class="about-portrait__frame">
+              <Image
+                src={portraitImage}
+                alt={`${about.name} — ${about.role}`}
+                class="about-portrait__image"
+                loading="lazy"
+              />
+              <div class="about-portrait__glow" aria-hidden="true"></div>
+            </div>
+            <div class="about-portrait__caption">
+              <p class="about-portrait__eyebrow">{about.role}</p>
+              <p class="about-portrait__name">{about.name}</p>
+            </div>
+          </div>
+
+          <div class="about-body">
+            <h3 class="about-body__headline">{about.headline}</h3>
+
+            <div class="about-body__paragraphs">
+              {about.paragraphs.map((paragraph, index) => (
+                <p
+                  class:list={[
+                    "about-body__paragraph",
+                    index === 0 && "about-body__paragraph--lead",
+                  ]}
+                  set:html={paragraph}
+                />
+              ))}
+            </div>
+
+            <div class="about-trust-grid">
+              {about.trustPoints.map((point) => (
+                <div class="about-trust-item">
+                  <span class="about-trust-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <Fragment set:html={aboutTrustIcons[point.icon]} />
+                    </svg>
+                  </span>
+                  <div class="about-trust-item__body">
+                    <span class="about-trust-item__title">{point.title}</span>
+                    <span class="about-trust-item__text">{point.text}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div class="about-cta-row">
+              <PhoneButton
+                size="lg"
+                showSubtext
+                subtextLabel={about.primaryCtaLabel}
+                class="group justify-center cursor-pointer"
+              />
+              <Button href={about.secondary.href} variant="accent" class="group">
+                {about.secondary.label}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
