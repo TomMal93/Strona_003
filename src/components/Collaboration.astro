@@ -1,8 +1,9 @@
 ---
 import "../styles/components/collaboration.css";
 import SectionFrame from "./ui/SectionFrame.astro";
-import Button from "./ui/Button.astro";
+import PrimaryButton from "./ui/PrimaryButton.astro";
 import { collaboration } from "../data/collaboration";
+import { phoneHref } from "../data/company";
 ---
 
 <SectionFrame id="wspolpraca" title={collaboration.sectionTitle} shellClass="collab-shell">
@@ -33,8 +34,8 @@ import { collaboration } from "../data/collaboration";
   </ol>
 
   <div class="collab-cta">
-    <Button href={collaboration.ctaHref} variant="accent" class="hero-btn-primary group collab-cta__button">
+    <PrimaryButton href={phoneHref} class="justify-center">
       {collaboration.ctaLabel}
-    </Button>
+    </PrimaryButton>
   </div>
 </SectionFrame>

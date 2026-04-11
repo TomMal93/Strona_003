@@ -43,6 +43,6 @@ export const collaboration = {
         "M20 6 9 17l-5-5",
     },
   ] satisfies CollaborationStep[],
-  ctaLabel: "Umów rozmowę",
+  ctaLabel: "Zapraszam do kontaktu",
   ctaHref: "#kontakt",
 } as const;
