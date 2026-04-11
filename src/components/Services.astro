@@ -1,7 +1,7 @@
 ---
 import Container from "./ui/Container.astro";
 import Button from "./ui/Button.astro";
-import { services } from "../data/services";
+import { services, servicesClosingNote } from "../data/services";
 ---
 
 <section id="oferta" class="section-padding">
@@ -75,6 +75,8 @@ import { services } from "../data/services";
             </div>
           ))}
         </div>
+
+        <p class="services-section__closing-note" set:html={servicesClosingNote.text} />
 
         <div class="services-section__actions">
           <Button href="/oferta" variant="accent" class="group">

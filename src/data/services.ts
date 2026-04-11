@@ -48,3 +48,7 @@ export const services: Service[] = [
     ],
   },
 ];
+
+export const servicesClosingNote = {
+  text: "Nie musisz znać się na polisach — pomagam <strong>porównać zakres, wyjaśnić różnice</strong><br />i wybrać ochronę dopasowaną do Twojej sytuacji.",
+} as const;
