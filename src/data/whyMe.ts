@@ -35,7 +35,7 @@ export const whyMe = {
       },
       me: {
         label: "Jedna stała osoba do kontaktu",
-        detail: "Od doboru ochrony po szkodę — prowadzę Cię ja, bez przekazywania dalej.",
+        detail: "Zapewniam stałe wsparcie przy wyborze i obsłudze polisy.",
       },
     },
     {
@@ -51,7 +51,7 @@ export const whyMe = {
     {
       anon: {
         label: "Skomplikowany żargon i skrypty",
-        detail: "Warunki ogólne czytasz sam — potem dowiadujesz się, czego nie obejmują.",
+        detail: "Sam sprawdzasz, czego polisa nie obejmuje.",
       },
       me: {
         label: "Rozmowa po ludzku",
