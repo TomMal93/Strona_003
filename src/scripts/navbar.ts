@@ -13,6 +13,14 @@ export function initNavbar(root: ParentNode = document) {
   const navAnchors = Array.from(navbar.querySelectorAll<HTMLElement>(".nav-link"));
   const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
   const SCROLL_THRESHOLD = 50;
+  const SHORT_VIEWPORT_HEIGHT = 1171;
+  const CENTERED_SHORT_VIEWPORT_SECTIONS = new Set([
+    "oferta",
+    "wspolpraca",
+    "faq",
+    "o-mnie",
+    "dlaczego-warto",
+  ]);
 
   const clearActiveLinks = () => {
     navAnchors.forEach((anchor) => anchor.classList.remove("nav-link-active"));
@@ -23,6 +31,31 @@ export function initNavbar(root: ParentNode = document) {
     navAnchors
       .filter((anchor) => anchor.getAttribute("href") === href)
       .forEach((anchor) => anchor.classList.add("nav-link-active"));
+  };
+
+  const scrollSectionIntoView = (section: HTMLElement) => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const frame = section.querySelector<HTMLElement>(".section-frame");
+    const target = frame ?? section;
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const viewportHeight = window.innerHeight;
+    const availableHeight = viewportHeight - navbarHeight;
+    const targetHeight = target.getBoundingClientRect().height;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+    let top = targetTop - 6 * 16;
+
+    if (
+      CENTERED_SHORT_VIEWPORT_SECTIONS.has(section.id) &&
+      viewportHeight < SHORT_VIEWPORT_HEIGHT
+    ) {
+      top = targetTop - navbarHeight - Math.max((availableHeight - targetHeight) / 2, 0);
+    }
+
+    window.scrollTo({
+      top: Math.max(top, 0),
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
   };
 
   const onScroll = () => {
@@ -93,6 +126,29 @@ export function initNavbar(root: ParentNode = document) {
   mobileMenu?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
+
+  navAnchors
+    .filter((anchor) => anchor.getAttribute("href")?.startsWith("#"))
+    .forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        const href = anchor.getAttribute("href");
+
+        if (!href) {
+          return;
+        }
+
+        const targetSection = document.querySelector<HTMLElement>(href);
+
+        if (!targetSection) {
+          return;
+        }
+
+        event.preventDefault();
+        closeMenu();
+        scrollSectionIntoView(targetSection);
+        window.history.replaceState(null, "", href);
+      });
+    });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
