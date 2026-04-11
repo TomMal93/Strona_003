@@ -34,7 +34,7 @@ export const about = {
   sectionTitle: "O mnie",
   sectionIntro:
     "Lokalny agent PZU z Krasnegostawu. Znasz mnie z okolicy, a z ubezpieczeniami pracuję z pełnym zapleczem największego ubezpieczyciela w Polsce.",
-  headline: "Z Krasnegostawu — dla Krasnegostawu i okolic",
+  headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
     "Mieszkam i pracuję w Krasnymstawie. Poza ubezpieczeniami od lat prowadzę lokalny zespół muzyczny <strong>Etylen</strong>, znany w całej Lubelszczyźnie z wesel, festynów i eventów. To sprawia, że znam tu wielu ludzi osobiście — i wiem, że w rozmowie o ubezpieczeniu liczy się zaufanie, a nie skrypt sprzedażowy.",
     "Jako <strong>Autoryzowany Agent PZU</strong> mam za sobą zarówno pracę w bezpośrednim kontakcie z klientem, jak i doświadczenie w doborze i sprzedaży ubezpieczeń — analizie potrzeb, przygotowaniu oferty i prowadzeniu polisy w czasie. Stoję za tym zapleczem największego ubezpieczyciela w Polsce: sprawdzone produkty, szkolenia, jasne procedury.",
