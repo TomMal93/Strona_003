@@ -13,6 +13,7 @@ export const navLinks: NavLink[] = [
   { label: "Oferta", href: "#oferta" },
   { label: "O mnie", href: "#o-mnie" },
   { label: "Dlaczego warto", href: "#dlaczego-warto" },
+  { label: "Współpraca", href: "#wspolpraca" },
   { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ];
