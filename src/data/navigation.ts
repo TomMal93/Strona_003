@@ -9,9 +9,11 @@ export interface SocialLink {
 }
 
 export const navLinks: NavLink[] = [
+  { label: "Strona główna", href: "/" },
   { label: "Oferta", href: "#oferta" },
-  { label: "FAQ", href: "#faq" },
   { label: "O mnie", href: "#o-mnie" },
+  { label: "Dlaczego warto", href: "#dlaczego-warto" },
+  { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 

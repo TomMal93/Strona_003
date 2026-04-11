@@ -104,25 +104,58 @@ import PhoneButton from "../ui/PhoneButton.astro";
   });
 
   // Scroll-spy for active link
-  const sections = document.querySelectorAll("section[id]");
-  const navAnchors = document.querySelectorAll(".nav-link");
+  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const navAnchors = Array.from(document.querySelectorAll(".nav-link"));
 
-  if (sections.length > 0) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navAnchors.forEach((a) => a.classList.remove("nav-link-active"));
-            const active = document.querySelector(
-              `.nav-link[href="#${entry.target.id}"]`
-            );
-            active?.classList.add("nav-link-active");
-          }
-        });
-      },
-      { rootMargin: "-50% 0px -50% 0px" }
-    );
-
-    sections.forEach((section) => observer.observe(section));
+  function clearActiveLinks() {
+    navAnchors.forEach((anchor) => anchor.classList.remove("nav-link-active"));
   }
+
+  function setActiveLinks(href: string) {
+    clearActiveLinks();
+    navAnchors
+      .filter((anchor) => anchor.getAttribute("href") === href)
+      .forEach((anchor) => anchor.classList.add("nav-link-active"));
+  }
+
+  function updateActiveNav() {
+    if (window.location.pathname !== "/") return;
+
+    const firstSection = sections[0];
+    const lastSection = sections.at(-1);
+    if (!firstSection) {
+      setActiveLinks("/");
+      return;
+    }
+
+    const firstSectionTop = firstSection.getBoundingClientRect().top;
+    if (firstSectionTop > window.innerHeight * 0.35) {
+      setActiveLinks("/");
+      return;
+    }
+
+    const nearPageBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+
+    if (nearPageBottom && lastSection) {
+      setActiveLinks(`#${lastSection.id}`);
+      return;
+    }
+
+    const viewportMarker = window.innerHeight * 0.35;
+    let activeSection = sections[0];
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= viewportMarker) {
+        activeSection = section;
+      }
+    });
+
+    setActiveLinks(`#${activeSection.id}`);
+  }
+
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+  window.addEventListener("resize", updateActiveNav);
+  updateActiveNav();
 </script>
