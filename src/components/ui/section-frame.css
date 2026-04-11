@@ -138,3 +138,22 @@
     line-height: 1.7;
   }
 }
+
+@media (max-height: 1270px) {
+  .section-frame__inner {
+    padding: 15px 2rem;
+  }
+
+  .section-frame__header {
+    gap: 0.85rem;
+  }
+
+  .section-frame__icon-wrapper {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .section-frame__title {
+    font-size: 3rem;
+  }
+}
