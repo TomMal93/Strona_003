@@ -23,12 +23,10 @@ import { whyMe, whyMeIcons } from "../data/whyMe";
         <ul class="whyme-list">
           {whyMe.points.map((point) => (
             <li class="whyme-item">
-              <div class="whyme-item__icon-wrapper" aria-hidden="true">
-                <div class="whyme-item__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <Fragment set:html={whyMeIcons[point.icon]} />
-                  </svg>
-                </div>
+              <div class="whyme-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <Fragment set:html={whyMeIcons[point.icon]} />
+                </svg>
               </div>
               <div class="whyme-item__body">
                 <h3 class="whyme-item__title">{point.title}</h3>
