@@ -1,0 +1,43 @@
+---
+import Container from "./ui/Container.astro";
+import { whyMe, whyMeIcons } from "../data/whyMe";
+---
+
+<section id="dlaczego-warto" class="section-padding">
+  <Container>
+    <div class="whyme-shell">
+      <div class="whyme-shell__inner">
+        <div class="whyme-section__header">
+          <div class="whyme-section__icon-wrapper">
+            <div class="whyme-section__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2.5 14.6 8l6.4.5-4.9 4.2 1.6 6.3L12 15.9 6.3 19l1.6-6.3L3 8.5 9.4 8z" />
+              </svg>
+            </div>
+          </div>
+          <h2 class="whyme-section__title">{whyMe.sectionTitle}</h2>
+          <div class="whyme-section__divider" aria-hidden="true"></div>
+          <p class="whyme-section__intro">{whyMe.sectionIntro}</p>
+        </div>
+
+        <ul class="whyme-list">
+          {whyMe.points.map((point) => (
+            <li class="whyme-item">
+              <div class="whyme-item__icon-wrapper" aria-hidden="true">
+                <div class="whyme-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <Fragment set:html={whyMeIcons[point.icon]} />
+                  </svg>
+                </div>
+              </div>
+              <div class="whyme-item__body">
+                <h3 class="whyme-item__title">{point.title}</h3>
+                <p class="whyme-item__text" set:html={point.text} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </Container>
+</section>
