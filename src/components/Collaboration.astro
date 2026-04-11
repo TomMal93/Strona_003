@@ -1,6 +1,7 @@
 ---
 import "../styles/components/collaboration.css";
 import SectionFrame from "./ui/SectionFrame.astro";
+import Button from "./ui/Button.astro";
 import { collaboration } from "../data/collaboration";
 ---
 
@@ -32,11 +33,8 @@ import { collaboration } from "../data/collaboration";
   </ol>
 
   <div class="collab-cta">
-    <a class="collab-cta__button" href={collaboration.ctaHref}>
+    <Button href={collaboration.ctaHref} variant="accent" class="hero-btn-primary group collab-cta__button">
       {collaboration.ctaLabel}
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 12h14M13 5l7 7-7 7" />
-      </svg>
-    </a>
+    </Button>
   </div>
 </SectionFrame>

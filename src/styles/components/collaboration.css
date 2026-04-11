@@ -125,30 +125,9 @@
 }
 
 .collab-cta__button {
-  display: inline-flex;
-  align-items: center;
   gap: 0.6rem;
-  padding: 0.95rem 1.85rem;
-  border-radius: var(--radius-full);
-  border: 1px solid rgb(var(--color-accent-rgb) / 0.55);
-  background: linear-gradient(
-    135deg,
-    rgb(var(--color-accent-rgb) / 0.95),
-    rgb(var(--color-accent-rgb) / 0.78)
-  );
-  color: var(--color-btn-dark);
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.32),
-    0 16px 36px -18px rgb(var(--color-accent-rgb) / 0.7);
-  transition:
-    transform var(--transition-base),
-    box-shadow var(--transition-base),
-    background var(--transition-base);
+  padding: 0.82rem 1.55rem;
+  font-size: 0.98rem;
 }
 
 .collab-cta__button svg {
@@ -162,20 +141,8 @@
   transition: transform var(--transition-base);
 }
 
-.collab-cta__button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.38),
-    0 22px 42px -16px rgb(var(--color-accent-rgb) / 0.78);
-}
-
 .collab-cta__button:hover svg {
   transform: translateX(3px);
-}
-
-.collab-cta__button:focus-visible {
-  outline: 2px solid var(--color-accent-pale);
-  outline-offset: 3px;
 }
 
 @media (max-width: 1024px) {
@@ -235,7 +202,7 @@
   }
 
   .collab-cta__button {
-    padding: 0.85rem 1.6rem;
-    font-size: 0.92rem;
+    padding: 0.78rem 1.35rem;
+    font-size: 0.9rem;
   }
 }
