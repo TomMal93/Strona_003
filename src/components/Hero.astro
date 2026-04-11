@@ -107,7 +107,12 @@ import pzuLogo from "../assets/pzu_logo.png";
 
             <div class="hero-advisor-panel__bottomline">
               <p class="hero-advisor-panel__specialties" aria-label="Zakres usług">
-                {hero.advisorCard.specialties.join(" • ")}
+                {hero.advisorCard.specialties.map((specialty, index) => (
+                  <>
+                    {index > 0 && <span class="hero-advisor-panel__separator" aria-hidden="true">·</span>}
+                    <span>{specialty}</span>
+                  </>
+                ))}
               </p>
               {hero.advisorCard.role && (
                 <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
