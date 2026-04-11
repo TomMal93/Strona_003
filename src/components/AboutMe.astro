@@ -33,11 +33,10 @@ import portraitImage from "../assets/hero-main-image.webp";
                 class="about-portrait__image"
                 loading="lazy"
               />
-              <div class="about-portrait__glow" aria-hidden="true"></div>
-            </div>
-            <div class="about-portrait__caption">
-              <p class="about-portrait__eyebrow">{about.role}</p>
-              <p class="about-portrait__name">{about.name}</p>
+              <div class="about-portrait__caption">
+                <p class="about-portrait__eyebrow">{about.role}</p>
+                <p class="about-portrait__name">{about.name}</p>
+              </div>
             </div>
           </div>
 
@@ -71,19 +70,21 @@ import portraitImage from "../assets/hero-main-image.webp";
                 </div>
               ))}
             </div>
-
-            <div class="about-cta-row">
-              <PhoneButton
-                size="lg"
-                showSubtext
-                subtextLabel={about.primaryCtaLabel}
-                class="group justify-center cursor-pointer"
-              />
-              <Button href={about.secondary.href} variant="accent" class="group">
-                {about.secondary.label}
-              </Button>
-            </div>
           </div>
+        </div>
+
+        <div class="about-cta-divider" aria-hidden="true"></div>
+
+        <div class="about-cta-row">
+          <PhoneButton
+            size="lg"
+            showSubtext
+            subtextLabel={about.primaryCtaLabel}
+            class="group justify-center cursor-pointer"
+          />
+          <Button href={about.secondary.href} variant="accent" class="group">
+            {about.secondary.label}
+          </Button>
         </div>
       </div>
     </div>
