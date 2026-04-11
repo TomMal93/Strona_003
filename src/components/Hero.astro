@@ -1,4 +1,5 @@
 ---
+import "../styles/components/hero.css";
 import { hero, heroTrustIcons } from "../data/hero";
 import { company } from "../data/company";
 import HeroBackground from "./HeroBackground.astro";
@@ -14,7 +15,7 @@ import pzuLogo from "../assets/pzu_logo.png";
 
     <!-- Text + Highlights + CTA card -->
     <div class="hero-bento-card hero-bento-text relative overflow-hidden animate-[hero-card-enter_0.8s_ease-out_both] motion-reduce:animate-none">
-      <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
+      <div class="surface-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
 
       <div class="hero-content-shell relative z-10 p-5 sm:p-8 lg:p-12 xl:p-14">
         <!-- Header -->

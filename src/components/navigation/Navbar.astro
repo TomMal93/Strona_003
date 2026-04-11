@@ -1,4 +1,5 @@
 ---
+import "../../styles/components/navbar.css";
 import NavLinks from "./NavLinks.astro";
 import NavSocialIcons from "./NavSocialIcons.astro";
 import NavMobile from "./NavMobile.astro";
@@ -10,7 +11,7 @@ import PhoneButton from "../ui/PhoneButton.astro";
   <div class="w-full">
     <nav class="navbar-card relative bg-(--color-bg-alt)/95 backdrop-blur-md overflow-hidden" aria-label="Menu główne">
       <!-- Noise texture -->
-      <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none"></div>
+      <div class="surface-noise absolute inset-0 opacity-4 pointer-events-none"></div>
 
       <!-- Visible content row -->
       <div class="relative z-10 flex h-16 items-center justify-between px-6 sm:px-10 lg:px-12">
@@ -54,108 +55,7 @@ import PhoneButton from "../ui/PhoneButton.astro";
 </header>
 
 <script>
-  const navbar = document.getElementById("navbar");
-  const hamburger = document.getElementById("hamburger-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const backdrop = document.getElementById("mobile-backdrop");
+  import { initNavbar } from "../../scripts/navbar";
 
-  // Scroll detection — glassmorphism toggle
-  const SCROLL_THRESHOLD = 50;
-
-  function onScroll() {
-    navbar?.classList.toggle("navbar--scrolled", window.scrollY > SCROLL_THRESHOLD);
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // Mobile menu toggle
-  function openMenu() {
-    mobileMenu?.classList.add("mobile-menu--open");
-    backdrop?.classList.add("mobile-backdrop--visible");
-    hamburger?.classList.add("hamburger--open");
-    document.body.style.overflow = "hidden";
-    hamburger?.setAttribute("aria-expanded", "true");
-  }
-
-  function closeMenu() {
-    mobileMenu?.classList.remove("mobile-menu--open");
-    backdrop?.classList.remove("mobile-backdrop--visible");
-    hamburger?.classList.remove("hamburger--open");
-    document.body.style.overflow = "";
-    hamburger?.setAttribute("aria-expanded", "false");
-  }
-
-  hamburger?.addEventListener("click", () => {
-    const isOpen = mobileMenu?.classList.contains("mobile-menu--open");
-    isOpen ? closeMenu() : openMenu();
-  });
-
-  backdrop?.addEventListener("click", closeMenu);
-
-  // Close on anchor link click
-  mobileMenu?.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  // Close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-
-  // Scroll-spy for active link
-  const sections = Array.from(document.querySelectorAll("section[id]"));
-  const navAnchors = Array.from(document.querySelectorAll(".nav-link"));
-
-  function clearActiveLinks() {
-    navAnchors.forEach((anchor) => anchor.classList.remove("nav-link-active"));
-  }
-
-  function setActiveLinks(href: string) {
-    clearActiveLinks();
-    navAnchors
-      .filter((anchor) => anchor.getAttribute("href") === href)
-      .forEach((anchor) => anchor.classList.add("nav-link-active"));
-  }
-
-  function updateActiveNav() {
-    if (window.location.pathname !== "/") return;
-
-    const firstSection = sections[0];
-    const lastSection = sections.at(-1);
-    if (!firstSection) {
-      setActiveLinks("/");
-      return;
-    }
-
-    const firstSectionTop = firstSection.getBoundingClientRect().top;
-    if (firstSectionTop > window.innerHeight * 0.35) {
-      setActiveLinks("/");
-      return;
-    }
-
-    const nearPageBottom =
-      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
-
-    if (nearPageBottom && lastSection) {
-      setActiveLinks(`#${lastSection.id}`);
-      return;
-    }
-
-    const viewportMarker = window.innerHeight * 0.35;
-    let activeSection = sections[0];
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= viewportMarker) {
-        activeSection = section;
-      }
-    });
-
-    setActiveLinks(`#${activeSection.id}`);
-  }
-
-  window.addEventListener("scroll", updateActiveNav, { passive: true });
-  window.addEventListener("resize", updateActiveNav);
-  updateActiveNav();
+  initNavbar();
 </script>

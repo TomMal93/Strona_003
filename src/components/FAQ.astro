@@ -1,49 +1,39 @@
 ---
-import Container from "./ui/Container.astro";
+import "../styles/components/faq.css";
+import SectionFrame from "./ui/SectionFrame.astro";
 import { faqItems } from "../data/faq";
 ---
 
-<section id="faq" class="section-padding">
-  <Container>
-    <div class="faq-shell">
-      <div class="faq-shell__inner">
-        <div class="faq-section__header">
-          <div class="faq-section__icon-wrapper">
-            <div class="faq-section__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 3-3 3" />
-                <path d="M12 17h.01" />
-                <circle cx="12" cy="12" r="9" />
-              </svg>
-            </div>
-          </div>
-          <h2 class="faq-section__title">Najczęściej zadawane pytania</h2>
-          <div class="faq-section__divider" aria-hidden="true"></div>
-          <p class="faq-section__intro">
-            Krótkie odpowiedzi na pytania, które najczęściej pojawiają się przed wyborem ubezpieczenia i rozpoczęciem współpracy z
-            <strong>agentem PZU</strong>.<br />
-            <span class="faq-section__highlight">Najważniejsze informacje znajdziesz od razu w jednym miejscu.</span>
-          </p>
-        </div>
+<SectionFrame id="faq" title="Najczęściej zadawane pytania" shellClass="faq-shell" headerClass="faq-section-header">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  </Fragment>
 
-        <div class="faq-list">
-          {faqItems.map((item) => (
-            <details class="faq-item">
-              <summary class="faq-item__summary">
-                <h3 class="faq-item__question">{item.question}</h3>
-                <span class="faq-item__trigger" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </summary>
-              <div class="faq-item__content">
-                <p class="faq-item__answer">{item.answer}</p>
-              </div>
-            </details>
-          ))}
+  <p slot="intro">
+    Krótkie odpowiedzi na pytania, które najczęściej pojawiają się przed wyborem ubezpieczenia i rozpoczęciem współpracy z
+    <strong>agentem PZU</strong>.<br />
+    <span class="faq-section__highlight">Najważniejsze informacje znajdziesz od razu w jednym miejscu.</span>
+  </p>
+
+  <div class="faq-list">
+    {faqItems.map((item) => (
+      <details class="faq-item">
+        <summary class="faq-item__summary">
+          <h3 class="faq-item__question">{item.question}</h3>
+          <span class="faq-item__trigger" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="faq-item__content">
+          <p class="faq-item__answer">{item.answer}</p>
         </div>
-      </div>
-    </div>
-  </Container>
-</section>
+      </details>
+    ))}
+  </div>
+</SectionFrame>

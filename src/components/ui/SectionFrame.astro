@@ -1,0 +1,54 @@
+---
+import "./section-frame.css";
+import Container from "./Container.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  shellClass?: string;
+  innerClass?: string;
+  headerClass?: string;
+  containerClass?: string;
+}
+
+const {
+  id,
+  title,
+  shellClass,
+  innerClass,
+  headerClass,
+  containerClass,
+} = Astro.props;
+
+const hasIcon = Astro.slots.has("icon");
+const hasIntro = Astro.slots.has("intro");
+---
+
+<section id={id} class="section-padding">
+  <Container class={containerClass}>
+    <div class:list={["section-frame", shellClass]}>
+      <div class:list={["section-frame__inner", innerClass]}>
+        <div class:list={["section-frame__header", headerClass]}>
+          {hasIcon && (
+            <div class="section-frame__icon-wrapper" aria-hidden="true">
+              <div class="section-frame__icon">
+                <slot name="icon" />
+              </div>
+            </div>
+          )}
+
+          <h2 class="section-frame__title">{title}</h2>
+          <div class="section-frame__divider" aria-hidden="true"></div>
+
+          {hasIntro && (
+            <div class="section-frame__intro">
+              <slot name="intro" />
+            </div>
+          )}
+        </div>
+
+        <slot />
+      </div>
+    </div>
+  </Container>
+</section>
