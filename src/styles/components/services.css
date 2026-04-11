@@ -44,6 +44,17 @@
   font-weight: 600;
 }
 
+@media (max-height: 1270px) {
+  .services-section__actions {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .services-section__closing-note {
+    margin-top: 45px;
+  }
+}
+
 @media (min-width: 768px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
