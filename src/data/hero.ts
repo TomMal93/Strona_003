@@ -23,7 +23,7 @@ export const heroTrustIcons = {
 export const hero = {
   tagline: "Twój doradca ubezpieczeniowy",
   title:
-    'Wspólnie dobierzemy rozwiązanie dopasowane<br>do <span class="hero-shimmer">Twojej sytuacji</span>',
+    'Wspólnie dobierzemy rozwiązania dopasowane<br>do <span class="hero-shimmer">Twojej sytuacji</span>',
   description:
     "Nie zaczynam od gotowej oferty, ale od poznania Twojej sytuacji i tego, co naprawdę ma dla Ciebie znaczenie.<br>Dopiero potem dobieramy właściwe rozwiązanie.",
   advisorCard: {
