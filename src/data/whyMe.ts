@@ -64,8 +64,8 @@ export const whyMe = {
         detail: "Konsultant realizuje plan sprzedażowy, nie Twoje potrzeby.",
       },
       me: {
-        label: "Obiektywna rada",
-        detail: "Powiem Ci też, czego nie potrzebujesz — nie sprzedaję na siłę.",
+        label: "Uczciwe doradztwo",
+        detail: "Rekomendacje oparte na Twoich potrzebach, nie na prowizji.",
       },
     },
   ] satisfies WhyMePair[],
