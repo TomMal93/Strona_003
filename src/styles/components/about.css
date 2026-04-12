@@ -4,7 +4,7 @@
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.75fr);
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.92fr);
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: stretch;
   max-width: 76rem;
@@ -100,8 +100,8 @@
 
 .about-body__paragraph {
   margin: 0;
-  color: rgb(255 255 255 / 0.78);
-  font-size: 1rem;
+  color: rgb(255 255 255 / 0.85);
+  font-size: 1.06rem;
   line-height: 1.75;
   letter-spacing: 0.005em;
 }
@@ -109,6 +109,11 @@
 .about-body__paragraph--lead {
   font-size: 1.06rem;
   color: rgb(255 255 255 / 0.85);
+}
+
+.about-body__accent {
+  color: rgb(var(--color-accent-rgb) / 0.9);
+  font-weight: 600;
 }
 
 .about-body__paragraph strong {

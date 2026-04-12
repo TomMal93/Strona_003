@@ -36,9 +36,9 @@ export const about = {
     "Lokalny agent PZU z Krasnegostawu. Znasz mnie z okolicy, a z ubezpieczeniami pracuję z pełnym zapleczem największego ubezpieczyciela w Polsce.",
   headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
-    "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze znam potrzeby osób z tego regionu. Pomagam dobrać ubezpieczenia dopasowane do realnej sytuacji. Jako <strong>Autoryzowany Agent PZU</strong> mam dostęp do sprawdzonych produktów i przejrzystych zasad. Analizuję, doradzam i prowadzę polisę przez cały okres jej trwania.",
-    "Rozmawiamy konkretnie: co chcesz zabezpieczyć, od jakich ryzyk i na jaką kwotę. Na tej podstawie dobieram rozwiązanie. Od lat działam lokalnie także poza ubezpieczeniami - prowadzę zespół muzyczny <strong>Etylen</strong>, który obsługuje wesela i wydarzenia w regionie. To doświadczenie nauczyło mnie pracy z ludźmi i budowania relacji opartych na zaufaniu.",
-    "Obsługuję Krasnystaw i okoliczne miejscowości. Spotkanie na miejscu, u mnie lub dojazd do Ciebie - gdzie Ci wygodniej - albo rozmowa telefoniczna. Możesz zgłosić się z konkretną sprawą albo po prostu sprawdzić swoją obecną polisę. Zadzwoń lub napisz - przygotuję konkretną propozycję, bez zobowiązań.",
+    "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze rozumiem <span class=\"about-body__accent\">potrzeby lokalnych klientów</span>. Pomagam dobrać ubezpieczenia dopasowane do konkretnej sytuacji.<br /><span class=\"about-body__accent\">Autoryzowany Agent PZU</span> oferuję sprawdzone rozwiązania i przejrzyste warunki.",
+    "Zapewniam analizę potrzeb, doradztwo oraz obsługę polisy przez cały okres jej trwania.<br />Rozmawiamy konkretnie: co chcesz zabezpieczyć, od jakich ryzyk i na jaką kwotę – na tej podstawie przygotowuję dopasowaną ofertę. Działam lokalnie od lat,<br />co przekłada się na <span class=\"about-body__accent\">znajomość realiów</span> i budowanie trwałych relacji z klientami.",
+    "Obsługuję Krasnystaw i okoliczne miejscowości. Możliwe jest spotkanie osobiste lub kontakt telefoniczny. <span class=\"about-body__accent\">Zapraszam do kontaktu</span> w celu omówienia potrzeb lub weryfikacji obecnej polisy.",
   ],
   trustPoints: [
     {
