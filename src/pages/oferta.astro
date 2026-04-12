@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionFrame from "../components/ui/SectionFrame.astro";
+import Button from "../components/ui/Button.astro";
+import PhoneButton from "../components/ui/PhoneButton.astro";
+import OfferCategorySection from "../components/offer/OfferCategorySection.astro";
+import OfferRevealScript from "../components/scripts/OfferRevealScript.astro";
+import ProductsSliderScript from "../components/scripts/ProductsSliderScript.astro";
+import { personaScenarios, offerPageSeo } from "../data/offerDetails";
+import { company } from "../data/company";
+import "../styles/components/offer.css";
+
+const serviceSchemas = personaScenarios.flatMap((scenario) =>
+  scenario.products.map((product) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: product.name,
+    provider: {
+      "@type": "InsuranceAgency",
+      name: company.name,
+    },
+    areaServed: company.serviceAreas.map((city) => ({
+      "@type": "City",
+      name: city,
+    })),
+    description: product.description.replace(/\u00A0/g, " "),
+  }))
+);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: personaScenarios.flatMap((scenario) =>
+    scenario.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question.replace(/\u00A0/g, " "),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer.replace(/\u00A0/g, " "),
+      },
+    }))
+  ),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Strona główna",
+      item: Astro.site?.href || "/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Oferta",
+    },
+  ],
+};
+---
+
+<Layout title={offerPageSeo.title} description={offerPageSeo.description}>
+  <main>
+    <SectionFrame id="oferta-page" title="Ubezpieczenia dopasowane do Twojej sytuacji" shellClass="offer-shell">
+      <Fragment slot="icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 6.75h10" />
+          <path d="M7 12h10" />
+          <path d="M7 17.25h6" />
+          <path d="M4.75 6.75h.5" />
+          <path d="M4.75 12h.5" />
+          <path d="M4.75 17.25h.5" />
+        </svg>
+      </Fragment>
+
+      <p slot="intro">
+        Jako agent PZU w&nbsp;<strong>Krasnymstawie i&nbsp;okolicy</strong> pomagam znaleźć
+        ochronę dopasowaną do Twojej sytuacji życiowej. Wybierz poniżej scenariusz najbliższy
+        Twoim potrzebom — lub po prostu <strong>zadzwoń</strong>, a&nbsp;razem dobierzemy
+        odpowiednie rozwiązanie.
+      </p>
+
+      <nav class="offer-nav" aria-label="Przejdź do sekcji">
+        {personaScenarios.map((scenario) => (
+          <a href={`#${scenario.id}`} class="offer-nav__pill" data-service={scenario.serviceVariant}>
+            {scenario.title}
+          </a>
+        ))}
+      </nav>
+
+      <div class="offer-categories">
+        {personaScenarios.map((scenario, i) => (
+          <OfferCategorySection scenario={scenario} index={i} />
+        ))}
+      </div>
+
+      <div class="offer-page__cta">
+        <p class="offer-page__cta-text" set:html={
+          "Nie musisz znać się na polisach — <strong>pomagam porównać zakres, wyjaśnić różnice</strong> i&nbsp;wybrać ochronę dopasowaną do Twojej sytuacji. Zadzwoń lub napisz — doradztwo jest bezpłatne."
+        } />
+        <div class="offer-page__cta-buttons">
+          <PhoneButton size="lg" showSubtext={true} subtextLabel="Zadzwoń" class="group" />
+          <Button href="/" variant="accent">
+            Wróć na stronę główną
+          </Button>
+        </div>
+      </div>
+    </SectionFrame>
+  </main>
+
+  {serviceSchemas.map((schema) => (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <OfferRevealScript />
+  <ProductsSliderScript />
+</Layout>

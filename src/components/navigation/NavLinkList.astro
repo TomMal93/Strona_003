@@ -1,0 +1,22 @@
+---
+import { navLinks } from "../../data/navigation";
+
+interface Props {
+  listClass?: string;
+  linkClass?: string;
+}
+
+const { listClass, linkClass } = Astro.props;
+---
+
+<ul class:list={listClass}>
+  {
+    navLinks.map((link) => (
+      <li>
+        <a href={link.href} class:list={["nav-link", linkClass]}>
+          {link.label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

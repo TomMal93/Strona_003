@@ -1,0 +1,311 @@
+.whyme-shell .section-frame__intro {
+  margin: 0.5rem 0 0;
+  max-width: 44rem;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.whyme-compare {
+  position: relative;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem 0;
+}
+
+.whyme-compare__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 0 1rem 1.1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.14);
+}
+
+.whyme-compare__head-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.whyme-compare__head-cell--anon {
+  color: rgb(255 255 255 / 0.42);
+}
+
+.whyme-compare__head-cell--me {
+  color: var(--color-accent-light);
+}
+
+.whyme-compare__head-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.whyme-compare__head-dot--anon {
+  background: rgb(255 255 255 / 0.25);
+}
+
+.whyme-compare__head-dot--me {
+  background: var(--color-accent-light);
+  box-shadow: 0 0 0 3px rgb(var(--color-accent-rgb) / 0.18);
+}
+
+.whyme-compare__rows {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.whyme-compare__rows::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(255 255 255 / 0.1) 15%,
+    rgb(255 255 255 / 0.1) 85%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.whyme-compare__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.06);
+  transition: background 0.35s ease;
+}
+
+.whyme-compare__row:last-child {
+  border-bottom: none;
+}
+
+.whyme-compare__row:hover {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(255 255 255 / 0.015) 50%,
+    rgb(var(--color-accent-rgb) / 0.04) 100%
+  );
+}
+
+.whyme-compare__cell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 0.95rem;
+  min-width: 0;
+}
+
+.whyme-compare__cell--anon {
+  color: rgb(255 255 255 / 0.45);
+}
+
+.whyme-compare__cell--me {
+  color: var(--color-text-heading);
+}
+
+.whyme-compare__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  padding-top: 0.05rem;
+}
+
+.whyme-compare__label {
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.whyme-compare__cell--anon .whyme-compare__label {
+  font-weight: 400;
+}
+
+.whyme-compare__cell--me .whyme-compare__label {
+  color: var(--color-text-heading);
+  font-weight: 600;
+}
+
+.whyme-compare__detail {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgb(255 255 255 / 0.48);
+}
+
+.whyme-compare__cell--me .whyme-compare__detail {
+  color: rgb(255 255 255 / 0.72);
+}
+
+.whyme-compare__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.whyme-compare__mark svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.whyme-compare__mark--x {
+  color: rgb(255 255 255 / 0.5);
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.whyme-compare__mark--check {
+  color: var(--color-accent-light);
+  background: rgb(var(--color-accent-rgb) / 0.12);
+  border: 1px solid rgb(var(--color-accent-rgb) / 0.28);
+  box-shadow: 0 0 0 0 rgb(var(--color-accent-rgb) / 0);
+}
+
+.whyme-compare__row:hover .whyme-compare__mark--check {
+  box-shadow: 0 0 0 4px rgb(var(--color-accent-rgb) / 0.1);
+}
+
+.whyme-compare__separator {
+  margin: 3.5rem auto 0;
+  width: min(100%, 32rem);
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--color-accent-rgb) / 0.28),
+    transparent
+  );
+}
+
+.whyme-compare__closing {
+  margin: 1.75rem auto 1rem;
+  width: fit-content;
+  text-align: center;
+}
+
+@media (max-height: 1270px) {
+  .whyme-compare__separator {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .whyme-compare__head {
+    gap: 1.5rem;
+    padding: 0 0.5rem 1rem;
+  }
+
+  .whyme-compare__row {
+    gap: 1.5rem;
+    padding: 1.35rem 0.5rem;
+  }
+
+  .whyme-compare__detail {
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .whyme-compare {
+    padding: 0.25rem 0 0;
+  }
+
+  .whyme-compare__head {
+    display: none;
+  }
+
+  .whyme-compare__rows::before {
+    display: none;
+  }
+
+  .whyme-compare__row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.35rem 0.25rem;
+    border-bottom: 1px solid rgb(255 255 255 / 0.07);
+  }
+
+  .whyme-compare__cell--me {
+    order: 1;
+    padding-bottom: 0.15rem;
+  }
+
+  .whyme-compare__cell--anon {
+    order: 2;
+    padding-top: 0.35rem;
+    border-top: 1px dashed rgb(255 255 255 / 0.08);
+  }
+
+  .whyme-compare__cell--anon .whyme-compare__label {
+    font-size: 0.88rem;
+    color: rgb(255 255 255 / 0.42);
+  }
+
+  .whyme-compare__cell--anon .whyme-compare__detail {
+    font-size: 0.8rem;
+    color: rgb(255 255 255 / 0.36);
+  }
+
+  .whyme-compare__cell--me .whyme-compare__label {
+    font-size: 1rem;
+  }
+
+  .whyme-compare__mark {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .whyme-compare__mark svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .whyme-compare__row:hover {
+    background: none;
+  }
+
+  .whyme-compare__separator {
+    margin-top: 2.5rem;
+  }
+
+  .whyme-compare__closing {
+    margin: 1.5rem auto 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 640px) {
+  .whyme-shell .section-frame__intro {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}

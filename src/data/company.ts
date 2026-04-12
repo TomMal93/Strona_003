@@ -10,6 +10,7 @@ export const company = {
     city: readEnv("PUBLIC_COMPANY_CITY", "Warszawa"),
     zip: readEnv("PUBLIC_COMPANY_ZIP", "00-000"),
   },
+  serviceAreas: ["Krasnystaw", "Zamość", "Chełm", "Lublin"],
   schema: {
     openingHours: readEnv("PUBLIC_COMPANY_OPENING_HOURS", "Mo-Fr 09:00-17:00"),
     geo: {
@@ -23,3 +24,5 @@ export const company = {
     linkedin: readEnv("PUBLIC_COMPANY_LINKEDIN", ""),
   },
 } as const;
+
+export const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;

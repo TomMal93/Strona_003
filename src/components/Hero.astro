@@ -1,10 +1,45 @@
 ---
-import { hero } from "../data/hero";
+import "../styles/components/hero.css";
+import { hero, heroTrustIcons } from "../data/hero";
 import { company } from "../data/company";
 import HeroBackground from "./HeroBackground.astro";
-import HeroStatCard from "./HeroStatCard.astro";
+import Button from "./ui/Button.astro";
+import PhoneButton from "./ui/PhoneButton.astro";
 import { Image } from "astro:assets";
 import pzuLogo from "../assets/pzu_logo.png";
+
+const whatsappHref = `https://wa.me/${company.phone.replace(/\D/g, "")}`;
+const emailHref = `mailto:${company.email}`;
+const officeMapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${company.address.street}, ${company.address.zip} ${company.address.city}`,
+)}`;
+
+const heroContactLinks = [
+  {
+    label: "WhatsApp",
+    href: whatsappHref,
+    icon: "whatsapp",
+  },
+  {
+    label: "Email",
+    href: emailHref,
+    icon: "email",
+  },
+  {
+    label: "Biuro",
+    href: officeMapsHref,
+    icon: "location",
+  },
+] as const;
+
+const heroContactIcons = {
+  whatsapp:
+    '<path fill="currentColor" stroke="none" d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.55 0 .24 5.3.24 11.82c0 2.08.54 4.1 1.56 5.88L0 24l6.48-1.7a11.8 11.8 0 0 0 5.6 1.43h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.4-8.43Zm-8.44 18.25h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.85 1.01 1.03-3.75-.24-.38a9.8 9.8 0 0 1-1.5-5.21c0-5.42 4.42-9.83 9.86-9.83 2.62 0 5.09 1.02 6.95 2.88a9.75 9.75 0 0 1 2.87 6.96c0 5.42-4.42 9.83-9.84 9.83Zm5.39-7.35c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.48-1.73-1.65-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.1 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.88.11.57-.08 1.76-.72 2.01-1.42.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35Z" />',
+  email:
+    '<rect x="3.75" y="6.25" width="16.5" height="11.5" rx="2.2" /><path d="M4.75 7.5 12 12.7 19.25 7.5" /><path d="m4.75 16.9 5.1-4.55" /><path d="m19.25 16.9-5.1-4.55" />',
+  location:
+    '<path d="M12 21c3.85-3.54 5.75-6.84 5.75-9.52A5.75 5.75 0 1 0 6.25 11.48C6.25 14.16 8.15 17.46 12 21Z" /><circle cx="12" cy="11.25" r="2.15" />',
+} as const;
 ---
 
 <section class="hero-section flex flex-col items-center px-4 overflow-hidden">
@@ -13,7 +48,7 @@ import pzuLogo from "../assets/pzu_logo.png";
 
     <!-- Text + Highlights + CTA card -->
     <div class="hero-bento-card hero-bento-text relative overflow-hidden animate-[hero-card-enter_0.8s_ease-out_both] motion-reduce:animate-none">
-      <div class="hero-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
+      <div class="surface-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
 
       <div class="hero-content-shell relative z-10 p-5 sm:p-8 lg:p-12 xl:p-14">
         <!-- Header -->
@@ -27,76 +62,96 @@ import pzuLogo from "../assets/pzu_logo.png";
             set:html={hero.title}
           />
 
-          <blockquote class="mt-[clamp(12px,2.5dvh,41px)] pl-4 border-l-2 border-[#f59e0b]/30 font-(family-name:--font-heading) italic leading-[1.7] tracking-wide text-white/80 text-[clamp(0.85rem,1.2vw,1.05rem)] w-full"
+          <p class="mt-[clamp(20px,3.5dvh,50px)] pl-4 border-l-2 border-(--color-accent)/30 font-(family-name:--font-heading) italic leading-[1.7] tracking-wide text-white/80 text-[clamp(0.85rem,1.2vw,1.05rem)] w-full"
             set:html={`\u201E${hero.description}\u201D`}
           />
         </div>
 
         <!-- Bottom group: trust list + CTA -->
         <div class="hero-content-actions hero-delay-400 animate-[hero-fade-up_0.7s_ease-out_both] motion-reduce:animate-none motion-reduce:opacity-100">
-          <!-- Trust list -->
-          <ul class="hero-trust-list">
+          <!-- Trust cards -->
+          <div class="hero-trust-cards">
             {hero.trustList.map((item) => (
-              <li class="hero-trust-list__item">
-                <span class="hero-trust-list__icon" aria-hidden="true">
-                  {item.icon === "shield" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3.2v5.4c0 4.5-2.8 8.7-7 10.4-4.2-1.7-7-5.9-7-10.4V6.2L12 3z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 11.9l1.55 1.55 3.2-3.45" />
-                    </svg>
-                  )}
-                  {item.icon === "map" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" />
-                      <circle cx="12" cy="11" r="2.15" />
-                    </svg>
-                  )}
-                  {item.icon === "support" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 1115 0v2.1a1.9 1.9 0 01-1.9 1.9H16v-4.6h1.6V12a5.6 5.6 0 10-11.2 0v4H4.5A1.9 1.9 0 012.6 14.1V12" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 18.2c0 1.55-1.45 2.8-3.25 2.8H12" />
-                    </svg>
-                  )}
-                  {item.icon === "check" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  )}
+              <div class="hero-trust-card">
+                <span class="hero-trust-card__icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.9"
+                  >
+                    <Fragment set:html={heroTrustIcons[item.icon]} />
+                  </svg>
                 </span>
-                <span class="hero-trust-list__text">{item.text}</span>
-              </li>
+                <span class="hero-trust-card__title">{item.title}</span>
+                <span class="hero-trust-card__text">{item.text}</span>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <!-- Separator -->
-          <div aria-hidden="true" class="h-px w-full max-w-[540px] bg-gradient-to-r from-transparent via-[#f59e0b]/15 to-transparent"></div>
+          <div aria-hidden="true" class="h-px w-full max-w-[540px] mx-auto bg-gradient-to-r from-transparent via-(--color-accent)/15 to-transparent"></div>
           <div class="hero-actions-row flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center sm:justify-center">
-            <a
-              href={`tel:${company.phone.replace(/\s/g, "")}`}
-              class="group inline-flex items-center justify-center gap-2.5 rounded-(--radius-lg) border border-[#f59e0b]/30 bg-[#f59e0b]/10 px-6 py-3 text-sm font-semibold tracking-wide text-[#f59e0b] transition-all duration-300 hover:bg-[#f59e0b]/18 hover:border-[#f59e0b]/50 hover:text-[#fde68a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent) cursor-pointer"
-            >
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-              <span class="flex flex-col items-start leading-tight">
-                <span>{hero.actions.primary.label}</span>
-                <span class="text-[0.65rem] font-normal text-[#f59e0b]/50 tracking-wider">{company.phone}</span>
-              </span>
-            </a>
+            <PhoneButton
+              size="lg"
+              showSubtext
+              subtextLabel={hero.actions.primary.label}
+              class="group justify-center cursor-pointer"
+            />
 
-            <a
+            <Button
               href={hero.actions.secondary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-6 py-3 text-sm font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              variant="accent"
+              class="group"
             >
               {hero.actions.secondary.label}
-            </a>
+            </Button>
 
-            <a
+            <Button
               href={hero.actions.tertiary.href}
-              class="group inline-flex items-center justify-center rounded-(--radius-lg) border border-white/12 px-6 py-3 text-sm font-medium tracking-wide text-white/70 transition-all duration-300 hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent)/50 cursor-pointer"
+              variant="accent"
+              class="group"
             >
               {hero.actions.tertiary.label}
-            </a>
+            </Button>
+          </div>
+
+          <div class="hero-contact-links">
+            <div class="hero-contact-links__items">
+              <p class="hero-contact-links__label">Zapraszam rowniez do kontaktu za posrednictwem:</p>
+              <div class="hero-contact-links__row">
+                {heroContactLinks.map((item, index) => (
+                  <>
+                    {index > 0 && <span class="hero-contact-links__dot" aria-hidden="true">•</span>}
+                    <a
+                      class:list={[
+                        "hero-contact-link",
+                        item.icon === "whatsapp" && "hero-contact-link--whatsapp",
+                        item.icon === "location" && "hero-contact-link--office",
+                      ]}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span class="hero-contact-link__icon" aria-hidden="true">
+                        <svg
+                          class:list={["hero-contact-link__svg", item.icon === "whatsapp" && "hero-contact-link__svg--whatsapp"]}
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <Fragment set:html={heroContactIcons[item.icon]} />
+                        </svg>
+                      </span>
+                      <span>{item.label}</span>
+                    </a>
+                  </>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -116,15 +171,23 @@ import pzuLogo from "../assets/pzu_logo.png";
       <div class="hero-advisor-panel">
         <div class="hero-advisor-panel__main">
           <div class="hero-advisor-panel__info">
-            <div class="hero-advisor-panel__header">
-              <p class="hero-advisor-panel__eyebrow">Spokojnie, konkretnie, po ludzku</p>
-              <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
+            <div class="hero-advisor-panel__topline">
+              <p class="hero-advisor-panel__services-label">Pomagam zabezpieczyć:</p>
+              <p class="hero-advisor-panel__eyebrow">Autoryzowany agent PZU</p>
             </div>
 
-            <div class="hero-advisor-panel__specialties">
-              {hero.advisorCard.specialties.map((specialty) => (
-                <span class="hero-advisor-panel__pill">{specialty}</span>
-              ))}
+            <div class="hero-advisor-panel__bottomline">
+              <p class="hero-advisor-panel__specialties" aria-label="Zakres usług">
+                {hero.advisorCard.specialties.map((specialty, index) => (
+                  <>
+                    {index > 0 && <span class="hero-advisor-panel__separator" aria-hidden="true">·</span>}
+                    <span>{specialty}</span>
+                  </>
+                ))}
+              </p>
+              {hero.advisorCard.role && (
+                <p class="hero-advisor-panel__role">{hero.advisorCard.role}</p>
+              )}
             </div>
           </div>
         </div>
@@ -135,12 +198,11 @@ import pzuLogo from "../assets/pzu_logo.png";
 
   <!-- City names -->
   <div class="hero-cities" aria-hidden="true">
-    <span>KRASNYSTAW</span>
-    <span class="hero-cities__dot">·</span>
-    <span>ZAMOŚĆ</span>
-    <span class="hero-cities__dot">·</span>
-    <span>CHEŁM</span>
-    <span class="hero-cities__dot">·</span>
-    <span>LUBLIN</span>
+    {company.serviceAreas.map((city, index) => (
+      <>
+        {index > 0 && <span class="hero-cities__dot">·</span>}
+        <span>{city.toUpperCase()}</span>
+      </>
+    ))}
   </div>
 </section>

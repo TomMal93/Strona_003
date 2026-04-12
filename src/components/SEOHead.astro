@@ -34,10 +34,10 @@ const localBusinessSchema = {
     latitude: company.schema.geo.latitude,
     longitude: company.schema.geo.longitude,
   },
-  areaServed: {
-    "@type": "Country",
-    name: "Polska",
-  },
+  areaServed: company.serviceAreas.map((city) => ({
+    "@type": "City",
+    name: city,
+  })),
   ...(socialLinks.length > 0 && { sameAs: socialLinks }),
 };
 ---
@@ -46,6 +46,7 @@ const localBusinessSchema = {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0f24" />
 <meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
 
 <link rel="canonical" href={canonicalUrl} />
 <link rel="alternate" hreflang="pl" href={canonicalUrl} />

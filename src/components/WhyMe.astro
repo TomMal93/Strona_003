@@ -1,0 +1,67 @@
+---
+import "../styles/components/whyme.css";
+import SectionFrame from "./ui/SectionFrame.astro";
+import PrimaryButton from "./ui/PrimaryButton.astro";
+import { collaboration } from "../data/collaboration";
+import { whyMe } from "../data/whyMe";
+import { phoneHref } from "../data/company";
+---
+
+<SectionFrame id="dlaczego-warto" title={whyMe.sectionTitle} shellClass="whyme-shell">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2.5 14.6 8l6.4.5-4.9 4.2 1.6 6.3L12 15.9 6.3 19l1.6-6.3L3 8.5 9.4 8z" />
+    </svg>
+  </Fragment>
+
+  <p slot="intro" set:html={whyMe.sectionIntro} />
+
+  <div class="whyme-compare" role="table" aria-label="Porównanie anonimowego kanału sprzedaży i współpracy ze mną">
+    <div class="whyme-compare__head" role="row">
+      <span class="whyme-compare__head-cell whyme-compare__head-cell--anon" role="columnheader">
+        <span class="whyme-compare__head-dot whyme-compare__head-dot--anon" aria-hidden="true"></span>
+        {whyMe.columnLabels.anon}
+      </span>
+      <span class="whyme-compare__head-cell whyme-compare__head-cell--me" role="columnheader">
+        <span class="whyme-compare__head-dot whyme-compare__head-dot--me" aria-hidden="true"></span>
+        {whyMe.columnLabels.me}
+      </span>
+    </div>
+
+    <ul class="whyme-compare__rows">
+      {whyMe.pairs.map((pair) => (
+        <li class="whyme-compare__row" role="row">
+          <span class="whyme-compare__cell whyme-compare__cell--anon" role="cell">
+            <span class="whyme-compare__mark whyme-compare__mark--x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </span>
+            <span class="whyme-compare__body">
+              <span class="whyme-compare__label">{pair.anon.label}</span>
+              <span class="whyme-compare__detail">{pair.anon.detail}</span>
+            </span>
+          </span>
+          <span class="whyme-compare__cell whyme-compare__cell--me" role="cell">
+            <span class="whyme-compare__mark whyme-compare__mark--check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 12.5 4.5 4.5L19 7.5" />
+              </svg>
+            </span>
+            <span class="whyme-compare__body">
+              <span class="whyme-compare__label">{pair.me.label}</span>
+              <span class="whyme-compare__detail">{pair.me.detail}</span>
+            </span>
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <hr class="whyme-compare__separator" aria-hidden="true" />
+    <div class="whyme-compare__closing">
+      <PrimaryButton href={phoneHref} class="justify-center">
+        {collaboration.ctaLabel}
+      </PrimaryButton>
+    </div>
+  </div>
+</SectionFrame>

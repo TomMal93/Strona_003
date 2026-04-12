@@ -1,0 +1,80 @@
+---
+import "../styles/components/footer.css";
+import NavSocialIcons from "./navigation/NavSocialIcons.astro";
+import { company, phoneHref } from "../data/company";
+import { navLinks } from "../data/navigation";
+
+const emailHref = `mailto:${company.email}`;
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${company.address.street}, ${company.address.zip} ${company.address.city}`,
+)}`;
+
+const quickLinks = navLinks.filter((link) => link.label !== "Kontakt");
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="kontakt" class="site-footer">
+  <div class="site-footer__shell">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="/" class="site-footer__brand-link" aria-label={`Przejdź do strony głównej ${company.name}`}>
+            <div class="site-footer__logo" aria-hidden="true">
+              <span>L</span>
+            </div>
+            <div class="site-footer__brand-copy">
+              <span class="site-footer__name">{company.name}</span>
+              <span class="site-footer__tagline">{company.tagline}</span>
+            </div>
+          </a>
+
+          <p class="site-footer__summary">
+            Wspieram w wyborze ubezpieczenia dopasowanego do sytuacji życiowej, rodzinnej i zawodowej.
+          </p>
+
+          <NavSocialIcons class="site-footer__socials" />
+        </div>
+
+        <div class="site-footer__column">
+          <h2 class="site-footer__heading">Kontakt</h2>
+          <ul class="site-footer__list">
+            <li>
+              <a href={phoneHref} class="site-footer__link">
+                <span class="site-footer__link-label">Telefon</span>
+                <span>{company.phone}</span>
+              </a>
+            </li>
+            <li>
+              <a href={emailHref} class="site-footer__link">
+                <span class="site-footer__link-label">E-mail</span>
+                <span>{company.email}</span>
+              </a>
+            </li>
+            <li>
+              <a href={mapsHref} class="site-footer__link" target="_blank" rel="noreferrer">
+                <span class="site-footer__link-label">Biuro</span>
+                <span>{company.address.street}, {company.address.zip} {company.address.city}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <nav class="site-footer__column" aria-label="Szybkie linki">
+          <h2 class="site-footer__heading">Szybkie linki</h2>
+          <ul class="site-footer__list site-footer__list--compact">
+            {quickLinks.map((link) => (
+              <li>
+                <a href={link.href} class="site-footer__nav-link">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; {currentYear} {company.name}. Wszelkie prawa zastrzeżone.</p>
+        <p>{company.address.city} i okolice</p>
+      </div>
+    </div>
+  </div>
+</footer>

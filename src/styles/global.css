@@ -2,9 +2,7 @@
 @import "./themes/tokens.css";
 @import "./utilities/layout.css";
 @import "./animations/transitions.css";
-@import "./components/hero.css";
-@import "./components/navbar.css";
-@import "./components/services.css";
+@import "./shared/surface-effects.css";
 
 @layer base {
   html {
@@ -25,6 +23,18 @@
       transparent 40px
     );
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body > main {
+    width: 100%;
+    flex: 1 0 auto;
+  }
+
+  body.body-lock-scroll {
+    overflow: hidden;
   }
 
   h1,

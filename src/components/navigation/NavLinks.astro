@@ -1,5 +1,5 @@
 ---
-import { navLinks } from "../../data/navigation";
+import NavLinkList from "./NavLinkList.astro";
 
 interface Props {
   class?: string;
@@ -8,14 +8,4 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<ul class:list={["flex items-center gap-8", className]}>
-  {
-    navLinks.map((link) => (
-      <li>
-        <a href={link.href} class="nav-link">
-          {link.label}
-        </a>
-      </li>
-    ))
-  }
-</ul>
+<NavLinkList listClass={`flex items-center gap-8 ${className ?? ""}`.trim()} />

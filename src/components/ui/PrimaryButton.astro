@@ -1,0 +1,25 @@
+---
+interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+
+const { href, type = "button", class: className } = Astro.props;
+
+const Tag = href ? "a" : "button";
+
+const classes = [
+  "inline-flex items-center justify-center rounded-(--radius-lg) border border-(--color-accent)/30 bg-(--color-accent)/10 px-7 py-3 text-base font-semibold tracking-wide text-(--color-accent) transition-all duration-300 hover:bg-(--color-accent)/18 hover:border-(--color-accent)/50 hover:text-(--color-accent-pale) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-accent) cursor-pointer",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag
+  class={classes}
+  {...href ? { href } : { type }}
+>
+  <slot />
+</Tag>

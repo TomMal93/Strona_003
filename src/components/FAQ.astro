@@ -1,0 +1,60 @@
+---
+import "../styles/components/faq.css";
+import SectionFrame from "./ui/SectionFrame.astro";
+import { faqItems } from "../data/faq";
+
+const groupedFaqItems = Object.values(
+  faqItems.reduce<Record<string, typeof faqItems>>((groups, item) => {
+    const groupName = item.group ?? "Najczęstsze pytania";
+
+    groups[groupName] ??= [];
+    groups[groupName].push(item);
+
+    return groups;
+  }, {}),
+);
+---
+
+<SectionFrame id="faq" title="Najczęściej zadawane pytania" shellClass="faq-shell" headerClass="faq-section-header">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+      <circle cx="12" cy="12" r="9" />
+    </svg>
+  </Fragment>
+
+  <div class="faq-groups">
+    {groupedFaqItems.map((group, groupIndex) => (
+      <section class="faq-group" aria-labelledby={`faq-group-${groupIndex}`}>
+        <div class="faq-group__header">
+          <h3 id={`faq-group-${groupIndex}`} class="faq-group__eyebrow">{group[0]?.group ?? "Najczęstsze pytania"}</h3>
+        </div>
+
+        <div class="faq-list">
+          {group.map((item, itemIndex) => (
+            <details class="faq-item">
+              <summary class="faq-item__summary">
+                <div class="faq-item__lead">
+                  <h4 class="faq-item__question">{item.question}</h4>
+                </div>
+                <span class="faq-item__trigger" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="faq-item__content">
+                <p class="faq-item__answer">{item.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <p class="faq-closing">
+    Jeśli Twoja sytuacja nie mieści się w żadnym z tych pytań, wyjaśnię ją indywidualnie przed przygotowaniem oferty.
+  </p>
+</SectionFrame>

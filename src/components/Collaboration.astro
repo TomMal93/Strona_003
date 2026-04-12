@@ -1,0 +1,34 @@
+---
+import "../styles/components/collaboration.css";
+import SectionFrame from "./ui/SectionFrame.astro";
+import { collaboration } from "../data/collaboration";
+---
+
+<SectionFrame id="wspolpraca" title={collaboration.sectionTitle} shellClass="collab-shell">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 12h4l3-8 4 16 3-8h4" />
+    </svg>
+  </Fragment>
+
+  <p slot="intro" set:html={collaboration.sectionIntro} />
+
+  <ol class="collab-flow" aria-label="Cztery kroki współpracy">
+    {collaboration.steps.map((step, index) => (
+      <li
+        class="collab-flow__step"
+        data-last={index === collaboration.steps.length - 1 ? "true" : undefined}
+      >
+        <div class="collab-flow__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d={step.iconPath} />
+          </svg>
+        </div>
+        <h3 class="collab-flow__title">{step.title}</h3>
+        <p class="collab-flow__desc" set:html={step.description} />
+      </li>
+    ))}
+  </ol>
+
+  <p class="collab-closing" set:html={collaboration.closingNote} />
+</SectionFrame>
