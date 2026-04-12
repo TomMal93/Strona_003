@@ -12,8 +12,9 @@ export const navLinks: NavLink[] = [
   { label: "Strona główna", href: "/" },
   { label: "Oferta", href: "#oferta" },
   { label: "O mnie", href: "#o-mnie" },
-  { label: "Dlaczego warto", href: "#dlaczego-warto" },
   { label: "Współpraca", href: "#wspolpraca" },
+  { label: "Dlaczego warto", href: "#dlaczego-warto" },
+  { label: "Obszar działania", href: "#obszar-dzialania" },
   { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#kontakt" },
 ];
