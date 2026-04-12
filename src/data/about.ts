@@ -64,7 +64,7 @@ export const about = {
   ] satisfies AboutTrustPoint[],
   primaryCtaLabel: "Porozmawiajmy",
   secondary: {
-    label: "Zobacz zakres pomocy",
-    href: "#oferta",
+    label: "Dowiedz się więcej o mnie",
+    href: "/oferta",
   },
 } as const;
