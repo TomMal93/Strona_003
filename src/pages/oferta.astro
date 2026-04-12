@@ -5,24 +5,41 @@ import Button from "../components/ui/Button.astro";
 import PhoneButton from "../components/ui/PhoneButton.astro";
 import OfferCategorySection from "../components/offer/OfferCategorySection.astro";
 import OfferRevealScript from "../components/scripts/OfferRevealScript.astro";
-import { offerCategories, offerPageSeo } from "../data/offerDetails";
+import { personaScenarios, offerPageSeo } from "../data/offerDetails";
 import { company } from "../data/company";
 import "../styles/components/offer.css";
 
-const serviceSchemas = offerCategories.map((cat) => ({
+const serviceSchemas = personaScenarios.flatMap((scenario) =>
+  scenario.products.map((product) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: product.name,
+    provider: {
+      "@type": "InsuranceAgency",
+      name: company.name,
+    },
+    areaServed: company.serviceAreas.map((city) => ({
+      "@type": "City",
+      name: city,
+    })),
+    description: product.description.replace(/\u00A0/g, " "),
+  }))
+);
+
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: cat.title,
-  provider: {
-    "@type": "InsuranceAgency",
-    name: company.name,
-  },
-  areaServed: company.serviceAreas.map((city) => ({
-    "@type": "City",
-    name: city,
-  })),
-  description: cat.extendedDescription.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " "),
-}));
+  "@type": "FAQPage",
+  mainEntity: personaScenarios.flatMap((scenario) =>
+    scenario.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question.replace(/\u00A0/g, " "),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer.replace(/\u00A0/g, " "),
+      },
+    }))
+  ),
+};
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -45,7 +62,7 @@ const breadcrumbSchema = {
 
 <Layout title={offerPageSeo.title} description={offerPageSeo.description}>
   <main>
-    <SectionFrame id="oferta-page" title="Pełna oferta ubezpieczeń PZU" shellClass="offer-shell">
+    <SectionFrame id="oferta-page" title="Ubezpieczenia dopasowane do Twojej sytuacji" shellClass="offer-shell">
       <Fragment slot="icon">
         <svg viewBox="0 0 24 24">
           <path d="M7 6.75h10" />
@@ -58,15 +75,23 @@ const breadcrumbSchema = {
       </Fragment>
 
       <p slot="intro">
-        Jako agent PZU w&nbsp;<strong>Krasnymstawie i&nbsp;okolicy</strong> pomagam dobrać ubezpieczenie
-        dopasowane do Twoich potrzeb. Poniżej znajdziesz szczegółowy zakres mojej oferty —
-        od <strong>ochrony zdrowia</strong>, przez <strong>zabezpieczenie rodziny</strong>,
-        po <strong>ubezpieczenia dla firm</strong>.
+        Jako agent PZU w&nbsp;<strong>Krasnymstawie i&nbsp;okolicy</strong> pomagam znaleźć
+        ochronę dopasowaną do Twojej sytuacji życiowej. Wybierz poniżej scenariusz najbliższy
+        Twoim potrzebom — lub po prostu <strong>zadzwoń</strong>, a&nbsp;razem dobierzemy
+        odpowiednie rozwiązanie.
       </p>
 
+      <nav class="offer-nav" aria-label="Przejdź do sekcji">
+        {personaScenarios.map((scenario) => (
+          <a href={`#${scenario.id}`} class="offer-nav__pill" data-service={scenario.serviceVariant}>
+            {scenario.title}
+          </a>
+        ))}
+      </nav>
+
       <div class="offer-categories">
-        {offerCategories.map((category, i) => (
-          <OfferCategorySection category={category} index={i} />
+        {personaScenarios.map((scenario, i) => (
+          <OfferCategorySection scenario={scenario} index={i} />
         ))}
       </div>
 
@@ -87,6 +112,7 @@ const breadcrumbSchema = {
   {serviceSchemas.map((schema) => (
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   ))}
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <OfferRevealScript />

@@ -1,19 +1,21 @@
 ---
-import type { OfferCategory } from "../../data/offerDetails";
+import type { PersonaScenario } from "../../data/offerDetails";
 import { phoneHref } from "../../data/company";
+import PersonaFaq from "./PersonaFaq.astro";
+import AgentQuote from "./AgentQuote.astro";
 
 interface Props {
-  category: OfferCategory;
+  scenario: PersonaScenario;
   index: number;
 }
 
-const { category, index } = Astro.props;
+const { scenario, index } = Astro.props;
 ---
 
 <article
   class="offer-category"
-  id={category.id}
-  data-service={category.serviceVariant}
+  id={scenario.id}
+  data-service={scenario.serviceVariant}
   data-delay={index * 120}
 >
   <div class="offer-category__glow"></div>
@@ -21,44 +23,55 @@ const { category, index } = Astro.props;
   <div class="offer-category__header">
     <div class="offer-category__icon">
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <Fragment set:html={category.icon} />
+        <Fragment set:html={scenario.icon} />
       </svg>
     </div>
     <div class="offer-category__titles">
-      <h2 class="offer-category__title">{category.title}</h2>
-      <p class="offer-category__subtitle">{category.subtitle}</p>
+      <h2 class="offer-category__title">{scenario.title}</h2>
+      <p class="offer-category__subtitle">{scenario.subtitle}</p>
     </div>
   </div>
 
-  <div class="offer-category__desc" set:html={category.extendedDescription} />
+  <h3 class="offer-category__seo-heading">{scenario.seoHeading}</h3>
+
+  <p class="offer-category__desc">{scenario.personaDescription}</p>
 
   <div class="offer-category__divider"></div>
 
-  <h3 class="offer-category__features-title">Zakres ochrony</h3>
-  <ul class="offer-category__features-grid">
-    {category.features.map((feature) => (
-      <li class="offer-category__feature">
-        <span class="offer-category__check">
+  <h3 class="offer-category__section-title">Dlaczego warto?</h3>
+  <div class="offer-category__benefits-grid">
+    {scenario.benefits.map((benefit) => (
+      <div class="offer-category__benefit">
+        <span class="offer-category__benefit-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 13l4 4L19 7" />
           </svg>
         </span>
-        <span class="offer-category__feature-label">{feature}</span>
-      </li>
+        <div>
+          <p class="offer-category__benefit-label">{benefit.label}</p>
+          <p class="offer-category__benefit-detail">{benefit.detail}</p>
+        </div>
+      </div>
     ))}
-  </ul>
+  </div>
 
   <div class="offer-category__divider"></div>
 
-  <h3 class="offer-category__products-title">Przykładowe produkty PZU</h3>
+  <h3 class="offer-category__section-title">Dopasowane produkty PZU</h3>
   <div class="offer-category__products-grid">
-    {category.products.map((product) => (
+    {scenario.products.map((product) => (
       <div class="offer-category__product">
         <h4 class="offer-category__product-name">{product.name}</h4>
         <p class="offer-category__product-desc">{product.description}</p>
       </div>
     ))}
   </div>
+
+  <div class="offer-category__divider"></div>
+
+  <PersonaFaq items={scenario.faq} />
+
+  <AgentQuote quote={scenario.agentQuote} />
 
   <div class="offer-category__cta">
     <a
@@ -69,7 +82,7 @@ const { category, index } = Astro.props;
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
       </svg>
-      {category.ctaText}
+      {scenario.ctaText}
     </a>
   </div>
 </article>

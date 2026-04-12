@@ -1,0 +1,24 @@
+---
+import type { PersonaFaqItem } from "../../data/offerDetails";
+
+interface Props {
+  items: PersonaFaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="offer-faq">
+  <h3 class="offer-faq__heading">Najczęstsze pytania</h3>
+  {items.map((item) => (
+    <details class="offer-faq__item">
+      <summary class="offer-faq__question">
+        <span>{item.question}</span>
+        <svg class="offer-faq__chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </summary>
+      <p class="offer-faq__answer" set:html={item.answer} />
+    </details>
+  ))}
+</div>
