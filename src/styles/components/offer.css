@@ -125,6 +125,21 @@
   margin-bottom: 1rem;
 }
 
+.offer-category[data-service="family"] .offer-category__header,
+.offer-category[data-service="individual"] .offer-category__header,
+.offer-category[data-service="business"] .offer-category__header {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-category[data-service="family"] .offer-category__titles,
+.offer-category[data-service="individual"] .offer-category__titles,
+.offer-category[data-service="business"] .offer-category__titles {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
 .offer-category__icon {
   display: flex;
   align-items: center;
@@ -182,6 +197,12 @@
   color: var(--service-accent-light);
 }
 
+.offer-category[data-service="family"] .offer-category__seo-heading,
+.offer-category[data-service="individual"] .offer-category__seo-heading,
+.offer-category[data-service="business"] .offer-category__seo-heading {
+  text-align: center;
+}
+
 /* ── Description ── */
 
 .offer-category__desc {
@@ -191,6 +212,12 @@
   font-size: 1rem;
   line-height: 1.8;
   color: rgb(203 213 225 / 0.88);
+}
+
+.offer-category[data-service="family"] .offer-category__desc,
+.offer-category[data-service="individual"] .offer-category__desc,
+.offer-category[data-service="business"] .offer-category__desc {
+  text-align: center;
 }
 
 /* ── Divider ── */
@@ -206,6 +233,19 @@
   );
 }
 
+.offer-category[data-service="family"] .offer-category__divider,
+.offer-category[data-service="individual"] .offer-category__divider,
+.offer-category[data-service="business"] .offer-category__divider {
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--service-accent-rgb) / 0.28),
+    transparent
+  );
+}
+
 /* ── Section titles ── */
 
 .offer-category__section-title {
@@ -214,6 +254,12 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-text-heading);
+}
+
+.offer-category[data-service="family"] .offer-category__section-title,
+.offer-category[data-service="individual"] .offer-category__section-title,
+.offer-category[data-service="business"] .offer-category__section-title {
+  text-align: center;
 }
 
 /* ── Benefits grid ── */
@@ -316,6 +362,13 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--service-accent-light);
+}
+
+.offer-category[data-service="family"] .offer-category__cta,
+.offer-category[data-service="individual"] .offer-category__cta,
+.offer-category[data-service="business"] .offer-category__cta {
+  display: flex;
+  justify-content: center;
 }
 
 .offer-category__product-desc {
