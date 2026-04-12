@@ -16,7 +16,7 @@ export const navLinks: NavLink[] = [
   { label: "Dlaczego warto", href: "#dlaczego-warto" },
   { label: "Obszar działania", href: "#obszar-dzialania" },
   { label: "FAQ", href: "#faq" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Kontakt", href: "#porozmawiajmy" },
 ];
 
 export const socialLinks: SocialLink[] = [
