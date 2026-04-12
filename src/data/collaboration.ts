@@ -9,6 +9,8 @@ export const collaboration = {
   sectionTitle: "Jak wygląda współpraca",
   sectionIntro:
     "Bez formalnego skryptu i bez infolinii. Cztery proste kroki — od pierwszego kontaktu po opiekę już po podpisaniu polisy.",
+  closingNote:
+    "Na każdym etapie rozmawiasz z <strong>jedną osobą</strong> i od razu wiesz, co robimy dalej.<br />Bez odbijania między działami, bez zgadywania, co obejmuje polisa.",
   steps: [
     {
       number: "01",

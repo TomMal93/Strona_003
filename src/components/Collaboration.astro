@@ -2,7 +2,6 @@
 import "../styles/components/collaboration.css";
 import SectionFrame from "./ui/SectionFrame.astro";
 import { collaboration } from "../data/collaboration";
-import { whyMe } from "../data/whyMe";
 ---
 
 <SectionFrame id="wspolpraca" title={collaboration.sectionTitle} shellClass="collab-shell">
@@ -31,5 +30,5 @@ import { whyMe } from "../data/whyMe";
     ))}
   </ol>
 
-  <p class="collab-closing" set:html={whyMe.closingNote} />
+  <p class="collab-closing" set:html={collaboration.closingNote} />
 </SectionFrame>
