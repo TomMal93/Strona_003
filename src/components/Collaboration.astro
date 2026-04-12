@@ -11,7 +11,7 @@ import { collaboration } from "../data/collaboration";
     </svg>
   </Fragment>
 
-  <p slot="intro">{collaboration.sectionIntro}</p>
+  <p slot="intro" set:html={collaboration.sectionIntro} />
 
   <ol class="collab-flow" aria-label="Cztery kroki współpracy">
     {collaboration.steps.map((step, index) => (
@@ -25,7 +25,7 @@ import { collaboration } from "../data/collaboration";
           </svg>
         </div>
         <h3 class="collab-flow__title">{step.title}</h3>
-        <p class="collab-flow__desc">{step.description}</p>
+        <p class="collab-flow__desc" set:html={step.description} />
       </li>
     ))}
   </ol>
