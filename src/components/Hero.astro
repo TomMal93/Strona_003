@@ -7,6 +7,39 @@ import Button from "./ui/Button.astro";
 import PhoneButton from "./ui/PhoneButton.astro";
 import { Image } from "astro:assets";
 import pzuLogo from "../assets/pzu_logo.png";
+
+const whatsappHref = `https://wa.me/${company.phone.replace(/\D/g, "")}`;
+const emailHref = `mailto:${company.email}`;
+const officeMapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${company.address.street}, ${company.address.zip} ${company.address.city}`,
+)}`;
+
+const heroContactLinks = [
+  {
+    label: "WhatsApp",
+    href: whatsappHref,
+    icon: "whatsapp",
+  },
+  {
+    label: "Email",
+    href: emailHref,
+    icon: "email",
+  },
+  {
+    label: "Biuro",
+    href: officeMapsHref,
+    icon: "location",
+  },
+] as const;
+
+const heroContactIcons = {
+  whatsapp:
+    '<path d="M20 11.5a8 8 0 1 1-14.92 4.06L4 20l4.59-1.04A8 8 0 0 1 20 11.5Z" /><path d="M8.8 9.02c.18-.4.37-.4.55-.41h.47c.14 0 .37.05.56.47.19.41.64 1.4.7 1.5.06.1.1.23.02.38-.08.15-.12.25-.23.38-.12.13-.24.29-.34.39-.11.1-.22.21-.09.42.13.2.59.97 1.26 1.57.86.76 1.58 1 1.8 1.1.22.1.34.08.47-.05.13-.13.54-.63.68-.85.14-.22.29-.18.48-.11.2.07 1.24.59 1.46.69.22.11.36.16.41.25.05.08.05.5-.12.98-.17.48-.98.92-1.35.98-.35.06-.8.09-2.58-.61-2.15-.85-3.54-2.96-3.65-3.1-.1-.14-.87-1.15-.87-2.2 0-1.05.55-1.57.75-1.79Z" />',
+  email:
+    '<path d="M4 7.75A1.75 1.75 0 0 1 5.75 6h12.5A1.75 1.75 0 0 1 20 7.75v8.5A1.75 1.75 0 0 1 18.25 18H5.75A1.75 1.75 0 0 1 4 16.25v-8.5Z" /><path d="m5 8 7 5 7-5" />',
+  location:
+    '<path d="M12 20s-5.5-4.35-5.5-9A5.5 5.5 0 1 1 17.5 11c0 4.65-5.5 9-5.5 9Z" /><circle cx="12" cy="11" r="1.9" />',
+} as const;
 ---
 
 <section class="hero-section flex flex-col items-center px-4 overflow-hidden">
@@ -81,6 +114,30 @@ import pzuLogo from "../assets/pzu_logo.png";
             >
               {hero.actions.tertiary.label}
             </Button>
+          </div>
+
+          <div class="hero-contact-links">
+            <p class="hero-contact-links__label">Zapraszam rowniez do kontaktu za posrednictwem:</p>
+            <div class="hero-contact-links__items">
+              {heroContactLinks.map((item, index) => (
+                <>
+                  {index > 0 && <span class="hero-contact-links__dot" aria-hidden="true">•</span>}
+                  <a
+                    class="hero-contact-link"
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="hero-contact-link__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <Fragment set:html={heroContactIcons[item.icon]} />
+                      </svg>
+                    </span>
+                    <span>{item.label}</span>
+                  </a>
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </div>
