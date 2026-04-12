@@ -23,6 +23,14 @@
       transparent 40px
     );
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body > main {
+    width: 100%;
+    flex: 1 0 auto;
   }
 
   body.body-lock-scroll {
