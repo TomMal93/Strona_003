@@ -24,7 +24,7 @@ export const collaboration = {
       number: "02",
       title: "Rozmowa o potrzebach",
       description:
-        "Pytam o Twoją sytuację, to co chcesz chronić i czego się obawiasz. Krótko, po ludzku i bez ubezpieczeniowego żargonu.",
+        "Pytam o Twoją sytuację,<br />to co chcesz chronić i czego się obawiasz.<br />Krótko, po ludzku i bez ubezpieczeniowego żargonu.",
       iconPath:
         "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
     },
@@ -32,7 +32,7 @@ export const collaboration = {
       number: "03",
       title: "Dobór rozwiązania",
       description:
-        "Z pełnej oferty PZU dobieram ochronę dopasowaną do Ciebie. Tłumaczę, co obejmuje, a czego nie — żebyś wiedział, co kupujesz.",
+        "Dobieram ochronę z PZU<br />do Twojej sytuacji.<br />Wyjaśniam, co obejmuje polisa i czego nie zawiera - żebyś wiedział, co wybierasz.",
       iconPath:
         "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
     },
@@ -40,7 +40,7 @@ export const collaboration = {
       number: "04",
       title: "Finalizacja i opieka",
       description:
-        "Podpisujemy polisę, a ja zostaję z Tobą — przy wznowieniach, zmianach w umowie i przy szkodzie. Jedna osoba, do której wracasz.",
+        "Finalizujemy polisę,<br />a potem dalej masz kontakt<br />ze mną - przy wznowieniach, zmianach w umowie i wtedy, gdy trzeba zgłosić szkodę.",
       iconPath:
         "M20 6 9 17l-5-5",
     },
