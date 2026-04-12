@@ -15,13 +15,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     group: "Początek współpracy",
-    shortLabel: "Proces",
-    question: "Jak wygląda proces zakupu ubezpieczenia?",
-    answer:
-      "Najpierw rozmawiamy o Twoich potrzebach, zakresie ochrony i sytuacji życiowej albo firmowej. Następnie przygotowuję propozycję, wyjaśniam różnice między wariantami i pomagam przejść przez formalności tak, żeby decyzja była świadoma, a nie przypadkowa.",
-  },
-  {
-    group: "Początek współpracy",
     shortLabel: "Przygotowanie",
     question: "Jakie informacje są potrzebne, żeby przygotować wstępną ofertę?",
     answer:
@@ -33,6 +26,20 @@ export const faqItems: FaqItem[] = [
     question: "Jak szybko mogę otrzymać wstępną ofertę?",
     answer:
       "W wielu przypadkach wstępną ofertę mogę przygotować nawet tego samego dnia, szczególnie przy prostszych zapytaniach indywidualnych i firmowych. Jeśli temat wymaga szerszej analizy, od razu uprzedzam, ile czasu będzie realnie potrzebne.",
+  },
+  {
+    group: "Decyzja i dopasowanie",
+    shortLabel: "Wybór",
+    question: "Skąd mam wiedzieć, które ubezpieczenie będzie dla mnie naprawdę odpowiednie?",
+    answer:
+      "To właśnie jeden z najważniejszych elementów mojej pracy. Nie zaczynam od gotowej polisy, tylko od rozmowy o Twojej sytuacji, priorytetach i tym, co chcesz realnie zabezpieczyć. Dzięki temu łatwiej wybrać rozwiązanie dopasowane do potrzeb, a nie przypadkowy wariant z ogólnej oferty.",
+  },
+  {
+    group: "Decyzja i dopasowanie",
+    shortLabel: "Porównanie",
+    question: "Czy mogę porównać kilka wariantów przed podjęciem decyzji?",
+    answer:
+      "Tak. Przygotowuję warianty i wyjaśniam między nimi najważniejsze różnice, tak żeby było jasne, za co faktycznie płacisz i jaki zakres ochrony otrzymujesz. Dzięki temu możesz podjąć decyzję spokojnie, bez presji i bez zgadywania, która opcja będzie rozsądniejsza.",
   },
   {
     group: "Obsługa i wsparcie",
