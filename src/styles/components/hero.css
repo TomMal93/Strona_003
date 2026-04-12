@@ -219,9 +219,9 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 0.8rem;
-  border: 1px solid rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.05);
   border-radius: 0.9rem;
-  background: rgb(255 255 255 / 0.02);
+  background: transparent;
 }
 
 .hero-contact-links__row {
@@ -260,13 +260,13 @@
 }
 
 .hero-contact-link--whatsapp {
-  color: rgb(91 214 131 / 0.68);
+  color: rgb(196 216 236 / 0.74);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 .hero-contact-link--whatsapp .hero-contact-link__icon {
-  color: rgb(91 214 131 / 0.68);
+  color: rgb(160 198 232 / 0.76);
 }
 
 .hero-contact-link--whatsapp:hover {
@@ -278,11 +278,11 @@
 }
 
 .hero-contact-link--office {
-  color: rgb(var(--color-accent-rgb) / 0.9);
+  color: rgb(196 216 236 / 0.74);
 }
 
 .hero-contact-link--office .hero-contact-link__icon {
-  color: rgb(var(--color-accent-rgb) / 0.9);
+  color: rgb(160 198 232 / 0.76);
 }
 
 .hero-contact-link--office:hover {
