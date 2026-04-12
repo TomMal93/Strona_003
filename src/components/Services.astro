@@ -2,6 +2,7 @@
 import "../styles/components/services.css";
 import Button from "./ui/Button.astro";
 import SectionFrame from "./ui/SectionFrame.astro";
+import ServicesRevealScript from "./scripts/ServicesRevealScript.astro";
 import { services, servicesClosingNote } from "../data/services";
 ---
 
@@ -78,8 +79,4 @@ import { services, servicesClosingNote } from "../data/services";
   </div>
 </SectionFrame>
 
-<script>
-  import { initServicesReveal } from "../scripts/services-reveal";
-
-  initServicesReveal();
-</script>
+<ServicesRevealScript />

@@ -19,7 +19,6 @@ import { phoneHref } from "../data/company";
     {collaboration.steps.map((step, index) => (
       <li
         class="collab-flow__step"
-        style={`--collab-step-index: ${index};`}
         data-last={index === collaboration.steps.length - 1 ? "true" : undefined}
       >
         <div class="collab-flow__icon" aria-hidden="true">

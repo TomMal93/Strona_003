@@ -3,6 +3,7 @@ import "../../styles/components/navbar.css";
 import NavLinks from "./NavLinks.astro";
 import NavSocialIcons from "./NavSocialIcons.astro";
 import NavMobile from "./NavMobile.astro";
+import NavbarScript from "../scripts/NavbarScript.astro";
 import { company } from "../../data/company";
 import PhoneButton from "../ui/PhoneButton.astro";
 ---
@@ -54,8 +55,4 @@ import PhoneButton from "../ui/PhoneButton.astro";
   <NavMobile />
 </header>
 
-<script>
-  import { initNavbar } from "../../scripts/navbar";
-
-  initNavbar();
-</script>
+<NavbarScript />

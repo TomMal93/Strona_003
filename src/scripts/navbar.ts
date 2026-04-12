@@ -66,7 +66,7 @@ export function initNavbar(root: ParentNode = document) {
     mobileMenu?.classList.remove("mobile-menu--open");
     backdrop?.classList.remove("mobile-backdrop--visible");
     hamburger?.classList.remove("hamburger--open");
-    document.body.style.overflow = "";
+    document.body.classList.remove("body-lock-scroll");
     hamburger?.setAttribute("aria-expanded", "false");
   };
 
@@ -74,7 +74,7 @@ export function initNavbar(root: ParentNode = document) {
     mobileMenu?.classList.add("mobile-menu--open");
     backdrop?.classList.add("mobile-backdrop--visible");
     hamburger?.classList.add("hamburger--open");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("body-lock-scroll");
     hamburger?.setAttribute("aria-expanded", "true");
   };
 
@@ -162,4 +162,8 @@ export function initNavbar(root: ParentNode = document) {
 
   onScroll();
   updateActiveNav();
+}
+
+if (typeof document !== "undefined") {
+  initNavbar();
 }

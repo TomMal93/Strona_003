@@ -38,3 +38,7 @@ export function initServicesReveal(root: ParentNode = document) {
 
   cards.forEach((card) => observer.observe(card));
 }
+
+if (typeof document !== "undefined") {
+  initServicesReveal();
+}
