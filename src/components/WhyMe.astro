@@ -1,7 +1,10 @@
 ---
 import "../styles/components/whyme.css";
 import SectionFrame from "./ui/SectionFrame.astro";
+import PrimaryButton from "./ui/PrimaryButton.astro";
+import { collaboration } from "../data/collaboration";
 import { whyMe } from "../data/whyMe";
+import { phoneHref } from "../data/company";
 ---
 
 <SectionFrame id="dlaczego-warto" title={whyMe.sectionTitle} shellClass="whyme-shell">
@@ -55,6 +58,10 @@ import { whyMe } from "../data/whyMe";
     </ul>
 
     <hr class="whyme-compare__separator" aria-hidden="true" />
-    <p class="whyme-compare__closing" set:html={whyMe.closingNote} />
+    <div class="whyme-compare__closing">
+      <PrimaryButton href={phoneHref} class="justify-center">
+        {collaboration.ctaLabel}
+      </PrimaryButton>
+    </div>
   </div>
 </SectionFrame>
