@@ -36,9 +36,9 @@ export const about = {
     "Lokalny agent PZU z Krasnegostawu. Znasz mnie z okolicy, a z ubezpieczeniami pracuję z pełnym zapleczem największego ubezpieczyciela w Polsce.",
   headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
-    "Mieszkam i pracuję w Krasnymstawie. Poza ubezpieczeniami od lat prowadzę lokalny zespół muzyczny <strong>Etylen</strong>, znany w całej Lubelszczyźnie z wesel, festynów i eventów. To sprawia, że znam tu wielu ludzi osobiście — i wiem, że w rozmowie o ubezpieczeniu liczy się zaufanie, a nie skrypt sprzedażowy.",
-    "Jako <strong>Autoryzowany Agent PZU</strong> mam za sobą zarówno pracę w bezpośrednim kontakcie z klientem, jak i doświadczenie w doborze i sprzedaży ubezpieczeń — analizie potrzeb, przygotowaniu oferty i prowadzeniu polisy w czasie. Stoję za tym zapleczem największego ubezpieczyciela w Polsce: sprawdzone produkty, szkolenia, jasne procedury.",
-    "Nie sprzedaję z katalogu. Najpierw rozmawiamy o tym, co masz do ochrony — samochód, dom, rodzinę, firmę, gospodarstwo — a dopiero potem szukamy rozwiązania. Obsługuję Krasnystaw i najbliższe okolice, spotykamy się u mnie, u Ciebie albo po prostu rozmawiamy telefonicznie. Zadzwoń — niezobowiązująco.",
+    "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze znam potrzeby osób z tego regionu. Pomagam dobrać ubezpieczenia dopasowane do realnej sytuacji. Jako <strong>Autoryzowany Agent PZU</strong> mam dostęp do sprawdzonych produktów i przejrzystych zasad. Analizuję, doradzam i prowadzę polisę przez cały okres jej trwania.",
+    "Rozmawiamy konkretnie: co chcesz zabezpieczyć, od jakich ryzyk i na jaką kwotę. Na tej podstawie dobieram rozwiązanie. Od lat działam lokalnie także poza ubezpieczeniami - prowadzę zespół muzyczny <strong>Etylen</strong>, który obsługuje wesela i wydarzenia w regionie. To doświadczenie nauczyło mnie pracy z ludźmi i budowania relacji opartych na zaufaniu.",
+    "Obsługuję Krasnystaw i okoliczne miejscowości. Spotkanie na miejscu, u mnie lub dojazd do Ciebie - gdzie Ci wygodniej - albo rozmowa telefoniczna. Możesz zgłosić się z konkretną sprawą albo po prostu sprawdzić swoją obecną polisę. Zadzwoń lub napisz - przygotuję konkretną propozycję, bez zobowiązań.",
   ],
   trustPoints: [
     {
