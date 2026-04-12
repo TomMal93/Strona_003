@@ -5,6 +5,7 @@ import Button from "../components/ui/Button.astro";
 import PhoneButton from "../components/ui/PhoneButton.astro";
 import OfferCategorySection from "../components/offer/OfferCategorySection.astro";
 import OfferRevealScript from "../components/scripts/OfferRevealScript.astro";
+import ProductsSliderScript from "../components/scripts/ProductsSliderScript.astro";
 import { personaScenarios, offerPageSeo } from "../data/offerDetails";
 import { company } from "../data/company";
 import "../styles/components/offer.css";
@@ -116,4 +117,5 @@ const breadcrumbSchema = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <OfferRevealScript />
+  <ProductsSliderScript />
 </Layout>

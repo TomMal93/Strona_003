@@ -58,13 +58,28 @@ const { scenario, index } = Astro.props;
   <div class="offer-category__divider"></div>
 
   <h3 class="offer-category__section-title">Dopasowane produkty PZU</h3>
-  <div class="offer-category__products-grid">
-    {scenario.products.map((product) => (
-      <div class="offer-category__product">
-        <h4 class="offer-category__product-name">{product.name}</h4>
-        <p class="offer-category__product-desc">{product.description}</p>
+  <div class="offer-category__products-slider">
+    <div class="offer-category__products-track" role="region" aria-label="Produkty PZU" tabindex="0">
+      {scenario.products.map((product, i) => (
+        <div class="offer-category__product" role="group" aria-roledescription="slide" aria-label={`${i + 1} z ${scenario.products.length}`}>
+          <h4 class="offer-category__product-name">{product.name}</h4>
+          <p class="offer-category__product-desc">{product.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="offer-category__products-nav">
+      <button class="offer-category__products-arrow offer-category__products-arrow--prev" aria-label="Poprzedni produkt" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="offer-category__products-dots">
+        {scenario.products.map((_, i) => (
+          <button class:list={["offer-category__products-dot", { "is-active": i === Math.min(1, scenario.products.length - 1) }]} aria-label={`Pokaz produkt ${i + 1}`} data-index={i} type="button" />
+        ))}
       </div>
-    ))}
+      <button class="offer-category__products-arrow offer-category__products-arrow--next" aria-label="Nastepny produkt" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
   </div>
 
   <div class="offer-category__divider"></div>
