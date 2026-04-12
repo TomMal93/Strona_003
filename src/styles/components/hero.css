@@ -255,8 +255,12 @@
 }
 
 .hero-contact-link:hover {
-  color: white;
+  color: rgb(176 220 255 / 0.98);
   transform: translateY(-1px);
+}
+
+.hero-contact-link:hover .hero-contact-link__icon {
+  color: currentColor;
 }
 
 .hero-contact-link--whatsapp {
