@@ -1,0 +1,75 @@
+---
+import type { OfferCategory } from "../../data/offerDetails";
+import { phoneHref } from "../../data/company";
+
+interface Props {
+  category: OfferCategory;
+  index: number;
+}
+
+const { category, index } = Astro.props;
+---
+
+<article
+  class="offer-category"
+  id={category.id}
+  data-service={category.serviceVariant}
+  data-delay={index * 120}
+>
+  <div class="offer-category__glow"></div>
+
+  <div class="offer-category__header">
+    <div class="offer-category__icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <Fragment set:html={category.icon} />
+      </svg>
+    </div>
+    <div class="offer-category__titles">
+      <h2 class="offer-category__title">{category.title}</h2>
+      <p class="offer-category__subtitle">{category.subtitle}</p>
+    </div>
+  </div>
+
+  <div class="offer-category__desc" set:html={category.extendedDescription} />
+
+  <div class="offer-category__divider"></div>
+
+  <h3 class="offer-category__features-title">Zakres ochrony</h3>
+  <ul class="offer-category__features-grid">
+    {category.features.map((feature) => (
+      <li class="offer-category__feature">
+        <span class="offer-category__check">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        <span class="offer-category__feature-label">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div class="offer-category__divider"></div>
+
+  <h3 class="offer-category__products-title">Przykładowe produkty PZU</h3>
+  <div class="offer-category__products-grid">
+    {category.products.map((product) => (
+      <div class="offer-category__product">
+        <h4 class="offer-category__product-name">{product.name}</h4>
+        <p class="offer-category__product-desc">{product.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="offer-category__cta">
+    <a
+      href={phoneHref}
+      class="inline-flex items-center gap-2 rounded-(--radius-lg) border border-current/20 bg-[rgb(var(--service-accent-rgb)/0.08)] px-6 py-2.5 font-heading text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[rgb(var(--service-accent-rgb)/0.15)]"
+      style={`color: var(--service-accent-light)`}
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+      </svg>
+      {category.ctaText}
+    </a>
+  </div>
+</article>

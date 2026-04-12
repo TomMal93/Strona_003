@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionFrame from "../components/ui/SectionFrame.astro";
+import Button from "../components/ui/Button.astro";
+import PhoneButton from "../components/ui/PhoneButton.astro";
+import OfferCategorySection from "../components/offer/OfferCategorySection.astro";
+import OfferRevealScript from "../components/scripts/OfferRevealScript.astro";
+import { offerCategories, offerPageSeo } from "../data/offerDetails";
+import { company } from "../data/company";
+import "../styles/components/offer.css";
+
+const serviceSchemas = offerCategories.map((cat) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: cat.title,
+  provider: {
+    "@type": "InsuranceAgency",
+    name: company.name,
+  },
+  areaServed: company.serviceAreas.map((city) => ({
+    "@type": "City",
+    name: city,
+  })),
+  description: cat.extendedDescription.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " "),
+}));
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Strona główna",
+      item: Astro.site?.href || "/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Oferta",
+    },
+  ],
+};
+---
+
+<Layout title={offerPageSeo.title} description={offerPageSeo.description}>
+  <main>
+    <SectionFrame id="oferta-page" title="Pełna oferta ubezpieczeń PZU" shellClass="offer-shell">
+      <Fragment slot="icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 6.75h10" />
+          <path d="M7 12h10" />
+          <path d="M7 17.25h6" />
+          <path d="M4.75 6.75h.5" />
+          <path d="M4.75 12h.5" />
+          <path d="M4.75 17.25h.5" />
+        </svg>
+      </Fragment>
+
+      <p slot="intro">
+        Jako agent PZU w&nbsp;<strong>Krasnymstawie i&nbsp;okolicy</strong> pomagam dobrać ubezpieczenie
+        dopasowane do Twoich potrzeb. Poniżej znajdziesz szczegółowy zakres mojej oferty —
+        od <strong>ochrony zdrowia</strong>, przez <strong>zabezpieczenie rodziny</strong>,
+        po <strong>ubezpieczenia dla firm</strong>.
+      </p>
+
+      <div class="offer-categories">
+        {offerCategories.map((category, i) => (
+          <OfferCategorySection category={category} index={i} />
+        ))}
+      </div>
+
+      <div class="offer-page__cta">
+        <p class="offer-page__cta-text" set:html={
+          "Nie musisz znać się na polisach — <strong>pomagam porównać zakres, wyjaśnić różnice</strong> i&nbsp;wybrać ochronę dopasowaną do Twojej sytuacji. Zadzwoń lub napisz — doradztwo jest bezpłatne."
+        } />
+        <div class="offer-page__cta-buttons">
+          <PhoneButton size="lg" showSubtext={true} subtextLabel="Zadzwoń" class="group" />
+          <Button href="/" variant="accent">
+            Wróć na stronę główną
+          </Button>
+        </div>
+      </div>
+    </SectionFrame>
+  </main>
+
+  {serviceSchemas.map((schema) => (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <OfferRevealScript />
+</Layout>
