@@ -2,7 +2,7 @@
   --section-toc-progress: 0;
   position: fixed;
   top: 50%;
-  right: clamp(1rem, 2vw, 2rem);
+  right: 0;
   z-index: 40;
   opacity: var(--section-toc-progress);
   pointer-events: none;
@@ -24,12 +24,7 @@
   margin: 0;
   padding: 1rem 0.85rem;
   list-style: none;
-  border: 1px solid rgb(var(--color-accent-rgb) / 0.18);
-  border-radius: var(--radius-xl);
-  background: rgb(var(--color-bg-alt-rgb) / 0.72);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: transparent;
 }
 
 .section-toc__link {
