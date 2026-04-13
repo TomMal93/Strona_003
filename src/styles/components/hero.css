@@ -680,7 +680,8 @@
   }
 
   .hero-mobile-media img {
-    object-position: center center;
+    object-position: center 22%;
+    transform: scale(1.03);
   }
 
   .hero-mobile-media__overlay {
