@@ -16,7 +16,7 @@ export const heroTrustIcons = {
 export const hero = {
   tagline: "Twój doradca ubezpieczeniowy",
   title:
-    'Wspólnie dobierzemy rozwiązania dopasowane<br>do <span class="hero-shimmer">Twojej sytuacji</span>',
+    'Wspólnie dobierzemy rozwiązania&nbsp;dopasowane<br>do <span class="hero-shimmer">Twojej sytuacji</span>',
   description:
     "Nie zaczynam od gotowej oferty, ale od poznania Twojej sytuacji i tego, co naprawdę ma dla Ciebie znaczenie.<br>Dopiero potem dobieramy właściwe rozwiązanie.",
   advisorCard: {
@@ -27,7 +27,7 @@ export const hero = {
     specialties: ["Ciebie", "Rodzinę", "Firmę"],
   },
   actions: {
-    primary: { label: "Zadzwoń teraz" },
+    primary: { label: "Zapraszam do kontaktu" },
     secondary: { label: "O mnie", href: "#o-mnie" },
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
