@@ -5,6 +5,7 @@ interface Props {
   size?: "sm" | "lg";
   showSubtext?: boolean;
   subtextLabel?: string;
+  mobileSubtextLabel?: string;
   class?: string;
 }
 
@@ -12,6 +13,7 @@ const {
   size = "sm",
   showSubtext = false,
   subtextLabel,
+  mobileSubtextLabel,
   class: className,
 } = Astro.props;
 
@@ -36,7 +38,13 @@ const classes = [sizeClasses[size], className]
 
   {showSubtext ? (
     <span class="flex flex-col items-start leading-[1.05]">
-      {subtextLabel && <span>{subtextLabel}</span>}
+      {subtextLabel && !mobileSubtextLabel && <span>{subtextLabel}</span>}
+      {subtextLabel && mobileSubtextLabel && (
+        <>
+          <span class="hidden sm:inline">{subtextLabel}</span>
+          <span class="sm:hidden">{mobileSubtextLabel}</span>
+        </>
+      )}
       <span class="mt-0.5 text-[0.72rem] font-normal text-(--color-accent)/58 tracking-wider">{company.phone}</span>
     </span>
   ) : (

@@ -238,6 +238,10 @@
 }
 
 @media (max-width: 640px) {
+  .about-body__paragraph--mobile-hidden {
+    display: none;
+  }
+
   .about-trust-grid {
     grid-template-columns: 1fr;
   }

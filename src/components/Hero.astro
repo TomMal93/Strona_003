@@ -48,6 +48,10 @@ const heroContactIcons = {
 
     <!-- Text + Highlights + CTA card -->
     <div class="hero-bento-card hero-bento-text relative overflow-hidden animate-[hero-card-enter_0.8s_ease-out_both] motion-reduce:animate-none">
+      <div class="hero-mobile-media" aria-hidden="true">
+        <HeroBackground />
+        <div class="hero-mobile-media__overlay"></div>
+      </div>
       <div class="surface-noise absolute inset-0 opacity-4 pointer-events-none rounded-(--radius-lg)"></div>
 
       <div class="hero-content-shell relative z-10 p-5 sm:p-8 lg:p-12 xl:p-14">
@@ -62,7 +66,7 @@ const heroContactIcons = {
             set:html={hero.title}
           />
 
-          <p class="mt-[clamp(20px,3.5dvh,50px)] pl-4 border-l-2 border-(--color-accent)/30 font-(family-name:--font-heading) italic leading-[1.7] tracking-wide text-white/80 text-[clamp(0.85rem,1.2vw,1.05rem)] w-full"
+          <p class="hero-lead mt-[clamp(20px,3.5dvh,50px)] pl-4 border-l-2 border-(--color-accent)/30 font-(family-name:--font-heading) italic leading-[1.7] tracking-wide text-white/80 text-[clamp(0.85rem,1.2vw,1.05rem)] w-full"
             set:html={`\u201E${hero.description}\u201D`}
           />
         </div>
@@ -90,12 +94,13 @@ const heroContactIcons = {
           </div>
 
           <!-- Separator -->
-          <div aria-hidden="true" class="h-px w-full max-w-[540px] mx-auto bg-gradient-to-r from-transparent via-(--color-accent)/15 to-transparent"></div>
+          <div aria-hidden="true" class="hero-actions-divider h-px w-full max-w-[540px] mx-auto bg-gradient-to-r from-transparent via-(--color-accent)/15 to-transparent"></div>
           <div class="hero-actions-row flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center sm:justify-center">
             <PhoneButton
               size="lg"
               showSubtext
               subtextLabel={hero.actions.primary.label}
+              mobileSubtextLabel="Zapraszam do kontaktu"
               class="group justify-center cursor-pointer"
             />
 

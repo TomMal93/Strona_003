@@ -167,27 +167,31 @@
   .collab-flow {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    gap: 1rem;
+    gap: 1.8rem;
     max-width: 32rem;
   }
 
   .collab-flow__step {
     grid-template-rows: auto auto 1fr;
+    row-gap: 0.8rem;
     grid-row: auto;
   }
 
   .collab-flow__step {
-    padding: 1.5rem 1.25rem 1.6rem;
+    padding: 1.45rem 1.25rem 1.5rem;
   }
 
   .collab-flow__step::after,
   .collab-flow__step:nth-child(2)::after,
   .collab-flow__step:nth-child(4)::after {
     display: block;
-    top: auto;
-    right: 50%;
-    bottom: -1.05rem;
-    transform: translateX(50%) rotate(90deg);
+    top: calc(100% + 0.3rem);
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateX(-50%) rotate(90deg);
   }
 
   .collab-flow__step[data-last]::after {

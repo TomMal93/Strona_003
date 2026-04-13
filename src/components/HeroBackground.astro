@@ -1,7 +1,6 @@
 ---
 import { getImage } from "astro:assets";
 import heroMainImage from "../assets/hero-main-image.webp";
-import heroMainImageMobile from "../assets/hero-main-image-mobile.webp";
 
 const desktop = await getImage({
   src: heroMainImage,
@@ -12,7 +11,7 @@ const desktop = await getImage({
 });
 
 const mobile = await getImage({
-  src: heroMainImageMobile,
+  src: heroMainImage,
   widths: [480, 768],
   sizes: "92vw",
   quality: 80,

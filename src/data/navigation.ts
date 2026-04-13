@@ -19,6 +19,23 @@ export const navLinks: NavLink[] = [
   { label: "Kontakt", href: "#porozmawiajmy" },
 ];
 
+export const desktopNavLinks: NavLink[] = [
+  { label: "Strona główna", href: "/" },
+  { label: "Oferta", href: "/oferta" },
+];
+
+export const mobileNavLinks: NavLink[] = navLinks;
+
+export const sectionTocLinks: NavLink[] = [
+  { label: "Oferta", href: "#oferta" },
+  { label: "O mnie", href: "#o-mnie" },
+  { label: "Współpraca", href: "#wspolpraca" },
+  { label: "Dlaczego warto", href: "#dlaczego-warto" },
+  { label: "Obszar działania", href: "#obszar-dzialania" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Kontakt", href: "#porozmawiajmy" },
+];
+
 export const socialLinks: SocialLink[] = [
   {
     name: "Facebook",

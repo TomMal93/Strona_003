@@ -2,13 +2,14 @@
 import NavSocialIcons from "./NavSocialIcons.astro";
 import NavLinkList from "./NavLinkList.astro";
 import PhoneButton from "../ui/PhoneButton.astro";
+import { mobileNavLinks } from "../../data/navigation";
 ---
 
 <div id="mobile-backdrop" class="mobile-backdrop"></div>
 
 <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobilne">
   <div class="flex h-full flex-col px-6 pt-20 pb-8">
-    <NavLinkList listClass="flex flex-col gap-6" linkClass="text-lg" />
+    <NavLinkList links={mobileNavLinks} listClass="flex flex-col gap-6" linkClass="text-lg" />
 
     <div class="mt-auto flex flex-col gap-6">
       <NavSocialIcons />
