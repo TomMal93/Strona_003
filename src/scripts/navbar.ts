@@ -93,9 +93,12 @@ function subscribeToActiveSection(listener: ActiveSectionListener) {
   };
 }
 
-function setActiveLinks(anchors: HTMLElement[], href: string) {
+function setActiveLinks(anchors: HTMLElement[], href: string | null) {
   anchors.forEach((anchor) => {
-    anchor.classList.toggle("nav-link-active", anchor.getAttribute("href") === href);
+    anchor.classList.toggle(
+      "nav-link-active",
+      Boolean(href) && anchor.getAttribute("href") === href,
+    );
   });
 }
 
@@ -211,7 +214,7 @@ export function initNavbar(root: ParentNode = document) {
       return;
     }
 
-    setActiveLinks(navAnchors, activeSectionId ? `#${activeSectionId}` : "/");
+    setActiveLinks(navAnchors, activeSectionId ? `#${activeSectionId}` : null);
   });
 
   window.addEventListener("scroll", onScroll, { passive: true });
