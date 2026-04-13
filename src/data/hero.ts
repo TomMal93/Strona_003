@@ -27,7 +27,7 @@ export const hero = {
     specialties: ["Ciebie", "Rodzinę", "Firmę"],
   },
   actions: {
-    primary: { label: "Zapraszam do kontaktu" },
+    primary: { label: "Zadzwoń teraz" },
     secondary: { label: "O mnie", href: "#o-mnie" },
     tertiary: { label: "Zobacz ofertę", href: "#oferta" },
   },
