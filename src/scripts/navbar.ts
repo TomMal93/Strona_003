@@ -32,12 +32,13 @@ function getTrackedSections() {
 function getActiveSectionId(sections: HTMLElement[]) {
   const firstSection = sections[0];
   const lastSection = sections.at(-1);
+  const viewportMarker = window.innerHeight * 0.45;
 
   if (!firstSection) {
     return null;
   }
 
-  if (firstSection.getBoundingClientRect().top > window.innerHeight * 0.35) {
+  if (firstSection.getBoundingClientRect().top > viewportMarker) {
     return null;
   }
 
@@ -48,16 +49,28 @@ function getActiveSectionId(sections: HTMLElement[]) {
     return lastSection.id;
   }
 
-  const viewportMarker = window.innerHeight * 0.35;
-  let activeSection = sections[0];
+  const intersectingSection = sections.find((section) => {
+    const rect = section.getBoundingClientRect();
+    return rect.top <= viewportMarker && rect.bottom >= viewportMarker;
+  });
+
+  if (intersectingSection) {
+    return intersectingSection.id;
+  }
+
+  let closestSection = sections[0];
+  let closestDistance = Number.POSITIVE_INFINITY;
 
   sections.forEach((section) => {
-    if (section.getBoundingClientRect().top <= viewportMarker) {
-      activeSection = section;
+    const distance = Math.abs(section.getBoundingClientRect().top - viewportMarker);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestSection = section;
     }
   });
 
-  return activeSection.id;
+  return closestSection.id;
 }
 
 function notifyActiveSectionListeners() {

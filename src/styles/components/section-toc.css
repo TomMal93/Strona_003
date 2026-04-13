@@ -42,11 +42,6 @@
     opacity var(--transition-fast);
 }
 
-.section-toc__link:hover {
-  color: var(--color-text);
-  opacity: 1;
-}
-
 .section-toc__link--active {
   color: var(--color-accent);
   opacity: 1;
@@ -74,10 +69,6 @@
     transform var(--transition-base),
     background-color var(--transition-fast),
     box-shadow var(--transition-fast);
-}
-
-.section-toc__link:hover .section-toc__dot {
-  background: rgb(var(--color-accent-rgb) / 0.92);
 }
 
 .section-toc__link--active .section-toc__dot {
