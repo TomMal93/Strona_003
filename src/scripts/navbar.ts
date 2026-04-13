@@ -256,6 +256,7 @@ export function initSectionToc(root: ParentNode = document) {
   subscribeToActiveSection((activeSectionId) => {
     tocAnchors.forEach((anchor) => {
       const href = anchor.getAttribute("href");
+
       anchor.classList.toggle(
         "section-toc__link--active",
         Boolean(activeSectionId && href === `#${activeSectionId}`),
