@@ -1,0 +1,22 @@
+---
+import "../styles/components/section-toc.css";
+import { sectionTocLinks } from "../data/navigation";
+import SectionTocScript from "./scripts/SectionTocScript.astro";
+---
+
+<nav id="section-toc" class="section-toc" aria-label="Spis treści strony głównej">
+  <ol class="section-toc__list">
+    {sectionTocLinks.map((link, index) => (
+      <li>
+        <a href={link.href} class="section-toc__link">
+          <span class="section-toc__index" aria-hidden="true">
+            {(index + 1).toString().padStart(2, "0")}
+          </span>
+          <span class="section-toc__label">{link.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<SectionTocScript />
