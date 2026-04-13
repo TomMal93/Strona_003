@@ -36,11 +36,12 @@ import portraitImage from "../assets/hero-main-image.webp";
       <h3 class="about-body__headline">{about.headline}</h3>
 
       <div class="about-body__paragraphs">
-        {about.paragraphs.map((paragraph) => (
+        {about.paragraphs.map((paragraph, index) => (
           <p
             class:list={[
               "about-body__paragraph",
               "about-body__paragraph--lead",
+              index === 1 && "about-body__paragraph--mobile-hidden",
             ]}
             set:html={paragraph}
           />
