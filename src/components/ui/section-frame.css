@@ -161,6 +161,8 @@
 
   .section-frame__header {
     gap: 0.85rem;
+    max-width: calc(58rem + 20px);
+    padding-inline: 0.5rem;
   }
 
   .section-frame__icon-wrapper {
@@ -170,5 +172,11 @@
 
   .section-frame__title {
     font-size: 3rem;
+  }
+
+  .section-frame__intro {
+    max-width: calc(58rem + 20px);
+    padding-inline: 0.5rem;
+    font-size: 1.18rem;
   }
 }
