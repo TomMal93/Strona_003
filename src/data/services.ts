@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: "Zdrowotne",
     subtitle: "Opieka medyczna",
     description:
-      "Dostęp do prywatnej opieki medycznej, konsultacji specjalistycznych i badań diagnostycznych.",
+      "Zapewniają szybszy dostęp do lekarzy, badań i leczenia bez zbędnego czekania.",
     features: [
       "Konsultacje u specjalistów",
       "Badania diagnostyczne i laboratoryjne",
@@ -26,7 +26,7 @@ export const services: Service[] = [
     title: "Na życie",
     subtitle: "Ochrona rodziny",
     description:
-      "Zabezpieczenie finansowe dla Ciebie i Twojej rodziny na wypadek nieprzewidzianych zdarzeń.",
+      "Pomagają zabezpieczyć rodzinę na wypadek choroby i innych zdarzeń losowych.",
     features: [
       "Ubezpieczenie na życie i dożycie",
       "Ochrona na wypadek choroby",
@@ -39,7 +39,7 @@ export const services: Service[] = [
     title: "Firmowe",
     subtitle: "Dla przedsiębiorców",
     description:
-      "Kompleksowa ochrona majątku firmy, odpowiedzialności cywilnej i pracowników.",
+      "Chronią firmę, jej majątek i pracowników przed nieprzewidzianymi zdarzeniami.",
     features: [
       "Ubezpieczenie majątku firmy",
       "OC działalności gospodarczej",
