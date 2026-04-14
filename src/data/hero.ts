@@ -18,7 +18,7 @@ export const hero = {
   title:
     'Wspólnie dobierzemy rozwiązania&nbsp;dopasowane<br>do <span class="hero-shimmer">Twojej sytuacji</span>',
   description:
-    "Nie zaczynam od gotowej oferty, ale od poznania Twojej sytuacji i tego, co naprawdę ma dla Ciebie znaczenie.<br>Dopiero potem dobieramy właściwe rozwiązanie.",
+    "Rozmawiamy konkretnie o tym, co ważne dla Ciebie, rodziny albo firmy.<br>Na tej podstawie dobieramy ochronę, która ma realny sens.",
   advisorCard: {
     availability: "Oddzwaniam tego samego dnia",
     role: "Jerzy PolXXXX",
