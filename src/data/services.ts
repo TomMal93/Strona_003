@@ -26,7 +26,7 @@ export const services: Service[] = [
     title: "Na życie",
     subtitle: "Ochrona rodziny",
     description:
-      "Pomagają zabezpieczyć rodzinę na wypadek choroby i innych zdarzeń losowych.",
+      "Ochrona rodziny na wypadek choroby i zdarzeń losowych.",
     features: [
       "Ubezpieczenie na życie i dożycie",
       "Ochrona na wypadek choroby",
