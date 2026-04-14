@@ -15,10 +15,9 @@ export const services: Service[] = [
     description:
       "Zapewniają szybszy dostęp do lekarzy, badań i leczenia bez zbędnego czekania.",
     features: [
-      "Konsultacje u specjalistów",
-      "Badania diagnostyczne i laboratoryjne",
-      "Opieka szpitalna i ambulatoryjna",
-      "Programy profilaktyczne",
+      "Specjaliści bez długiego czekania",
+      "Badania i diagnostyka",
+      "Teleporady i szybkie konsultacje",
     ],
   },
   {
@@ -28,9 +27,8 @@ export const services: Service[] = [
     description:
       "Ochrona rodziny na wypadek choroby i zdarzeń losowych.",
     features: [
-      "Ubezpieczenie na życie i dożycie",
-      "Ochrona na wypadek choroby",
-      "Świadczenia szpitalne",
+      "Świadczenia za pobyt w szpitalu",
+      "Wsparcie po nieszczęśliwym wypadku",
       "Zabezpieczenie przyszłości dzieci",
     ],
   },
@@ -41,10 +39,9 @@ export const services: Service[] = [
     description:
       "Chronią firmę, jej majątek i pracowników przed nieprzewidzianymi zdarzeniami.",
     features: [
-      "Ubezpieczenie majątku firmy",
-      "OC działalności gospodarczej",
-      "Ubezpieczenia grupowe pracowników",
-      "Ochrona od przerw w działalności",
+      "Ochrona majątku firmy",
+      "Ubezpieczenia dla pracowników",
+      "Wsparcie dla stabilności biznesu",
     ],
   },
 ];
