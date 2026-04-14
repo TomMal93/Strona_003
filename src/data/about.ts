@@ -37,7 +37,6 @@ export const about = {
   headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
     "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze rozumiem <span class=\"about-body__accent\">potrzeby lokalnych klientów</span>. Pomagam dobrać ubezpieczenia dopasowane do konkretnej sytuacji.<br /><span class=\"about-body__accent\">Autoryzowany Agent PZU</span> oferuję sprawdzone rozwiązania i przejrzyste warunki.",
-    "Zapewniam analizę potrzeb, doradztwo oraz obsługę polisy przez cały okres jej trwania.<br />Rozmawiamy konkretnie: co chcesz zabezpieczyć, od jakich ryzyk i na jaką kwotę – na tej podstawie przygotowuję dopasowaną ofertę. Działam lokalnie od lat,<br />co przekłada się na <span class=\"about-body__accent\">znajomość realiów</span> i budowanie trwałych relacji z klientami.",
     "Obsługuję Krasnystaw i okoliczne miejscowości. Możliwe jest spotkanie osobiste lub kontakt telefoniczny. <span class=\"about-body__accent\">Zapraszam do kontaktu</span> w celu omówienia potrzeb lub weryfikacji obecnej polisy.",
   ],
   trustPoints: [
