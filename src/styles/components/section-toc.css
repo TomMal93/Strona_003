@@ -42,6 +42,12 @@
     opacity var(--transition-fast);
 }
 
+.section-toc__link:not(.section-toc__link--active):hover {
+  color: rgb(255 255 255 / 0.92);
+  opacity: 0.72;
+  transform: scale(1.04);
+}
+
 .section-toc__link--active {
   color: var(--color-accent);
   opacity: 1;
@@ -69,6 +75,13 @@
     transform var(--transition-base),
     background-color var(--transition-fast),
     box-shadow var(--transition-fast);
+}
+
+.section-toc__link:not(.section-toc__link--active):hover .section-toc__dot {
+  background: rgb(var(--color-accent-rgb) / 0.92);
+  box-shadow:
+    0 0 0 1px rgb(var(--color-accent-rgb) / 0.2),
+    0 0 12px rgb(var(--color-accent-rgb) / 0.22);
 }
 
 .section-toc__link--active .section-toc__dot {
