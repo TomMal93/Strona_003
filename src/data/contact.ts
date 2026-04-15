@@ -1,7 +1,7 @@
 export const contactSection = {
   title: "Porozmawiajmy",
-  intro: `Przeszedłeś przez całą stronę — to znaczy, że szukasz kogoś, komu możesz zaufać.`,
-  highlight: `Większość moich klientów zaczęła od krótkiej, niezobowiązującej rozmowy.`,
+  intro: `Pierwsza rozmowa jest zawsze bezpłatna i niezobowiązująca.`,
+  highlight: ``,
   channels: {
     phone: {
       title: "Zadzwoń",
@@ -20,5 +20,5 @@ export const contactSection = {
   },
   reassurance:
     'Pierwsza rozmowa jest zawsze <strong>bezpłatna i niezobowiązująca</strong>.',
-  hours: "Dostępność: poniedziałek – piątek, 9:00 – 17:00",
+  hours: "Dostępność: poniedziałek – piątek, 8:30 - 16:30",
 } as const;
