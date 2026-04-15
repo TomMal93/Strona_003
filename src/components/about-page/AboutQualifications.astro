@@ -1,0 +1,31 @@
+---
+import SectionFrame from "../ui/SectionFrame.astro";
+import { about, aboutTrustIcons } from "../../data/about";
+
+const page = about.page;
+---
+
+<SectionFrame id="kwalifikacje" title="Dlaczego warto zadzwonić do mnie" shellClass="about-qual-shell">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 3.25 5 6v6.2c0 3.9 2.7 7.4 7 8.55 4.3-1.15 7-4.65 7-8.55V6l-7-2.75z" />
+      <path d="M9.25 12.25 11 14l3.75-4" />
+    </svg>
+  </Fragment>
+
+  <div class="about-qual-grid">
+    {page.qualifications.map((point) => (
+      <div class="about-qual-item">
+        <span class="about-qual-item__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <Fragment set:html={aboutTrustIcons[point.icon]} />
+          </svg>
+        </span>
+        <div class="about-qual-item__body">
+          <span class="about-qual-item__title">{point.title}</span>
+          <span class="about-qual-item__text">{point.text}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</SectionFrame>

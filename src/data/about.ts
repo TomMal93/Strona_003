@@ -63,7 +63,88 @@ export const about = {
   ] satisfies AboutTrustPoint[],
   primaryCtaLabel: "Porozmawiajmy",
   secondary: {
-    label: "Dowiedz się więcej o mnie",
-    href: "/oferta",
+    label: "Poznaj mnie bliżej",
+    href: "/o-mnie",
+  },
+  page: {
+    url: "/o-mnie",
+    seoTitle: "Agent PZU Krasnystaw — kontakt, godziny pracy i obszar działania",
+    seoDescription:
+      "Autoryzowany Agent PZU w Krasnymstawie. Dane kontaktowe, godziny pracy, obszar działania i pełna wizytówka agenta. Spotkanie osobiste lub zdalne.",
+    eyebrow: "Wizytówka agenta",
+    headline: "Bezpośredni kontakt z agentem — bez infolinii",
+    tagline:
+      "Poniżej znajdziesz wszystko, co potrzebne do szybkiego kontaktu: telefon, e-mail, godziny pracy, obszar obsługi i gotową wizytówkę do zapisania w kontaktach.",
+    extendedParagraphs: [
+      "Jestem lokalnym agentem PZU w&nbsp;Krasnymstawie. Nie pracujesz ze zmieniającą się infolinią — rozmawiasz bezpośrednio ze&nbsp;mną, od pierwszego kontaktu, przez dobór polisy, aż po późniejszą obsługę.",
+      "Obsługuję zarówno klientów indywidualnych, jak i&nbsp;firmy oraz gospodarstwa rolne. Spotkanie możemy umówić w&nbsp;biurze w&nbsp;Krasnymstawie, u&nbsp;Ciebie w&nbsp;domu lub w&nbsp;firmie, albo załatwić wszystko zdalnie — telefonicznie, mailowo lub przez komunikator.",
+      "Jeśli masz już polisę PZU zawartą gdzie indziej, mogę przejąć jej obsługę — wznowienia, zmiany, zgłoszenia. Wystarczy jedna rozmowa, żeby sprawdzić, czy aktualna ochrona jest dopasowana do Twojej sytuacji.",
+    ],
+    qualifications: [
+      {
+        icon: "shield",
+        title: "Autoryzowany Agent PZU",
+        text: "Pełne zaplecze największego ubezpieczyciela w Polsce.",
+      },
+      {
+        icon: "mapPin",
+        title: "Krasnystaw i okolice",
+        text: "Działam mobilnie — spotkanie w biurze, u Ciebie lub zdalnie.",
+      },
+      {
+        icon: "refresh",
+        title: "Polisa od A do Z",
+        text: "Dobór, zakup, wznowienia, zmiany — wszystko u jednej osoby.",
+      },
+      {
+        icon: "user",
+        title: "Stały kontakt, nie infolinia",
+        text: "Dzwonisz bezpośrednio do mnie. Oddzwaniam tego samego dnia.",
+      },
+      {
+        icon: "shield",
+        title: "Doradztwo bezpłatne",
+        text: "Pierwsza rozmowa i wycena polisy zawsze bez zobowiązań.",
+      },
+      {
+        icon: "refresh",
+        title: "Pomoc przy szkodach",
+        text: "Prowadzę Cię przez proces zgłoszenia i rozliczenia szkody.",
+      },
+      {
+        icon: "user",
+        title: "Klienci indywidualni i firmy",
+        text: "Polisy komunikacyjne, majątkowe, życiowe, rolne i firmowe.",
+      },
+      {
+        icon: "mapPin",
+        title: "Spotkanie poza biurem",
+        text: "Jeśli wygodniej — dojadę do Ciebie w okolicach Krasnegostawu.",
+      },
+    ] satisfies AboutTrustPoint[],
+    hoursTitle: "Godziny pracy",
+    hoursRows: [
+      { day: "Poniedziałek", hours: "09:00 – 17:00" },
+      { day: "Wtorek", hours: "09:00 – 17:00" },
+      { day: "Środa", hours: "09:00 – 17:00" },
+      { day: "Czwartek", hours: "09:00 – 17:00" },
+      { day: "Piątek", hours: "09:00 – 17:00" },
+      { day: "Sobota", hours: "po wcześniejszym umówieniu" },
+      { day: "Niedziela", hours: "kontakt telefoniczny w sprawach pilnych" },
+    ],
+    hoursNote:
+      "Poza godzinami pracy możesz zostawić wiadomość głosową lub napisać — oddzwaniam najpóźniej następnego dnia roboczego.",
+    contactTitle: "Dane kontaktowe",
+    areaTitle: "Obszar obsługi",
+    areaIntro:
+      "Biuro w Krasnymstawie, ale pracuję mobilnie. Obsługuję klientów z całego powiatu krasnostawskiego oraz regularnie z Lublina, Zamościa i Chełma.",
+    vcardLabel: "Pobierz wizytówkę (.vcf)",
+    vcardHint: "Zapisz moje dane w kontaktach jednym kliknięciem.",
+    socialHeading: "Znajdź mnie też tutaj",
   },
 } as const;
+
+export interface AboutHoursRow {
+  day: string;
+  hours: string;
+}

@@ -1,0 +1,58 @@
+---
+import SectionFrame from "../ui/SectionFrame.astro";
+import { about } from "../../data/about";
+import { company } from "../../data/company";
+
+const page = about.page;
+const addressQuery = encodeURIComponent(
+  `${company.address.street}, ${company.address.zip} ${company.address.city}`,
+);
+const embedSrc = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
+const openMapsHref = `https://www.google.com/maps/search/?api=1&query=${addressQuery}`;
+---
+
+<SectionFrame id="obszar-obslugi" title={page.areaTitle} shellClass="about-area-shell">
+  <Fragment slot="icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0 1 12 3.5 6.5 6.5 0 0 1 18.5 10c0 4.9-6.5 11-6.5 11z" />
+      <circle cx="12" cy="10" r="2.3" />
+    </svg>
+  </Fragment>
+
+  <p slot="intro">{page.areaIntro}</p>
+
+  <div class="about-area-layout">
+    <div class="about-area-info">
+      <h3 class="about-area-info__heading">Miejscowości, w których działam najczęściej</h3>
+      <ul class="about-area-info__list">
+        {company.serviceAreas.map((city) => (
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21s-6.5-6.1-6.5-11A6.5 6.5 0 0 1 12 3.5 6.5 6.5 0 0 1 18.5 10c0 4.9-6.5 11-6.5 11z" />
+              <circle cx="12" cy="10" r="2.3" />
+            </svg>
+            <span>{city}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="about-area-info__note">
+        Nie widzisz swojej miejscowości? Zadzwoń — obsługuję również <strong>okoliczne miejscowości powiatu krasnostawskiego</strong>, a dla klientów z regionu umówimy kontakt zdalny.
+      </p>
+    </div>
+
+    <figure class="about-area-map">
+      <iframe
+        src={embedSrc}
+        title={`Mapa: ${company.address.street}, ${company.address.city}`}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+      <figcaption>
+        <a href={openMapsHref} target="_blank" rel="noopener noreferrer">
+          Otwórz większą mapę →
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+</SectionFrame>

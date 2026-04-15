@@ -220,6 +220,24 @@
   color: var(--color-text-subtle);
 }
 
+.contact-closing__link {
+  margin: 0.25rem 0 0;
+  font-size: 0.92rem;
+}
+
+.contact-closing__link a {
+  color: var(--color-accent-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(var(--color-accent-rgb) / 0.25);
+  padding-bottom: 2px;
+  transition: color var(--transition-base), border-color var(--transition-base);
+}
+
+.contact-closing__link a:hover {
+  color: var(--color-accent-pale);
+  border-color: rgb(var(--color-accent-rgb) / 0.55);
+}
+
 .contact-closing__hours svg {
   width: 1rem;
   height: 1rem;

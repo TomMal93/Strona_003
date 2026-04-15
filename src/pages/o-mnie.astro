@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/ui/Container.astro";
+import PhoneButton from "../components/ui/PhoneButton.astro";
+import Button from "../components/ui/Button.astro";
+import AboutHero from "../components/about-page/AboutHero.astro";
+import AboutQualifications from "../components/about-page/AboutQualifications.astro";
+import ContactCard from "../components/about-page/ContactCard.astro";
+import AreaServed from "../components/about-page/AreaServed.astro";
+import { about } from "../data/about";
+import { company } from "../data/company";
+import "../styles/components/about-page.css";
+
+const page = about.page;
+const siteUrl = Astro.site?.href?.replace(/\/$/, "") ?? "";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: about.name,
+  jobTitle: about.role,
+  telephone: company.phone,
+  email: company.email,
+  worksFor: {
+    "@type": "InsuranceAgency",
+    name: company.name,
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    postalCode: company.address.zip,
+    addressCountry: "PL",
+  },
+  areaServed: company.serviceAreas.map((city) => ({
+    "@type": "City",
+    name: city,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Strona główna",
+      item: siteUrl || "/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "O mnie",
+    },
+  ],
+};
+---
+
+<Layout title={page.seoTitle} description={page.seoDescription}>
+  <main>
+    <Container>
+      <AboutHero />
+    </Container>
+
+    <AboutQualifications />
+    <ContactCard />
+    <AreaServed />
+
+    <Container>
+      <div class="about-page__cta">
+        <p class="about-page__cta-text">
+          Masz pytanie lub chcesz umówić spotkanie? <strong>Zadzwoń</strong> — pierwsza rozmowa jest zawsze bezpłatna i niezobowiązująca.
+        </p>
+        <div class="about-page__cta-buttons">
+          <PhoneButton size="lg" showSubtext subtextLabel="Zadzwoń teraz" class="group" />
+          <Button href="/" variant="accent">Wróć na stronę główną</Button>
+        </div>
+      </div>
+    </Container>
+  </main>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</Layout>
