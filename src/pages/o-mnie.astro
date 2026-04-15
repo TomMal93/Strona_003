@@ -3,9 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/ui/Container.astro";
 import PhoneButton from "../components/ui/PhoneButton.astro";
 import Button from "../components/ui/Button.astro";
-import AboutHero from "../components/about-page/AboutHero.astro";
+import AboutCard from "../components/about-page/AboutCard.astro";
 import AboutQualifications from "../components/about-page/AboutQualifications.astro";
-import ContactCard from "../components/about-page/ContactCard.astro";
 import AreaServed from "../components/about-page/AreaServed.astro";
 import { about } from "../data/about";
 import { company } from "../data/company";
@@ -59,12 +58,9 @@ const breadcrumbSchema = {
 
 <Layout title={page.seoTitle} description={page.seoDescription}>
   <main>
-    <Container>
-      <AboutHero />
-    </Container>
+    <AboutCard />
 
     <AboutQualifications />
-    <ContactCard />
     <AreaServed />
 
     <Container>
