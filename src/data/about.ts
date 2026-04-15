@@ -36,8 +36,9 @@ export const about = {
     "Lokalny agent PZU z Krasnegostawu. Znasz mnie z okolicy, a z ubezpieczeniami pracuję z pełnym zapleczem największego ubezpieczyciela w Polsce.",
   headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
-    "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze rozumiem <span class=\"about-body__accent\">potrzeby lokalnych klientów</span>. Pomagam dobrać ubezpieczenia dopasowane do konkretnej sytuacji.<br /><span class=\"about-body__accent\">Autoryzowany Agent PZU</span> oferuję sprawdzone rozwiązania i przejrzyste warunki.",
-    "Obsługuję Krasnystaw i okoliczne miejscowości. Możliwe jest spotkanie osobiste lub kontakt telefoniczny. <span class=\"about-body__accent\">Zapraszam do kontaktu</span> w celu omówienia potrzeb lub weryfikacji obecnej polisy.",
+    "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze znam potrzeby osób i rodzin z okolicy. Pomagam wybrać <span class=\"about-body__accent\">ochronę dopasowaną do konkretnej sytuacji</span> - rzeczowo, spokojnie i bez zbędnych formalności.",
+    "Zapewniam kontakt i wsparcie na każdym etapie współpracy - od wyboru polisy po jej późniejszą obsługę. Jako <span class=\"about-body__accent\">Autoryzowany Agent PZU</span> oferuję sprawdzone rozwiązania oraz zaplecze największego ubezpieczyciela w Polsce.",
+    "Możemy porozmawiać telefonicznie albo spotkać się osobiście - w zależności od tego, co będzie dla Ciebie wygodniejsze.",
   ],
   trustPoints: [
     {
@@ -124,11 +125,7 @@ export const about = {
     ] satisfies AboutTrustPoint[],
     hoursTitle: "Godziny pracy",
     hoursRows: [
-      { day: "Poniedziałek", hours: "09:00 – 17:00" },
-      { day: "Wtorek", hours: "09:00 – 17:00" },
-      { day: "Środa", hours: "09:00 – 17:00" },
-      { day: "Czwartek", hours: "09:00 – 17:00" },
-      { day: "Piątek", hours: "09:00 – 17:00" },
+      { day: "Poniedziałek – Piątek", hours: "08:30 – 16:30" },
       { day: "Sobota", hours: "po wcześniejszym umówieniu" },
       { day: "Niedziela", hours: "kontakt telefoniczny w sprawach pilnych" },
     ],
