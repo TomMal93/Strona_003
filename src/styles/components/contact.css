@@ -10,9 +10,9 @@
 
 .contact-portrait__ring {
   position: relative;
-  width: 14rem;
-  height: 14rem;
-  border-radius: 50%;
+  width: min(100%, 26rem);
+  aspect-ratio: 1184 / 2153;
+  border-radius: var(--radius-xl);
   padding: 4px;
   background: conic-gradient(
     from 0deg,
@@ -38,7 +38,7 @@
 .contact-portrait__frame {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: calc(var(--radius-xl) - 0.25rem);
   overflow: hidden;
   border: 3px solid var(--color-bg-alt);
 }
@@ -271,8 +271,7 @@
   }
 
   .contact-portrait__ring {
-    width: 11rem;
-    height: 11rem;
+    width: min(100%, 19rem);
   }
 
   .contact-channels {
