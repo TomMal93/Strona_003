@@ -1,7 +1,7 @@
 export const contactSection = {
   title: "Porozmawiajmy",
-  intro: `Pierwsza rozmowa jest zawsze bezpłatna i niezobowiązująca.`,
-  highlight: ``,
+  intro: `Skontaktuj się ze mną bezpośrednio.`,
+  highlight: `Telefonicznie, mailowo albo osobiście - tak, jak będzie Ci wygodniej.`,
   channels: {
     phone: {
       title: "Zadzwoń",
@@ -18,7 +18,6 @@ export const contactSection = {
       cta: "Pokaż na mapie",
     },
   },
-  reassurance:
-    'Pierwsza rozmowa jest zawsze <strong>bezpłatna i niezobowiązująca</strong>.',
+  reassurance: ``,
   hours: "Dostępność: poniedziałek – piątek, 8:30 - 16:30",
 } as const;
