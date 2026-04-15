@@ -5,6 +5,7 @@ import SectionFrame from "./ui/SectionFrame.astro";
 import PhoneButton from "./ui/PhoneButton.astro";
 import PrimaryButton from "./ui/PrimaryButton.astro";
 import { company } from "../data/company";
+import { about } from "../data/about";
 import { contactSection } from "../data/contact";
 import portraitImage from "../assets/contact.png";
 
@@ -28,7 +29,31 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
   <div class="contact-portrait-layout">
     <div class="contact-portrait-rail contact-portrait-rail--left">
-      <div class="contact-channel contact-channel--placeholder" aria-hidden="true"></div>
+      <div class="contact-channel contact-channel--bio">
+        <div class="contact-bio__header">
+          <span class="contact-channel__eyebrow">O mnie</span>
+          <h3 class="contact-channel__title">{about.role}</h3>
+          <p class="contact-bio__name">{about.name}</p>
+        </div>
+
+        <div class="contact-bio__content">
+          <p class="contact-bio__text">{about.sectionIntro}</p>
+
+          <div class="contact-bio__hours">
+            <p class="contact-bio__hours-title">{about.page.hoursTitle}</p>
+            <ul class="contact-bio__hours-list">
+              {about.page.hoursRows.map((row) => (
+                <li class="contact-bio__hours-item">
+                  <span>{row.day}</span>
+                  <strong>{row.hours}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <PrimaryButton href="/o-mnie">Pełna wizytówka</PrimaryButton>
+      </div>
     </div>
 
     <div class="contact-portrait">
@@ -101,12 +126,11 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
     </div>
   </div>
 
-  <div class="contact-closing">
-    <p class="contact-closing__reassurance" set:html={contactSection.reassurance} />
-    <p class="contact-closing__link">
-      <a href="/o-mnie">Pełna wizytówka, godziny pracy i obszar działania →</a>
-    </p>
-  </div>
+  {contactSection.reassurance && (
+    <div class="contact-closing">
+      <p class="contact-closing__reassurance" set:html={contactSection.reassurance} />
+    </div>
+  )}
 </SectionFrame>
 
 <script>
