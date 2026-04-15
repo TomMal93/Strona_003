@@ -32,61 +32,73 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
     </span>
   </Fragment>
 
-  <div class="contact-portrait">
-    <div class="contact-portrait__ring">
-      <div class="contact-portrait__frame">
-        <Image
-          src={portraitImage}
-          alt="Agent ubezpieczeniowy"
-          class="contact-portrait__image"
-          width={1184}
-          height={2153}
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-channels">
-    <!-- Zadzwoń -->
-    <div class="contact-channel contact-channel--featured" data-delay="0">
-      <span class="contact-channel__eyebrow">Najszybszy kontakt</span>
-      <div class="contact-channel__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-      </div>
-      <h3 class="contact-channel__title">{contactSection.channels.phone.title}</h3>
-      <p class="contact-channel__desc">{contactSection.channels.phone.desc}</p>
-      <PhoneButton size="lg" showSubtext subtextLabel="Zadzwoń teraz" />
+  <div class="contact-portrait-layout">
+    <div class="contact-portrait-rail contact-portrait-rail--left">
+      <div class="contact-channel contact-channel--placeholder" aria-hidden="true"></div>
     </div>
 
-    <!-- Napisz -->
-    <div class="contact-channel" data-delay="80">
-      <span class="contact-channel__eyebrow">Dla spokojnego opisu sprawy</span>
-      <div class="contact-channel__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <rect width="20" height="16" x="2" y="4" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
+    <div class="contact-portrait">
+      <div class="contact-portrait__ring">
+        <div class="contact-portrait__frame">
+          <Image
+            src={portraitImage}
+            alt="Agent ubezpieczeniowy"
+            class="contact-portrait__image"
+            width={1184}
+            height={2153}
+            loading="lazy"
+          />
+        </div>
       </div>
-      <h3 class="contact-channel__title">{contactSection.channels.email.title}</h3>
-      <p class="contact-channel__desc">{contactSection.channels.email.desc}</p>
-      <PrimaryButton href={emailHref}>{contactSection.channels.email.cta}</PrimaryButton>
     </div>
 
-    <!-- Odwiedź biuro -->
-    <div class="contact-channel" data-delay="160">
-      <span class="contact-channel__eyebrow">Jeśli wolisz spotkanie</span>
-      <div class="contact-channel__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-          <circle cx="12" cy="10" r="3" />
-        </svg>
+    <div class="contact-portrait-rail contact-portrait-rail--right">
+      <div class="contact-channel contact-channel--stack" data-delay="80">
+        <span class="contact-channel__eyebrow">Opcje kontaktu</span>
+        <h3 class="contact-channel__title">Wybierz najwygodniejszą formę kontaktu</h3>
+        <div class="contact-contact-options">
+          <div class="contact-contact-option">
+            <div class="contact-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <div class="contact-contact-option__body">
+              <strong>{contactSection.channels.phone.title}</strong>
+              <span>{contactSection.channels.phone.desc}</span>
+            </div>
+            <PhoneButton size="lg" showSubtext subtextLabel="Zadzwoń teraz" />
+          </div>
+
+          <div class="contact-contact-option">
+            <div class="contact-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+            <div class="contact-contact-option__body">
+              <strong>{contactSection.channels.email.title}</strong>
+              <span>{contactSection.channels.email.desc}</span>
+            </div>
+            <PrimaryButton href={emailHref}>{contactSection.channels.email.cta}</PrimaryButton>
+          </div>
+
+          <div class="contact-contact-option">
+            <div class="contact-channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div class="contact-contact-option__body">
+              <strong>{contactSection.channels.visit.title}</strong>
+              <span>{contactSection.channels.visit.desc}</span>
+            </div>
+            <PrimaryButton href={mapsHref}>{contactSection.channels.visit.cta}</PrimaryButton>
+          </div>
+        </div>
       </div>
-      <h3 class="contact-channel__title">{contactSection.channels.visit.title}</h3>
-      <p class="contact-channel__desc">{contactSection.channels.visit.desc}</p>
-      <PrimaryButton href={mapsHref}>{contactSection.channels.visit.cta}</PrimaryButton>
     </div>
   </div>
 
