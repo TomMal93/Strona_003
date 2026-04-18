@@ -28,12 +28,12 @@ export interface AboutTrustPoint {
 }
 
 export const about = {
-  name: "Jerzy PolXXXX",
-  role: "Autoryzowany Agent PZU",
+  name: "Autoryzowany doradca PZU",
+  role: "Jerzy PolXXXX",
   sectionTagline: "Poznaj swojego agenta",
   sectionTitle: "O mnie",
   sectionIntro:
-    "Lokalny agent PZU z Krasnegostawu. Znasz mnie z okolicy, a z ubezpieczeniami pracuję z pełnym zapleczem największego ubezpieczyciela w Polsce.",
+    "Pomagam mieszkańcom Krasnegostawu i okolic dobrać ubezpieczenie dopasowane do ich sytuacji. Działam lokalnie, więc łatwo się spotkać i porozmawiać. Stawiam na konkretne rozwiązania, spokojną obsługę i wsparcie na każdym etapie - od wyboru polisy po jej wznowienie czy zmianę.",
   headline: "Najpierw rozmowa, potem dobrze dobrana ochrona",
   paragraphs: [
     "Mieszkam i pracuję w Krasnymstawie, dlatego dobrze znam potrzeby osób i rodzin z okolicy. Pomagam wybrać <span class=\"about-body__accent\">ochronę dopasowaną do konkretnej sytuacji</span> - rzeczowo, spokojnie i bez zbędnych formalności.",
@@ -125,9 +125,8 @@ export const about = {
     ] satisfies AboutTrustPoint[],
     hoursTitle: "Godziny pracy",
     hoursRows: [
-      { day: "Poniedziałek – Piątek", hours: "08:30 – 16:30" },
-      { day: "Sobota", hours: "po wcześniejszym umówieniu" },
-      { day: "Niedziela", hours: "kontakt telefoniczny w sprawach pilnych" },
+      { day: "Poniedziałek – Piątek", hours: "8:30 – 16:30" },
+      { day: "Sobota – Niedziela", hours: "po wcześniejszym ustaleniu" },
     ],
     hoursNote:
       "Poza godzinami pracy możesz zostawić wiadomość głosową lub napisać — oddzwaniam najpóźniej następnego dnia roboczego.",
