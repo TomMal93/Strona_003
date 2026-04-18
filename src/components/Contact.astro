@@ -30,6 +30,14 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
   <div class="contact-portrait-layout">
     <div class="contact-portrait-rail contact-portrait-rail--left">
       <div class="contact-channel contact-channel--bio">
+        <blockquote class="contact-bio__quote">
+          <p class="contact-bio__text">{about.sectionIntro}</p>
+          <div class="contact-bio__header">
+            <h3 class="contact-channel__title">{about.role}</h3>
+            <p class="contact-bio__name">{about.name}</p>
+          </div>
+        </blockquote>
+
         <div class="contact-bio__hours">
           <p class="contact-bio__hours-title">{about.page.hoursTitle}</p>
           <div class="contact-bio__hours-grid">
@@ -42,15 +50,6 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
           </div>
         </div>
 
-        <blockquote class="contact-bio__quote">
-          <p class="contact-bio__text">{about.sectionIntro}</p>
-        </blockquote>
-        <div class="contact-bio__header">
-          <h3 class="contact-channel__title">{about.role}</h3>
-          <p class="contact-bio__name">{about.name}</p>
-        </div>
-
-        <PrimaryButton href="/o-mnie">Pełna wizytówka</PrimaryButton>
       </div>
     </div>
 
@@ -118,6 +117,22 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
               </div>
             </div>
             <PrimaryButton href={mapsHref}>{contactSection.channels.visit.cta}</PrimaryButton>
+          </li>
+
+          <li class="contact-contact-list__item">
+            <div class="contact-contact-list__head">
+              <div class="contact-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="8" r="5" />
+                  <path d="M20 21a8 8 0 0 0-16 0" />
+                </svg>
+              </div>
+              <div class="contact-contact-list__body">
+                <strong>Pełna wizytówka</strong>
+                <span>Poznaj mnie bliżej — doświadczenie, zakres usług i dane kontaktowe.</span>
+              </div>
+            </div>
+            <PrimaryButton href="/o-mnie">Zobacz wizytówkę</PrimaryButton>
           </li>
         </ul>
       </div>
