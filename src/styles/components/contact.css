@@ -398,6 +398,14 @@
   border-top: 1px solid rgb(148 163 184 / 0.14);
 }
 
+.contact-contact-list__item--featured {
+  background: rgb(var(--color-accent-rgb) / 0.06);
+  border-radius: 0.75rem;
+  border-top: none !important;
+  padding: 1rem 0.8rem 1.1rem;
+  box-shadow: inset 0 0 0 1px rgb(var(--color-accent-rgb) / 0.2);
+}
+
 .contact-contact-list__head {
   display: flex;
   flex-direction: column;
